@@ -59,9 +59,61 @@ public class Worker extends Thread{
             Logger.getLogger(Worker.class.getName()).log(Level.SEVERE, null, ex);
         }
         }
-        
-       
+          
     }
+  /**  
+    public void createPart() {
+        
+        if( plant.name == "lamborghin") {
+
+              try {
+
+                 Thread.sleep(4000);
+
+                while(true) {
+
+                 if(plant.mutex.availablePermits()> 0){
+
+                      plant.mutex.acquire();
+
+                      plant.warehouse.updateStorage(this.type, 4 );
+
+                      plant.mutex.release();
+
+                      break;
+                 }
+
+                }
+              }
+              catch (InterruptedException ex) {    
+
+           } 
+
+        }else{
+             try {
+
+                 Thread.sleep(4000);
+
+                while(true) {
+
+                 if(plant.mutex.availablePermits()> 0){
+
+                      plant.mutex.acquire();
+
+                      plant.warehouse.updateStorage(this.type, 2 );
+
+                      plant.mutex.release();
+
+                      break;
+                 }
+                }
+              }
+              catch (InterruptedException ex) {        
+           } 
+        }
+    } 
+    */
+  
     
     public void payCheck() {
         this.accSalary += this.salary;
@@ -71,12 +123,12 @@ public class Worker extends Thread{
         this.productionCounter += this.productionPerDay;
       
         
-        if (this.productionCounter >= 1) {
+        if (this.productionCounter >= 1 && plant.mutex.availablePermits()> 0) {
             try {
                 plant.mutex.acquire();
                 plant.warehouse.updateStorage(this.type, (int) this.productionCounter );
                 plant.mutex.release();
-                
+                Thread.sleep(dayDurationInMs);
                 
                 
             } catch (InterruptedException ex) {
@@ -87,6 +139,7 @@ public class Worker extends Thread{
             // intentar acceder al almacén
             
             this.productionCounter = 0;
+            
         } 
     }
     

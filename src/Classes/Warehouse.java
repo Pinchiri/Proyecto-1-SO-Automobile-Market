@@ -12,16 +12,25 @@ package classes;
 public class Warehouse {
     public int chasisQty;
     public int wheelsQty;
+    public int motorQty;
+    public int accesoryQty;
+    
     
     public int maxChasisQty;
     public int maxWheelsQty;
+    public int maxmotorQty;
+    public int maxaccesoryQty;
     
-    public Warehouse(int maxChasis, int maxWheels){
+    public Warehouse(int maxChasis, int maxWheels, int maxMotor, int maxAccesory){
         this.maxChasisQty = maxChasis;
         this.maxWheelsQty = maxWheels;
+        this.maxmotorQty = maxMotor;
+        this.maxaccesoryQty = maxAccesory;
         
         this.chasisQty = 0;
         this.wheelsQty = 0;
+        this.motorQty = 0;
+        this.accesoryQty = 0;
         
     }
     
@@ -43,6 +52,34 @@ public class Warehouse {
                 
                 break;
             case "wheels":
+                
+                if (this.wheelsQty < this.maxWheelsQty) {
+                    this.wheelsQty += finishedPart;
+                    
+                    System.out.println(this.wheelsQty);
+                }
+                
+ 
+                break;
+                
+            case "motors":
+                
+                if (this.maxmotorQty < this.maxmotorQty) {
+                    this.maxmotorQty += finishedPart;
+                    
+                    System.out.println(this.maxmotorQty);
+                }
+                
+                break;
+                
+            case "accesory":
+                
+                if (this.accesoryQty < this.accesoryQty) {
+                    this.accesoryQty += finishedPart;
+                    
+                    System.out.println(this.accesoryQty);
+                }
+                
                 break;
         // el resto de contadores
             default:
