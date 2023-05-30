@@ -6,36 +6,30 @@
 package UserInterface;
 package Classes;
 
-<<<<<<< HEAD
-import classes.VehiclePlant;
-/**,
-=======
+
+
+
 import Classes.Config;
 import Classes.ReadFile;
 import Classes.VehiclePlant;
 
-/**
->>>>>>> rolando
- *
- * @author Rolando
- */
+
 public class MainUI extends javax.swing.JFrame {
     
-    public static VehiclePlant LamborghiniPlant;
+    
     public static VehiclePlant MaseratiPlant;
-
+    public static VehiclePlant LamborghiniPlant;
+    public int contador = 0;
 
     /**
      * Creates new form MainUI
      */
     public MainUI() {
         initComponents();
-<<<<<<< HEAD
+
         
-     LamborghiniPlant = new VehiclePlant("Lamborgini",10,1,this);    
      MaseratiPlant = new VehiclePlant("Ferrari",18,1,this);
-       
-=======
+
         setVisible(true);
         setLocationRelativeTo(null);
         
@@ -46,8 +40,7 @@ public class MainUI extends javax.swing.JFrame {
         ReadFile nfile = new ReadFile();
         String txt = nfile.readTxt();
         nfile.readConfig(txt, config);
- 
->>>>>>> rolando
+
     }
 
     /**
@@ -402,16 +395,24 @@ public class MainUI extends javax.swing.JFrame {
 
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
         // TODO add your handling code here:
-        LamborghiniPlant.initializeWorkers();
+        if(contador > 0){
+            LamborghiniWheels.setText("0");
+            LamborghiniPlant.StopWorker();
+        }
+        else {
+            contador = contador + 1;
+            LamborghiniPlant = new VehiclePlant("Lamborgini",10,1,this); 
+            LamborghiniPlant.initializeWorkers();
+        }
+        
+        
         
     }//GEN-LAST:event_jButton5ActionPerformed
 
     /**
      * @param args the command line arguments
      */
-    
-    
-    
+      
     public void LamborghiniWheels(String text){
         LamborghiniWheels.setText(text);
     }

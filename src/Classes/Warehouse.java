@@ -3,12 +3,11 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-<<<<<<< HEAD
-package classes;
-package UserInterface;
-=======
+
+
+
 package Classes;
->>>>>>> rolando
+package UserInterface;
 
 import UserInterface.MainUI;
 
@@ -28,25 +27,21 @@ public class Warehouse {
     public int maxWheelsQty;
     public int maxMotorQty;
     public int maxAccessoryQty;
-    public MainUI interfaz;
-    
-<<<<<<< HEAD
-    public Warehouse(int maxChasis, int maxCarBodyQty, int maxWheels, int maxMotor, int maxAccessory,MainUI interfaz){
-=======
+
+
     private MainUI userInterface;
     
     public Warehouse(int maxChasis, int maxCarBodyQty, int maxMotor, int maxWheels,  int maxAccessory, MainUI userInterface){
->>>>>>> rolando
+
         this.maxChasisQty = maxChasis;
         this.maxCarBodyQty = maxCarBodyQty;
         this.maxWheelsQty = maxWheels;
         this.maxMotorQty = maxMotor;
         this.maxAccessoryQty = maxAccessory;
-<<<<<<< HEAD
-        this.interfaz = interfaz;
-=======
+
+
         this.userInterface = userInterface;
->>>>>>> rolando
+
         
         this.chasisQty = 0;
         this.carBodyQty = 0;
@@ -70,11 +65,12 @@ public class Warehouse {
                     
                     System.out.println(this.chasisQty);
                     System.out.println("se creo pieza");
+                    
                 }
                 
                 
                 break;
-            case "wheels":
+            case "wheel":
                 
                 if (this.wheelsQty < this.maxWheelsQty) {
                     this.wheelsQty += finishedPart;
@@ -82,7 +78,7 @@ public class Warehouse {
                     
                     System.out.println(this.wheelsQty);
                     
-                    interfaz.LamborghiniWheels(Integer.toString(this.wheelsQty));
+                    userInterface.LamborghiniWheels(Integer.toString(this.wheelsQty));
                     
                    
                     
