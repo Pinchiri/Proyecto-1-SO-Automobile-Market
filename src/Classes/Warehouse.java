@@ -3,7 +3,11 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
+
+
+
 package Classes;
+package UserInterface;
 
 import UserInterface.MainUI;
 
@@ -23,16 +27,21 @@ public class Warehouse {
     public int maxWheelsQty;
     public int maxMotorQty;
     public int maxAccessoryQty;
-    
+
+
     private MainUI userInterface;
     
     public Warehouse(int maxChasis, int maxCarBodyQty, int maxMotor, int maxWheels,  int maxAccessory, MainUI userInterface){
+
         this.maxChasisQty = maxChasis;
         this.maxCarBodyQty = maxCarBodyQty;
         this.maxWheelsQty = maxWheels;
         this.maxMotorQty = maxMotor;
         this.maxAccessoryQty = maxAccessory;
+
+
         this.userInterface = userInterface;
+
         
         this.chasisQty = 0;
         this.carBodyQty = 0;
@@ -55,16 +64,24 @@ public class Warehouse {
                     this.chasisQty += finishedPart;
                     
                     System.out.println(this.chasisQty);
+                    System.out.println("se creo pieza");
+                    
                 }
                 
                 
                 break;
-            case "wheels":
+            case "wheel":
                 
                 if (this.wheelsQty < this.maxWheelsQty) {
                     this.wheelsQty += finishedPart;
+                    String wheels = Integer.toString(this.wheelsQty);
                     
                     System.out.println(this.wheelsQty);
+                    
+                    userInterface.LamborghiniWheels(Integer.toString(this.wheelsQty));
+                    
+                   
+                    
                 }
                 
  
