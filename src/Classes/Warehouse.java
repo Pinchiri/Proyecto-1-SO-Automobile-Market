@@ -11,26 +11,29 @@ package classes;
  */
 public class Warehouse {
     public int chasisQty;
+    public int carBodyQty;
     public int wheelsQty;
     public int motorQty;
-    public int accesoryQty;
-    
-    
+    public int accessoryQty;
+     
     public int maxChasisQty;
+    public int maxCarBodyQty;
     public int maxWheelsQty;
-    public int maxmotorQty;
-    public int maxaccesoryQty;
+    public int maxMotorQty;
+    public int maxAccessoryQty;
     
-    public Warehouse(int maxChasis, int maxWheels, int maxMotor, int maxAccesory){
+    public Warehouse(int maxChasis, int maxCarBodyQty, int maxWheels, int maxMotor, int maxAccessory){
         this.maxChasisQty = maxChasis;
+        this.maxCarBodyQty = maxCarBodyQty;
         this.maxWheelsQty = maxWheels;
-        this.maxmotorQty = maxMotor;
-        this.maxaccesoryQty = maxAccesory;
+        this.maxMotorQty = maxMotor;
+        this.maxAccessoryQty = maxAccessory;
         
         this.chasisQty = 0;
+        this.carBodyQty = 0;
         this.wheelsQty = 0;
         this.motorQty = 0;
-        this.accesoryQty = 0;
+        this.accessoryQty = 0;
         
     }
     
@@ -64,24 +67,31 @@ public class Warehouse {
                 
             case "motors":
                 
-                if (this.maxmotorQty < this.maxmotorQty) {
-                    this.maxmotorQty += finishedPart;
+                if (this.maxMotorQty < this.maxMotorQty) {
+                    this.maxMotorQty += finishedPart;
                     
-                    System.out.println(this.maxmotorQty);
+                    System.out.println(this.maxMotorQty);
                 }
                 
                 break;
                 
             case "accesory":
                 
-                if (this.accesoryQty < this.accesoryQty) {
-                    this.accesoryQty += finishedPart;
+                if (this.accessoryQty < this.maxAccessoryQty) {
+                    this.accessoryQty += finishedPart;
                     
-                    System.out.println(this.accesoryQty);
+                    System.out.println(this.accessoryQty);
                 }
                 
                 break;
-        // el resto de contadores
+                
+            case "carBody":
+                if (this.carBodyQty < this.maxCarBodyQty) {
+                    this.carBodyQty += finishedPart;
+                    
+                    System.out.println(this.carBodyQty);
+                }
+                
             default:
                 break;
         }

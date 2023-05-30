@@ -24,7 +24,7 @@ public class VehiclePlant {
         this.maxWorkerQty = maxWorkers;
         this.dayDurationInMs = dayDuration;
         this.workers = new Worker[maxWorkerQty];
-        this.warehouse = new Warehouse(20, 30);
+//        this.warehouse = new Warehouse(20, 30);
         this.mutex = new Semaphore(1);
         
         initializeWorkers();
@@ -33,7 +33,7 @@ public class VehiclePlant {
     }
     
     public void initializeWorkers(){
-        for (int i = 0; i<this.maxWorkerQty; i++) {
+        for (int i = 0; i < this.maxWorkerQty; i++) {
             Worker worker = new Worker(0.34f, 20, this.dayDurationInMs, "chasis", this);
             worker.start();
             workers[i] = worker;
