@@ -4,10 +4,7 @@
  * and open the template in the editor.
  */
 
-
-
 package Classes;
-package UserInterface;
 
 import UserInterface.MainUI;
 
@@ -87,7 +84,7 @@ public class Warehouse {
  
                 break;
                 
-            case "motors":
+            case "motor":
                 
                 if (this.maxMotorQty < this.maxMotorQty) {
                     this.maxMotorQty += finishedPart;

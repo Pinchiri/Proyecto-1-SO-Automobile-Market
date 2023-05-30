@@ -4,7 +4,6 @@
  * and open the template in the editor.
  */
 package Classes;
-package UserInterface.MainUI;
 
 import UserInterface.MainUI;
 
