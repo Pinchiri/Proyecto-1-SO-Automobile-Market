@@ -4,18 +4,27 @@
  * and open the template in the editor.
  */
 package UserInterface;
+package Classes;
 
-/**
+import classes.VehiclePlant;
+/**,
  *
  * @author Rolando
  */
 public class MainUI extends javax.swing.JFrame {
+    
+    public static VehiclePlant LamborghiniPlant;
+    public static VehiclePlant MaseratiPlant;
 
     /**
      * Creates new form MainUI
      */
     public MainUI() {
         initComponents();
+        
+     LamborghiniPlant = new VehiclePlant("Lamborgini",10,1,this);    
+     MaseratiPlant = new VehiclePlant("Ferrari",18,1,this);
+       
     }
 
     /**
@@ -67,7 +76,15 @@ public class MainUI extends javax.swing.JFrame {
         assemblersLamb = new javax.swing.JSpinner();
         assemblers_label2 = new javax.swing.JLabel();
         assemblersMase = new javax.swing.JSpinner();
+        jButton1 = new javax.swing.JButton();
+        jButton2 = new javax.swing.JButton();
+        jButton3 = new javax.swing.JButton();
         LamborghiniTab = new javax.swing.JPanel();
+        jButton5 = new javax.swing.JButton();
+        jButton6 = new javax.swing.JButton();
+        jButton7 = new javax.swing.JButton();
+        jTextField1 = new javax.swing.JTextField();
+        LamborghiniWheels = new javax.swing.JTextField();
         MaseratiTab = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -281,11 +298,56 @@ public class MainUI extends javax.swing.JFrame {
         assemblersMase.setModel(new javax.swing.SpinnerNumberModel(1, 1, 12, 1));
         ConfigTab.add(assemblersMase, new org.netbeans.lib.awtextra.AbsoluteConstraints(820, 440, -1, 30));
 
+        jButton1.setText("Start");
+        ConfigTab.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 340, -1, -1));
+
+        jButton2.setText("Resume");
+        ConfigTab.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 340, -1, -1));
+
+        jButton3.setText("Stop");
+        ConfigTab.add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 340, -1, -1));
+
         jTabbedPane1.addTab("Configuration", ConfigTab);
 
         LamborghiniTab.setBackground(new java.awt.Color(51, 51, 51));
         LamborghiniTab.setForeground(new java.awt.Color(255, 255, 255));
         LamborghiniTab.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jButton5.setText("Start");
+        jButton5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton5ActionPerformed(evt);
+            }
+        });
+        LamborghiniTab.add(jButton5, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 70, -1, -1));
+
+        jButton6.setText("Pausa");
+        LamborghiniTab.add(jButton6, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 70, -1, -1));
+
+        jButton7.setText("Stop");
+        jButton7.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton7ActionPerformed(evt);
+            }
+        });
+        LamborghiniTab.add(jButton7, new org.netbeans.lib.awtextra.AbsoluteConstraints(720, 70, -1, -1));
+
+        jTextField1.setText("wheels");
+        jTextField1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextField1ActionPerformed(evt);
+            }
+        });
+        LamborghiniTab.add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 180, 50, -1));
+
+        LamborghiniWheels.setText("0");
+        LamborghiniWheels.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                LamborghiniWheelsActionPerformed(evt);
+            }
+        });
+        LamborghiniTab.add(LamborghiniWheels, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 180, 30, -1));
+
         jTabbedPane1.addTab("Lamborghini", LamborghiniTab);
 
         MaseratiTab.setBackground(new java.awt.Color(51, 51, 51));
@@ -302,9 +364,34 @@ public class MainUI extends javax.swing.JFrame {
      
     }//GEN-LAST:event_addProductActionPerformed
 
+    private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton7ActionPerformed
+
+    private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextField1ActionPerformed
+
+    private void LamborghiniWheelsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_LamborghiniWheelsActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_LamborghiniWheelsActionPerformed
+
+    private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
+        // TODO add your handling code here:
+        LamborghiniPlant.initializeWorkers();
+        
+    }//GEN-LAST:event_jButton5ActionPerformed
+
     /**
      * @param args the command line arguments
      */
+    
+    
+    
+    public void LamborghiniWheels(String text){
+        LamborghiniWheels.setText(text);
+    }
+    
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
@@ -343,6 +430,7 @@ public class MainUI extends javax.swing.JFrame {
     private javax.swing.JLabel General_label;
     private javax.swing.JLabel Lambog_label;
     private javax.swing.JPanel LamborghiniTab;
+    private javax.swing.JTextField LamborghiniWheels;
     private javax.swing.JPanel MaseratiTab;
     private javax.swing.JLabel Maserati_label;
     private javax.swing.JSpinner accesoryWorkersLamb;
@@ -369,9 +457,16 @@ public class MainUI extends javax.swing.JFrame {
     private javax.swing.JTextPane dayDurationInput1;
     private javax.swing.JLabel dayDuration_label;
     private javax.swing.JLabel dayDuration_label1;
+    private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton2;
+    private javax.swing.JButton jButton3;
+    private javax.swing.JButton jButton5;
+    private javax.swing.JButton jButton6;
+    private javax.swing.JButton jButton7;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JTabbedPane jTabbedPane1;
+    private javax.swing.JTextField jTextField1;
     private javax.swing.JSpinner motorWorkersLamb;
     private javax.swing.JSpinner motorWorkersMase;
     private javax.swing.JLabel motor_label;

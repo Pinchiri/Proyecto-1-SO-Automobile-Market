@@ -4,6 +4,9 @@
  * and open the template in the editor.
  */
 package classes;
+package UserInterface;
+
+import UserInterface.MainUI;
 
 /**
  *
@@ -21,13 +24,15 @@ public class Warehouse {
     public int maxWheelsQty;
     public int maxMotorQty;
     public int maxAccessoryQty;
+    public MainUI interfaz;
     
-    public Warehouse(int maxChasis, int maxCarBodyQty, int maxWheels, int maxMotor, int maxAccessory){
+    public Warehouse(int maxChasis, int maxCarBodyQty, int maxWheels, int maxMotor, int maxAccessory,MainUI interfaz){
         this.maxChasisQty = maxChasis;
         this.maxCarBodyQty = maxCarBodyQty;
         this.maxWheelsQty = maxWheels;
         this.maxMotorQty = maxMotor;
         this.maxAccessoryQty = maxAccessory;
+        this.interfaz = interfaz;
         
         this.chasisQty = 0;
         this.carBodyQty = 0;
@@ -50,6 +55,7 @@ public class Warehouse {
                     this.chasisQty += finishedPart;
                     
                     System.out.println(this.chasisQty);
+                    System.out.println("se creo pieza");
                 }
                 
                 
@@ -58,8 +64,14 @@ public class Warehouse {
                 
                 if (this.wheelsQty < this.maxWheelsQty) {
                     this.wheelsQty += finishedPart;
+                    String wheels = Integer.toString(this.wheelsQty);
                     
                     System.out.println(this.wheelsQty);
+                    
+                    interfaz.LamborghiniWheels(Integer.toString(this.wheelsQty));
+                    
+                   
+                    
                 }
                 
  
