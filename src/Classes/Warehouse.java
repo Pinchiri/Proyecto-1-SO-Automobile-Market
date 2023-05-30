@@ -4,10 +4,7 @@
  * and open the template in the editor.
  */
 
-
-
 package Classes;
-package UserInterface;
 
 import UserInterface.MainUI;
 
@@ -30,7 +27,7 @@ public class Warehouse {
     public int maxMotorQty;
     public int maxAccessoryQty;
     public String nameplant;
-    public int contador = 4;
+    public int contador = 0;
 
 
     private MainUI userInterface;
@@ -68,7 +65,7 @@ public class Warehouse {
             
             case "assembler":
                 
-                if(nameplant == "Lamborgini"){
+                if(nameplant == "Lamborghini"){
                     if(contador>3) {
                         if (this.carBodyQty >= 1 && this.chasisQty >= 2 && this.motorQty >= 6 && this.wheelsQty >= 5 && this.accessoryQty >= 1) {
                                 contador = 0;
@@ -87,11 +84,12 @@ public class Warehouse {
                                 contador++;
                                 System.out.println("LLEGO");
                                 this.carstandar++;
+                                userInterface.LamborghiniAssembler(Integer.toString(this.carstandar));
                                 this.carBodyQty = this.carBodyQty - 4;
                                 this.chasisQty = this.chasisQty - 2;
                                 this.motorQty = this.motorQty - 6;
                                 this.wheelsQty = this.wheelsQty - 5;
-                                userInterface.LamborghiniAssembler(Integer.toString(this.carstandar));
+                                
                                 
                                 
                         }else {
@@ -120,6 +118,7 @@ public class Warehouse {
                                 this.chasisQty = this.chasisQty - 1;
                                 this.motorQty = this.motorQty - 2;
                                 this.wheelsQty = this.wheelsQty - 4;
+                                 System.out.println("LLEGO2");
                                 
                         }else {
                            System.out.println("");
@@ -138,7 +137,7 @@ public class Warehouse {
                 if (this.chasisQty < this.maxChasisQty) {
                     this.chasisQty += finishedPart;
                     
-                    System.out.println(this.chasisQty);
+            
                     
                     
                     userInterface.LamborghiniChasis(Integer.toString(this.chasisQty));
@@ -152,7 +151,7 @@ public class Warehouse {
                     this.wheelsQty += finishedPart;
                     String wheels = Integer.toString(this.wheelsQty);
                     
-                    System.out.println(this.wheelsQty);
+       
                     
                     userInterface.LamborghiniWheels(Integer.toString(this.wheelsQty));
                     
@@ -168,8 +167,7 @@ public class Warehouse {
                 if (this.motorQty < this.maxMotorQty) {
                     this.motorQty += finishedPart;
                     
-                    System.out.println(this.maxMotorQty);
-                    System.out.println("se creo pieza");
+
                     userInterface.LamborghiniMotor(Integer.toString(this.motorQty));
                 }
                 
@@ -180,7 +178,7 @@ public class Warehouse {
                 if (this.accessoryQty < this.maxAccessoryQty) {
                     this.accessoryQty += finishedPart;
                     
-                    System.out.println(this.accessoryQty);
+                 
                     userInterface.LamborghiniAccesory(Integer.toString(this.accessoryQty));
                 }
                 
@@ -190,7 +188,7 @@ public class Warehouse {
                 if (this.carBodyQty < this.maxCarBodyQty) {
                     this.carBodyQty += finishedPart;
                     
-                    System.out.println(this.carBodyQty);
+                 
                     userInterface.LamborghinicarBody(Integer.toString(this.carBodyQty));
 
                 }
