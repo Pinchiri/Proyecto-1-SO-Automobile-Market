@@ -109,6 +109,8 @@ public class MainUI extends javax.swing.JFrame {
         LamborghiniCarbody = new javax.swing.JTextField();
         LamborghiniChasis = new javax.swing.JTextField();
         LamborghiniAccesory = new javax.swing.JTextField();
+        jTextField6 = new javax.swing.JTextField();
+        LamborghiniAssembler = new javax.swing.JTextField();
         MaseratiTab = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -357,13 +359,13 @@ public class MainUI extends javax.swing.JFrame {
         });
         LamborghiniTab.add(jButton7, new org.netbeans.lib.awtextra.AbsoluteConstraints(720, 70, -1, -1));
 
-        jTextField1.setText("carBody");
+        jTextField1.setText("assembler");
         jTextField1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jTextField1ActionPerformed(evt);
             }
         });
-        LamborghiniTab.add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 380, 50, -1));
+        LamborghiniTab.add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 270, 60, -1));
 
         LamborghiniMotor.setText("0");
         LamborghiniMotor.addActionListener(new java.awt.event.ActionListener() {
@@ -437,6 +439,22 @@ public class MainUI extends javax.swing.JFrame {
         });
         LamborghiniTab.add(LamborghiniAccesory, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 330, 30, -1));
 
+        jTextField6.setText("carBody");
+        jTextField6.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextField6ActionPerformed(evt);
+            }
+        });
+        LamborghiniTab.add(jTextField6, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 380, 50, -1));
+
+        LamborghiniAssembler.setText("0");
+        LamborghiniAssembler.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                LamborghiniAssemblerActionPerformed(evt);
+            }
+        });
+        LamborghiniTab.add(LamborghiniAssembler, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 270, 30, -1));
+
         jTabbedPane1.addTab("Lamborghini", LamborghiniTab);
 
         MaseratiTab.setBackground(new java.awt.Color(51, 51, 51));
@@ -508,6 +526,14 @@ public class MainUI extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_LamborghiniAccesoryActionPerformed
 
+    private void jTextField6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField6ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextField6ActionPerformed
+
+    private void LamborghiniAssemblerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_LamborghiniAssemblerActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_LamborghiniAssemblerActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -526,6 +552,9 @@ public class MainUI extends javax.swing.JFrame {
     }
     public void LamborghinicarBody(String text){
         LamborghiniCarbody.setText(text);
+    }
+    public void LamborghiniAssembler(String text){
+        LamborghiniAssembler.setText(text);
     }
     
     public static void main(String args[]) {
@@ -566,6 +595,7 @@ public class MainUI extends javax.swing.JFrame {
     private javax.swing.JLabel General_label;
     private javax.swing.JLabel Lambog_label;
     private javax.swing.JTextField LamborghiniAccesory;
+    private javax.swing.JTextField LamborghiniAssembler;
     private javax.swing.JTextField LamborghiniCarbody;
     private javax.swing.JTextField LamborghiniChasis;
     private javax.swing.JTextField LamborghiniMotor;
@@ -611,6 +641,7 @@ public class MainUI extends javax.swing.JFrame {
     private javax.swing.JTextField jTextField3;
     private javax.swing.JTextField jTextField4;
     private javax.swing.JTextField jTextField5;
+    private javax.swing.JTextField jTextField6;
     private javax.swing.JSpinner motorWorkersLamb;
     private javax.swing.JSpinner motorWorkersMase;
     private javax.swing.JLabel motor_label;

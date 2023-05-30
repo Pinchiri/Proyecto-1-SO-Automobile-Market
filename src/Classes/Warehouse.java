@@ -71,23 +71,28 @@ public class Warehouse {
                 if(nameplant == "Lamborgini"){
                     if(contador>3) {
                         if (this.carBodyQty >= 1 && this.chasisQty >= 2 && this.motorQty >= 6 && this.wheelsQty >= 5 && this.accessoryQty >= 1) {
+                                contador = 0;
                                 this.carwithaccesory++;
                                 this.carBodyQty = this.carBodyQty - 4;
                                 this.chasisQty = this.chasisQty - 2;
                                 this.motorQty = this.motorQty - 6;
                                 this.wheelsQty = this.wheelsQty - 5;
                                 this.accessoryQty = this.accessoryQty - 1;
+                             
                         }else {
                                 System.out.println("");
                          }
                     }else {
                         if(this.carBodyQty >= 1 && this.chasisQty >= 2 && this.motorQty >= 6 && this.wheelsQty >= 5) {
+                                contador++;
+                                System.out.println("LLEGO");
                                 this.carstandar++;
-                                this.carwithaccesory++;
                                 this.carBodyQty = this.carBodyQty - 4;
                                 this.chasisQty = this.chasisQty - 2;
                                 this.motorQty = this.motorQty - 6;
                                 this.wheelsQty = this.wheelsQty - 5;
+                                userInterface.LamborghiniAssembler(Integer.toString(this.carstandar));
+                                
                                 
                         }else {
                            System.out.println("");
@@ -97,6 +102,7 @@ public class Warehouse {
                 }else{
                     if(contador>2) {
                         if (this.carBodyQty >= 1 && this.chasisQty >= 1 && this.motorQty >= 2 && this.wheelsQty >= 4 && this.accessoryQty >= 3) {
+                                contador = 0;
                                 this.carwithaccesory++;
                                 this.carBodyQty = this.carBodyQty - 1;
                                 this.chasisQty = this.chasisQty - 1;
@@ -108,6 +114,7 @@ public class Warehouse {
                          }
                     }else {
                         if(this.carBodyQty >= 1 && this.chasisQty >= 1 && this.motorQty >= 2 && this.wheelsQty >= 4) {
+                                contador++;
                                 this.carstandar++;
                                 this.carBodyQty = this.carBodyQty - 1;
                                 this.chasisQty = this.chasisQty - 1;
