@@ -49,7 +49,7 @@ public class VehiclePlant {
 
        
        
-        this.warehouse = new Warehouse(25, 20, 55, 35, 10, userInterface);
+        this.warehouse = new Warehouse(name,25, 20, 55, 35, 10, userInterface);
         this.mutex = new Semaphore(1);
         this.userInterface = userInterface;
         
@@ -74,6 +74,13 @@ public class VehiclePlant {
         
         int arrayIndex = 0;
         //Chasis workers
+        for (int i = 0; i < getChasisWorkers(); i++) {
+            Worker worker = new Worker(0.34f, 20, getDayDurationInMs(), "assembler",this);
+            worker.start();
+            workers[arrayIndex] = worker;
+            arrayIndex++;
+        }
+        
         for (int i = 0; i < getChasisWorkers(); i++) {
             Worker worker = new Worker(0.34f, 20, getDayDurationInMs(), "chasis",this);
             worker.start();
