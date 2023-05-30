@@ -3,8 +3,12 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
+<<<<<<< HEAD
 package classes;
 package UserInterface;
+=======
+package Classes;
+>>>>>>> rolando
 
 import UserInterface.MainUI;
 
@@ -26,13 +30,23 @@ public class Warehouse {
     public int maxAccessoryQty;
     public MainUI interfaz;
     
+<<<<<<< HEAD
     public Warehouse(int maxChasis, int maxCarBodyQty, int maxWheels, int maxMotor, int maxAccessory,MainUI interfaz){
+=======
+    private MainUI userInterface;
+    
+    public Warehouse(int maxChasis, int maxCarBodyQty, int maxMotor, int maxWheels,  int maxAccessory, MainUI userInterface){
+>>>>>>> rolando
         this.maxChasisQty = maxChasis;
         this.maxCarBodyQty = maxCarBodyQty;
         this.maxWheelsQty = maxWheels;
         this.maxMotorQty = maxMotor;
         this.maxAccessoryQty = maxAccessory;
+<<<<<<< HEAD
         this.interfaz = interfaz;
+=======
+        this.userInterface = userInterface;
+>>>>>>> rolando
         
         this.chasisQty = 0;
         this.carBodyQty = 0;

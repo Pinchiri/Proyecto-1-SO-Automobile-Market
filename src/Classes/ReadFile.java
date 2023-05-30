@@ -12,6 +12,7 @@ import java.io.FileWriter;
 import java.io.PrintWriter;
 import javax.swing.JOptionPane;
 
+
 /**
  *
  * @author Rolando Sorrentino
@@ -27,7 +28,7 @@ public class ReadFile {
             File file = new File("test\\config.txt");
             PrintWriter pw = new PrintWriter("test\\config.txt");
             pw.print(txt);
-            JOptionPane.showMessageDialog(null, "Se ha cambiado la configuración!");
+            JOptionPane.showMessageDialog(null, "The configuration has changed!");
             pw.close();
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, "Ha ocurrido un error: " + e);
@@ -56,10 +57,10 @@ public class ReadFile {
      * @param path (Dirección donde se encuentra el archivo de texto a leer)
      * @return String que contiene la información del archivo de texto
      */
-    public String readTxt(String path) {
+    public String readTxt() {
         String line;
         String txt = "";
-        File file = new File(path);
+        File file = new File("test\\config.txt");
         ReadFile nfile = new ReadFile();
         try {
            if (!file.exists()) {
@@ -73,26 +74,56 @@ public class ReadFile {
                     if (!line.isEmpty()) {
                        if (line.contains("General") || line.contains("Lamborghini") || line.contains("Maserati")) {
                             txt += "~" + "\n";
-
+                       
                         } else {
                             txt += line + "\n";
-                        }
-                    } 
-                }
+                       }
+                    }
+                    
+                } 
                 br.close();
                 
                 return txt; 
             }
- 
+
         } catch(Exception e) {
             JOptionPane.showMessageDialog(null, "Error al leer el archivo: " + e);
         }
         return null;
     }
     
-    public Config readConfig(String txt) {
-       
-        return null;
+  
+    
+    public void readConfig(String txt, Config config) {
+        
+        String[] configs = txt.split("~");
+        System.out.println(configs[1]);
+        String[] general = configs[1].split("\n");
+        
+        //General config
+        config.setDayDuration(Integer.parseInt(general[2]));
+        config.setDeliveryDays(Integer.parseInt(general[4]));
+ 
+        //Lamborghini config
+        String[] lambConfigs = configs[2].split("\n");
+        
+        config.setInitialChasis(Integer.parseInt(lambConfigs[2]));
+        config.setInitialBodys(Integer.parseInt(lambConfigs[4]));
+        config.setInitialWheels(Integer.parseInt(lambConfigs[6]));
+        config.setInitialMotors(Integer.parseInt(lambConfigs[8]));
+        config.setInitialAccesorys(Integer.parseInt(lambConfigs[10]));
+        config.setInitialAssemblers(Integer.parseInt(lambConfigs[12]));
+        
+        //Maserati config
+        
+        String[] maseConfigs = configs[3].split("\n");
+        
+        config.setInitialChasisM(Integer.parseInt(maseConfigs[2]));
+        config.setInitialBodysM(Integer.parseInt(maseConfigs[4]));
+        config.setInitialWheelsM(Integer.parseInt(maseConfigs[6]));
+        config.setInitialMotorsM(Integer.parseInt(maseConfigs[8]));
+        config.setInitialAccesorysM(Integer.parseInt(maseConfigs[10]));
+        config.setInitialAssemblersM(Integer.parseInt(maseConfigs[12]));
     }
    
 }

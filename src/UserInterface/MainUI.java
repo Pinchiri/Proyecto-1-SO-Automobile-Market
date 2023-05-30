@@ -6,8 +6,16 @@
 package UserInterface;
 package Classes;
 
+<<<<<<< HEAD
 import classes.VehiclePlant;
 /**,
+=======
+import Classes.Config;
+import Classes.ReadFile;
+import Classes.VehiclePlant;
+
+/**
+>>>>>>> rolando
  *
  * @author Rolando
  */
@@ -16,15 +24,30 @@ public class MainUI extends javax.swing.JFrame {
     public static VehiclePlant LamborghiniPlant;
     public static VehiclePlant MaseratiPlant;
 
+
     /**
      * Creates new form MainUI
      */
     public MainUI() {
         initComponents();
+<<<<<<< HEAD
         
      LamborghiniPlant = new VehiclePlant("Lamborgini",10,1,this);    
      MaseratiPlant = new VehiclePlant("Ferrari",18,1,this);
        
+=======
+        setVisible(true);
+        setLocationRelativeTo(null);
+        
+        
+        
+        Config config = new Config();
+        
+        ReadFile nfile = new ReadFile();
+        String txt = nfile.readTxt();
+        nfile.readConfig(txt, config);
+ 
+>>>>>>> rolando
     }
 
     /**
@@ -93,6 +116,7 @@ public class MainUI extends javax.swing.JFrame {
 
         jTabbedPane1.setBackground(new java.awt.Color(102, 102, 102));
         jTabbedPane1.setForeground(new java.awt.Color(255, 255, 255));
+        jTabbedPane1.setFont(new java.awt.Font("Microsoft YaHei", 1, 12)); // NOI18N
 
         ConfigTab.setBackground(new java.awt.Color(51, 51, 51));
         ConfigTab.setForeground(new java.awt.Color(255, 255, 255));
