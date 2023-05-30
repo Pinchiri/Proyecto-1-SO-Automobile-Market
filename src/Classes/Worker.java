@@ -45,7 +45,7 @@ public class Worker extends Thread{
         
         
         while(true) {
-             try {
+            try {
                  
             synchronized(this){
             while(pausar==true){
