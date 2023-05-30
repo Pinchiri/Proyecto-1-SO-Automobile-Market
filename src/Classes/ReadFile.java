@@ -97,7 +97,6 @@ public class ReadFile {
     public void readConfig(String txt, Config config) {
         
         String[] configs = txt.split("~");
-        System.out.println(configs[1]);
         String[] general = configs[1].split("\n");
         
         //General config
