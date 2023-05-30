@@ -5,8 +5,9 @@
  */
 package UserInterface;
 
+import Classes.Config;
 import Classes.ReadFile;
-import classes.VehiclePlant;
+import Classes.VehiclePlant;
 
 /**
  *
@@ -14,8 +15,7 @@ import classes.VehiclePlant;
  */
 public class MainUI extends javax.swing.JFrame {
 
-    public static VehiclePlant LamborghiniPlant;
-    public static VehiclePlant MaseratiPlant;
+
     /**
      * Creates new form MainUI
      */
@@ -24,15 +24,14 @@ public class MainUI extends javax.swing.JFrame {
         setVisible(true);
         setLocationRelativeTo(null);
         
-        LamborghiniPlant = new VehiclePlant("Lamborghini", 18, 1, this);
+        
+        
+        Config config = new Config();
         
         ReadFile nfile = new ReadFile();
         String txt = nfile.readTxt();
-        
-//        nfile.readConfig(txt);
-        
-        
-        
+        nfile.readConfig(txt, config);
+ 
     }
 
     /**
