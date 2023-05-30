@@ -56,10 +56,10 @@ public class ReadFile {
      * @param path (Dirección donde se encuentra el archivo de texto a leer)
      * @return String que contiene la información del archivo de texto
      */
-    public String readTxt(String path) {
+    public String readTxt() {
         String line;
         String txt = "";
-        File file = new File(path);
+        File file = new File("test\\config.txt");
         ReadFile nfile = new ReadFile();
         try {
            if (!file.exists()) {
@@ -73,25 +73,36 @@ public class ReadFile {
                     if (!line.isEmpty()) {
                        if (line.contains("General") || line.contains("Lamborghini") || line.contains("Maserati")) {
                             txt += "~" + "\n";
-
+                       
                         } else {
                             txt += line + "\n";
-                        }
-                    } 
-                }
+                       }
+                    }
+                    
+                } 
                 br.close();
                 
                 return txt; 
             }
- 
+
         } catch(Exception e) {
             JOptionPane.showMessageDialog(null, "Error al leer el archivo: " + e);
         }
         return null;
     }
     
-    public Config readConfig(String txt) {
-       
+    public Config readConfig(String txt, Config config) {
+        
+        String[] configs = txt.split("~");
+        
+        String[] general = configs[0].split("\n");
+        
+        //General config
+        config.setDayDuration(Integer.parseInt(general[1]));
+        config.setDeliveryDays(Integer.parseInt(general[3]));
+        
+        //Lamborghini config
+            
         return null;
     }
    

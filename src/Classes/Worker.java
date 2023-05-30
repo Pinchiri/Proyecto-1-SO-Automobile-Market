@@ -20,6 +20,7 @@ public class Worker extends Thread{
     private String type;
     private float productionCounter;
     private VehiclePlant plant;
+    private boolean pausar = false;
     
     
     public Worker(float productionPerDay, float salary, long dayDuration, String type, VehiclePlant plant) {
@@ -34,6 +35,7 @@ public class Worker extends Thread{
 
     @Override
     public void run() {
+        
         try {
             sleep(1000);
         } catch (InterruptedException ex) {
@@ -44,6 +46,12 @@ public class Worker extends Thread{
         
         while(true) {
              try {
+                 
+            synchronized(this){
+            while(pausar==true){
+                    System.out.println("");
+                }    
+            }     
                  
              payCheck();
              produceForTheDay();
@@ -60,6 +68,15 @@ public class Worker extends Thread{
         }
         }
           
+    }
+    
+    
+    public void pausar(){
+        this.pausar = true;
+    }
+    
+    public void reanudar(){
+        this.pausar = false;
     }
   /**  
     public void createPart() {

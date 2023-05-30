@@ -5,17 +5,34 @@
  */
 package UserInterface;
 
+import Classes.ReadFile;
+import classes.VehiclePlant;
+
 /**
  *
  * @author Rolando
  */
 public class MainUI extends javax.swing.JFrame {
 
+    public static VehiclePlant LamborghiniPlant;
+    public static VehiclePlant MaseratiPlant;
     /**
      * Creates new form MainUI
      */
     public MainUI() {
         initComponents();
+        setVisible(true);
+        setLocationRelativeTo(null);
+        
+        LamborghiniPlant = new VehiclePlant("Lamborghini", 18, 1, this);
+        
+        ReadFile nfile = new ReadFile();
+        String txt = nfile.readTxt();
+        
+//        nfile.readConfig(txt);
+        
+        
+        
     }
 
     /**
@@ -76,6 +93,7 @@ public class MainUI extends javax.swing.JFrame {
 
         jTabbedPane1.setBackground(new java.awt.Color(102, 102, 102));
         jTabbedPane1.setForeground(new java.awt.Color(255, 255, 255));
+        jTabbedPane1.setFont(new java.awt.Font("Microsoft YaHei", 1, 12)); // NOI18N
 
         ConfigTab.setBackground(new java.awt.Color(51, 51, 51));
         ConfigTab.setForeground(new java.awt.Color(255, 255, 255));

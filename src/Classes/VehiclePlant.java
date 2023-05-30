@@ -5,6 +5,7 @@
  */
 package classes;
 
+import UserInterface.MainUI;
 import java.util.concurrent.Semaphore;
 
 /**
@@ -12,20 +13,23 @@ import java.util.concurrent.Semaphore;
  * @author Rolando
  */
 public class VehiclePlant {
-    private String name;
+    String name;
     private int maxWorkerQty;
     private Worker[] workers;
     private long dayDurationInMs;
     public Warehouse warehouse;
     public Semaphore mutex;
+    public MainUI userInterface;
+            
     
-    public VehiclePlant (String name, int maxWorkers, long dayDuration) {
+    public VehiclePlant (String name, int maxWorkers, long dayDuration, MainUI userInterface) {
         this.name = name;
         this.maxWorkerQty = maxWorkers;
         this.dayDurationInMs = dayDuration;
         this.workers = new Worker[maxWorkerQty];
-//        this.warehouse = new Warehouse(20, 30);
+        this.warehouse = new Warehouse(25, 20, 55, 35, 10, userInterface);
         this.mutex = new Semaphore(1);
+        this.userInterface = userInterface;
         
         initializeWorkers();
         
@@ -38,5 +42,25 @@ public class VehiclePlant {
             worker.start();
             workers[i] = worker;
         }
+    }
+    
+    
+    public void PausaWorker(){
+       
+       for (int i = 0; i < workers.length; i++) {
+            Worker worker = workers[i];
+            worker.pausar();
+        }
+   
+    }
+    
+    
+    public void ResumeWorker(){
+       
+       for (int i = 0; i < workers.length; i++) {
+            Worker worker = workers[i];
+            worker.reanudar();
+        }
+   
     }
 }

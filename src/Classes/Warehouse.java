@@ -5,6 +5,8 @@
  */
 package classes;
 
+import UserInterface.MainUI;
+
 /**
  *
  * @author Rolando
@@ -22,12 +24,15 @@ public class Warehouse {
     public int maxMotorQty;
     public int maxAccessoryQty;
     
-    public Warehouse(int maxChasis, int maxCarBodyQty, int maxWheels, int maxMotor, int maxAccessory){
+    private MainUI userInterface;
+    
+    public Warehouse(int maxChasis, int maxCarBodyQty, int maxMotor, int maxWheels,  int maxAccessory, MainUI userInterface){
         this.maxChasisQty = maxChasis;
         this.maxCarBodyQty = maxCarBodyQty;
         this.maxWheelsQty = maxWheels;
         this.maxMotorQty = maxMotor;
         this.maxAccessoryQty = maxAccessory;
+        this.userInterface = userInterface;
         
         this.chasisQty = 0;
         this.carBodyQty = 0;
