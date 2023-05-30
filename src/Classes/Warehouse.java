@@ -64,8 +64,9 @@ public class Warehouse {
                     this.chasisQty += finishedPart;
                     
                     System.out.println(this.chasisQty);
-                    System.out.println("se creo pieza");
                     
+                    
+                    userInterface.LamborghiniChasis(Integer.toString(this.chasisQty));
                 }
                 
                 
@@ -89,10 +90,12 @@ public class Warehouse {
                 
             case "motors":
                 
-                if (this.maxMotorQty < this.maxMotorQty) {
-                    this.maxMotorQty += finishedPart;
+                if (this.motorQty < this.maxMotorQty) {
+                    this.motorQty += finishedPart;
                     
                     System.out.println(this.maxMotorQty);
+                    System.out.println("se creo pieza");
+                    userInterface.LamborghiniMotor(Integer.toString(this.motorQty));
                 }
                 
                 break;
@@ -103,6 +106,7 @@ public class Warehouse {
                     this.accessoryQty += finishedPart;
                     
                     System.out.println(this.accessoryQty);
+                    userInterface.LamborghiniAccesory(Integer.toString(this.accessoryQty));
                 }
                 
                 break;
@@ -112,6 +116,8 @@ public class Warehouse {
                     this.carBodyQty += finishedPart;
                     
                     System.out.println(this.carBodyQty);
+                    userInterface.LamborghinicarBody(Integer.toString(this.carBodyQty));
+
                 }
                 
             default:

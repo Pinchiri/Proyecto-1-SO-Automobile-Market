@@ -32,7 +32,6 @@ public class VehiclePlant {
     private int accessoryWorkers;
     private int assemblers;
     private Worker[] workers;
-    Worker worker = new Worker(0.34f, 20, getDayDurationInMs(), "wheel", this);
     
     private long dayDurationInMs;
     public Warehouse warehouse;
@@ -57,7 +56,7 @@ public class VehiclePlant {
         this.maxWorkerQty = 18;
         this.chasisWorkers = 4;
         this.bodyWorkers = 4;
-        this.motorWorkers = 4;
+        this.motorWorkers = 3;
         this.wheelWorkers = 2;
         this.accessoryWorkers = 1;
         this.assemblers = 1;
@@ -72,15 +71,7 @@ public class VehiclePlant {
     
     public void initializeWorkers(){
         
-        System.out.println("Llego aqui primer paso");
         
-        
-        worker.start();
-        
-        System.out.println("Llego aqui segundo paso");
-        
-     /*   
-     
         int arrayIndex = 0;
         //Chasis workers
         for (int i = 0; i < getChasisWorkers(); i++) {
@@ -92,7 +83,7 @@ public class VehiclePlant {
         
         //Car Body Workers
         for (int i = 0; i < getBodyWorkers(); i++) {
-            Worker worker = new Worker(0.34f, 20, getDayDurationInMs(), "body", this);
+            Worker worker = new Worker(0.34f, 20, getDayDurationInMs(), "carBody", this);
             worker.start();
             workers[arrayIndex] = worker;
             arrayIndex++;
@@ -100,7 +91,7 @@ public class VehiclePlant {
         
         //Motor Workers
         for (int i = 0; i < getMotorWorkers(); i++) {
-            Worker worker = new Worker(0.34f, 20, getDayDurationInMs(), "motor", this);
+            Worker worker = new Worker(0.34f, 20, getDayDurationInMs(), "motors", this);
             worker.start();
             workers[arrayIndex] = worker;
             arrayIndex++;
@@ -123,7 +114,7 @@ public class VehiclePlant {
             workers[arrayIndex] = worker;
             arrayIndex++;
         }
-*/
+
     }
     
     
@@ -140,9 +131,10 @@ public class VehiclePlant {
     
      public void StopWorker(){
        
-      
-         worker.stop();
-        
+       for (int i = 0; i < workers.length; i++) {
+            Worker worker = workers[i];
+            worker.stop();
+        }
    
     }
     
