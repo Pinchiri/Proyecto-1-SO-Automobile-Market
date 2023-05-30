@@ -95,7 +95,17 @@ public class MainUI extends javax.swing.JFrame {
         jButton6 = new javax.swing.JButton();
         jButton7 = new javax.swing.JButton();
         jTextField1 = new javax.swing.JTextField();
+        LamborghiniMotor = new javax.swing.JTextField();
+        jTextField2 = new javax.swing.JTextField();
         LamborghiniWheels = new javax.swing.JTextField();
+        jTextField3 = new javax.swing.JTextField();
+        jTextField4 = new javax.swing.JTextField();
+        jTextField5 = new javax.swing.JTextField();
+        LamborghiniCarbody = new javax.swing.JTextField();
+        LamborghiniChasis = new javax.swing.JTextField();
+        LamborghiniAccesory = new javax.swing.JTextField();
+        jTextField6 = new javax.swing.JTextField();
+        LamborghiniAssembler = new javax.swing.JTextField();
         MaseratiTab = new javax.swing.JPanel();
         startM = new javax.swing.JButton();
         pauseM = new javax.swing.JButton();
@@ -400,13 +410,29 @@ public class MainUI extends javax.swing.JFrame {
         });
         LamborghiniTab.add(jButton7, new org.netbeans.lib.awtextra.AbsoluteConstraints(720, 70, -1, -1));
 
-        jTextField1.setText("wheels");
+        jTextField1.setText("assembler");
         jTextField1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jTextField1ActionPerformed(evt);
             }
         });
-        LamborghiniTab.add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 180, 50, -1));
+        LamborghiniTab.add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 270, 60, -1));
+
+        LamborghiniMotor.setText("0");
+        LamborghiniMotor.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                LamborghiniMotorActionPerformed(evt);
+            }
+        });
+        LamborghiniTab.add(LamborghiniMotor, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 280, 30, -1));
+
+        jTextField2.setText("wheels");
+        jTextField2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextField2ActionPerformed(evt);
+            }
+        });
+        LamborghiniTab.add(jTextField2, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 180, 50, -1));
 
         LamborghiniWheels.setText("0");
         LamborghiniWheels.addActionListener(new java.awt.event.ActionListener() {
@@ -415,6 +441,70 @@ public class MainUI extends javax.swing.JFrame {
             }
         });
         LamborghiniTab.add(LamborghiniWheels, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 180, 30, -1));
+
+        jTextField3.setText("chasis");
+        jTextField3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextField3ActionPerformed(evt);
+            }
+        });
+        LamborghiniTab.add(jTextField3, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 230, 50, -1));
+
+        jTextField4.setText("motors");
+        jTextField4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextField4ActionPerformed(evt);
+            }
+        });
+        LamborghiniTab.add(jTextField4, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 280, 40, -1));
+
+        jTextField5.setText("accesory");
+        jTextField5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextField5ActionPerformed(evt);
+            }
+        });
+        LamborghiniTab.add(jTextField5, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 330, 50, -1));
+
+        LamborghiniCarbody.setText("0");
+        LamborghiniCarbody.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                LamborghiniCarbodyActionPerformed(evt);
+            }
+        });
+        LamborghiniTab.add(LamborghiniCarbody, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 380, 30, -1));
+
+        LamborghiniChasis.setText("0");
+        LamborghiniChasis.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                LamborghiniChasisActionPerformed(evt);
+            }
+        });
+        LamborghiniTab.add(LamborghiniChasis, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 230, 30, -1));
+
+        LamborghiniAccesory.setText("0");
+        LamborghiniAccesory.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                LamborghiniAccesoryActionPerformed(evt);
+            }
+        });
+        LamborghiniTab.add(LamborghiniAccesory, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 330, 30, -1));
+
+        jTextField6.setText("carBody");
+        jTextField6.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextField6ActionPerformed(evt);
+            }
+        });
+        LamborghiniTab.add(jTextField6, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 380, 50, -1));
+
+        LamborghiniAssembler.setText("0");
+        LamborghiniAssembler.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                LamborghiniAssemblerActionPerformed(evt);
+            }
+        });
+        LamborghiniTab.add(LamborghiniAssembler, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 270, 30, -1));
 
         jTabbedPane1.addTab("Lamborghini", LamborghiniTab);
 
@@ -758,12 +848,13 @@ public class MainUI extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextField1ActionPerformed
 
-    private void LamborghiniWheelsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_LamborghiniWheelsActionPerformed
+    private void LamborghiniMotorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_LamborghiniMotorActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_LamborghiniWheelsActionPerformed
+    }//GEN-LAST:event_LamborghiniMotorActionPerformed
 
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
         // TODO add your handling code here:
+
         if(contador > 0){
             LamborghiniWheels.setText("0");
             LamborghiniPlant.StopWorker();
@@ -771,13 +862,16 @@ public class MainUI extends javax.swing.JFrame {
         else {
             contador = contador + 1;
             LamborghiniPlant = new VehiclePlant("Lamborghini", 1, this); 
+
             LamborghiniPlant.initializeWorkers();
+        
         }
         
         
         
     }//GEN-LAST:event_jButton5ActionPerformed
 
+ 
     private void startMActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_startMActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_startMActionPerformed
@@ -789,6 +883,45 @@ public class MainUI extends javax.swing.JFrame {
     private void pauseMActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pauseMActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_pauseMActionPerformed
+    private void jTextField2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField2ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextField2ActionPerformed
+
+    private void LamborghiniWheelsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_LamborghiniWheelsActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_LamborghiniWheelsActionPerformed
+
+    private void jTextField3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField3ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextField3ActionPerformed
+
+    private void jTextField4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField4ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextField4ActionPerformed
+
+    private void jTextField5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField5ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextField5ActionPerformed
+
+    private void LamborghiniCarbodyActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_LamborghiniCarbodyActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_LamborghiniCarbodyActionPerformed
+
+    private void LamborghiniChasisActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_LamborghiniChasisActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_LamborghiniChasisActionPerformed
+
+    private void LamborghiniAccesoryActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_LamborghiniAccesoryActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_LamborghiniAccesoryActionPerformed
+
+    private void jTextField6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField6ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextField6ActionPerformed
+
+    private void LamborghiniAssemblerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_LamborghiniAssemblerActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_LamborghiniAssemblerActionPerformed
 
     /**
      * @param args the command line arguments
@@ -796,6 +929,21 @@ public class MainUI extends javax.swing.JFrame {
       
     public void LamborghiniWheels(String text){
         LamborghiniWheels.setText(text);
+    }
+    public void LamborghiniChasis(String text){
+        LamborghiniChasis.setText(text);
+    }
+    public void LamborghiniMotor(String text){
+        LamborghiniMotor.setText(text);
+    }
+    public void LamborghiniAccesory(String text){
+        LamborghiniAccesory.setText(text);
+    }
+    public void LamborghinicarBody(String text){
+        LamborghiniCarbody.setText(text);
+    }
+    public void LamborghiniAssembler(String text){
+        LamborghiniAssembler.setText(text);
     }
     
     public static void main(String args[]) {
@@ -835,6 +983,11 @@ public class MainUI extends javax.swing.JFrame {
     private javax.swing.JLabel Config_label;
     private javax.swing.JLabel General_label;
     private javax.swing.JLabel Lambog_label;
+    private javax.swing.JTextField LamborghiniAccesory;
+    private javax.swing.JTextField LamborghiniAssembler;
+    private javax.swing.JTextField LamborghiniCarbody;
+    private javax.swing.JTextField LamborghiniChasis;
+    private javax.swing.JTextField LamborghiniMotor;
     private javax.swing.JPanel LamborghiniTab;
     private javax.swing.JTextField LamborghiniWheels;
     private javax.swing.JLabel M_label;
@@ -916,6 +1069,11 @@ public class MainUI extends javax.swing.JFrame {
     private javax.swing.JLabel maxChaM;
     private javax.swing.JLabel maxMotM;
     private javax.swing.JLabel motorPartsM;
+    private javax.swing.JTextField jTextField2;
+    private javax.swing.JTextField jTextField3;
+    private javax.swing.JTextField jTextField4;
+    private javax.swing.JTextField jTextField5;
+    private javax.swing.JTextField jTextField6;
     private javax.swing.JSpinner motorWorkersLamb;
     private javax.swing.JLabel motorWorkersM1;
     private javax.swing.JSpinner motorWorkersMase;
