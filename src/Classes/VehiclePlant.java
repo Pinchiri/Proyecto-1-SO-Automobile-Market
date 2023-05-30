@@ -12,7 +12,7 @@ import java.util.concurrent.Semaphore;
  * @author Rolando
  */
 public class VehiclePlant {
-    private String name;
+    String name;
     private int maxWorkerQty;
     private Worker[] workers;
     private long dayDurationInMs;
@@ -24,7 +24,7 @@ public class VehiclePlant {
         this.maxWorkerQty = maxWorkers;
         this.dayDurationInMs = dayDuration;
         this.workers = new Worker[maxWorkerQty];
-        this.warehouse = new Warehouse(20, 30);
+        this.warehouse = new Warehouse(25, 20, 55, 35);
         this.mutex = new Semaphore(1);
         
         initializeWorkers();
@@ -38,5 +38,25 @@ public class VehiclePlant {
             worker.start();
             workers[i] = worker;
         }
+    }
+    
+    
+    public void PausaWorker(){
+       
+       for (int i = 0; i < workers.length; i++) {
+            Worker worker = workers[i];
+            worker.pausar();
+        }
+   
+    }
+    
+    
+    public void ResumeWorker(){
+       
+       for (int i = 0; i < workers.length; i++) {
+            Worker worker = workers[i];
+            worker.reanudar();
+        }
+   
     }
 }
