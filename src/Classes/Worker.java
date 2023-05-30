@@ -43,7 +43,7 @@ public class Worker extends Thread{
         
         
         while(true) {
-             try {
+            try {
                  
              payCheck();
              produceForTheDay();
