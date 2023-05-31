@@ -34,13 +34,16 @@ public class VehiclePlant {
     public Semaphore mutex;
 
     public MainUI userInterface;
+    
+    private Config config;
             
     
-    public VehiclePlant (String name, long dayDuration, MainUI userInterface) {
+    public VehiclePlant (String name, MainUI userInterface, Config config) {
 
+        this.config = config;
         this.name = name;
-        this.dayDurationInMs = dayDuration;
-
+        this.dayDurationInMs = config.getDayDuration();
+ 
         this.warehouse = new Warehouse(name,25, 20, 55, 35, 10, userInterface);
         this.mutex = new Semaphore(1);
         this.userInterface = userInterface;
@@ -64,6 +67,8 @@ public class VehiclePlant {
 
         this.accessoryWorkers = 1;
         this.assemblers = 1;
+        
+        initializeWorkers();
           
     }
     
@@ -87,17 +92,7 @@ public class VehiclePlant {
                 arrayIndex++;
             }
         }
-        
-        //Assembler workers
-        for (int i = 0; i < getChasisWorkers(); i++) {
-            Worker worker = new Worker(0.34f, 20, getDayDurationInMs(), "assembler",this);
-            worker.start();
-            workers[arrayIndex] = worker;
-            arrayIndex++;
-        }
-        
        
-        
         //Car Body Workers
         for (int i = 0; i <= getBodyWorkers(); i++) {
             if (getName().equals("Lamborghini")) {
@@ -156,6 +151,8 @@ public class VehiclePlant {
                 arrayIndex++;
             }
             
+            //Operations Manager
+            OperationsManager manager = new OperationsManager(20, config.getDeliveryDays(), this, this.userInterface);
             
         }
         
@@ -191,8 +188,10 @@ public class VehiclePlant {
                 arrayIndex++;
             }
         }
-  
+        
+
     }
+    
     
     
  
