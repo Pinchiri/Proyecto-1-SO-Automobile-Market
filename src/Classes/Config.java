@@ -16,30 +16,32 @@ public class Config {
     private int deliveryDays;
     //Lamborghini
     private int initialChasis;
+    private int initialBodys;
     private int initialWheels;
     private int initialMotors;
     private int initialAccesorys;
     private int initialAssemblers;
     //Maserati
     private int initialChasisM;
+    private int initialBodysM;
     private int initialWheelsM;
     private int initialMotorsM;
     private int initialAccesorysM;
     private int initialAssemblersM;
 
-    public Config(int dayDuration, int deliveryDays, int initialChasis, int initialWheels, int initialMotors, int initialAccesorys, int initialAssemblers, int initialChasisM, int initialWheelsM, int initialMotorsM, int initialAccesorysM, int initialAssemblersM) {
-        this.dayDuration = dayDuration;
-        this.deliveryDays = deliveryDays;
-        this.initialChasis = initialChasis;
-        this.initialWheels = initialWheels;
-        this.initialMotors = initialMotors;
-        this.initialAccesorys = initialAccesorys;
-        this.initialAssemblers = initialAssemblers;
-        this.initialChasisM = initialChasisM;
-        this.initialWheelsM = initialWheelsM;
-        this.initialMotorsM = initialMotorsM;
-        this.initialAccesorysM = initialAccesorysM;
-        this.initialAssemblersM = initialAssemblersM;
+    public Config() {
+        this.dayDuration = 1000;
+        this.deliveryDays = 30;
+        this.initialChasis = 1;
+        this.initialWheels = 1;
+        this.initialMotors = 1;
+        this.initialAccesorys = 1;
+        this.initialAssemblers = 1;
+        this.initialChasisM = 1;
+        this.initialWheelsM = 1;
+        this.initialMotorsM = 1;
+        this.initialAccesorysM = 1;
+        this.initialAssemblersM = 1;
     }
 
  
@@ -140,6 +142,23 @@ public class Config {
     public void setInitialAssemblersM(int initialAssemblersM) {
         this.initialAssemblersM = initialAssemblersM;
     }
+
+    public int getInitialBodys() {
+        return initialBodys;
+    }
+
+    public void setInitialBodys(int initialBodys) {
+        this.initialBodys = initialBodys;
+    }
+
+    public int getInitialBodysM() {
+        return initialBodysM;
+    }
+
+    public void setInitialBodysM(int initialBodysM) {
+        this.initialBodysM = initialBodysM;
+    }
+    
     
     
 }
