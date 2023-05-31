@@ -78,6 +78,37 @@ public class MainUI extends javax.swing.JFrame {
    
     }
     
+    public void MaseEarnings(String totalEarnings) {
+        earningsM.setText(totalEarnings);
+    }
+    
+    public void MaseCosts(String totalCosts) {
+        costsM.setText(totalCosts);
+    }
+    
+    public void MaseWheels(String text){
+        wheelPartsM.setText(text);
+    }
+    public void MaseChasis(String text){
+        chasisPartsM.setText(text);
+    }
+    public void MaseMotor(String text){
+        motorPartsM.setText(text);
+    }
+    public void MaseAccesory(String text){
+        accessoryPartsM.setText(text);
+    }
+    public void MaseCarBody(String text){
+        bodyPartsM.setText(text);
+    }
+    
+    public void MaseSC(String text) {
+        standarCarsM.setText(text);
+    }
+    
+    public void MaseAC(String text) {
+        accesoryCarsM.setText(text);
+    }
     /**
      * Creates new form MainUI
      */
@@ -236,7 +267,7 @@ public class MainUI extends javax.swing.JFrame {
         managerSalaryDiscountM = new javax.swing.JLabel();
         motorWorkersM = new javax.swing.JLabel();
         maxAcceM = new javax.swing.JLabel();
-        chasisPartsM2 = new javax.swing.JLabel();
+        chasisPartsM = new javax.swing.JLabel();
         maxChaM = new javax.swing.JLabel();
         maxBoM = new javax.swing.JLabel();
         maxMotM = new javax.swing.JLabel();
@@ -246,7 +277,7 @@ public class MainUI extends javax.swing.JFrame {
         chas12 = new javax.swing.JLabel();
         directorStatus_label = new javax.swing.JLabel();
         managerStatus_label2 = new javax.swing.JLabel();
-        accessoryPartsM1 = new javax.swing.JLabel();
+        accessoryPartsM = new javax.swing.JLabel();
         faultsQtyM1 = new javax.swing.JLabel();
         earningsM = new javax.swing.JLabel();
         managerStatus_label3 = new javax.swing.JLabel();
@@ -984,10 +1015,10 @@ public class MainUI extends javax.swing.JFrame {
         maxAcceM.setText("/ 10");
         MaseratiTab.add(maxAcceM, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 390, 40, 40));
 
-        chasisPartsM2.setFont(new java.awt.Font("Microsoft YaHei", 1, 18)); // NOI18N
-        chasisPartsM2.setForeground(new java.awt.Color(255, 255, 255));
-        chasisPartsM2.setText("0");
-        MaseratiTab.add(chasisPartsM2, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 190, 40, 40));
+        chasisPartsM.setFont(new java.awt.Font("Microsoft YaHei", 1, 18)); // NOI18N
+        chasisPartsM.setForeground(new java.awt.Color(255, 255, 255));
+        chasisPartsM.setText("0");
+        MaseratiTab.add(chasisPartsM, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 190, 40, 40));
 
         maxChaM.setFont(new java.awt.Font("Microsoft YaHei", 1, 18)); // NOI18N
         maxChaM.setForeground(new java.awt.Color(255, 255, 255));
@@ -1038,10 +1069,10 @@ public class MainUI extends javax.swing.JFrame {
         managerStatus_label2.setText("Faults:");
         MaseratiTab.add(managerStatus_label2, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 200, 100, 40));
 
-        accessoryPartsM1.setFont(new java.awt.Font("Microsoft YaHei", 1, 18)); // NOI18N
-        accessoryPartsM1.setForeground(new java.awt.Color(255, 255, 255));
-        accessoryPartsM1.setText("0");
-        MaseratiTab.add(accessoryPartsM1, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 390, 40, 40));
+        accessoryPartsM.setFont(new java.awt.Font("Microsoft YaHei", 1, 18)); // NOI18N
+        accessoryPartsM.setForeground(new java.awt.Color(255, 255, 255));
+        accessoryPartsM.setText("0");
+        MaseratiTab.add(accessoryPartsM, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 390, 40, 40));
 
         faultsQtyM1.setFont(new java.awt.Font("Microsoft YaHei", 1, 18)); // NOI18N
         faultsQtyM1.setForeground(new java.awt.Color(255, 255, 255));
@@ -1051,7 +1082,7 @@ public class MainUI extends javax.swing.JFrame {
         earningsM.setFont(new java.awt.Font("Microsoft YaHei", 1, 24)); // NOI18N
         earningsM.setForeground(new java.awt.Color(255, 255, 153));
         earningsM.setText("0");
-        MaseratiTab.add(earningsM, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 470, 50, 40));
+        MaseratiTab.add(earningsM, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 470, 200, 40));
 
         managerStatus_label3.setFont(new java.awt.Font("Microsoft YaHei", 1, 18)); // NOI18N
         managerStatus_label3.setForeground(new java.awt.Color(255, 255, 255));
@@ -1078,59 +1109,59 @@ public class MainUI extends javax.swing.JFrame {
         wm_label6.setFont(new java.awt.Font("Microsoft YaHei", 1, 24)); // NOI18N
         wm_label6.setForeground(new java.awt.Color(255, 255, 153));
         wm_label6.setText("DAYS LEFT:");
-        MaseratiTab.add(wm_label6, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 290, 150, 40));
+        MaseratiTab.add(wm_label6, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 360, 150, 40));
 
         chas10.setFont(new java.awt.Font("Microsoft YaHei", 1, 18)); // NOI18N
         chas10.setForeground(new java.awt.Color(255, 255, 255));
         chas10.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         chas10.setText("With Accessorys:");
-        MaseratiTab.add(chas10, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 380, 170, 40));
+        MaseratiTab.add(chas10, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 390, 170, 40));
 
         chas11.setFont(new java.awt.Font("Microsoft YaHei", 1, 18)); // NOI18N
         chas11.setForeground(new java.awt.Color(255, 255, 255));
         chas11.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         chas11.setText("Standard:");
-        MaseratiTab.add(chas11, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 340, 100, 40));
+        MaseratiTab.add(chas11, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 350, 100, 40));
 
         accesoryCarsM.setFont(new java.awt.Font("Microsoft YaHei", 1, 18)); // NOI18N
         accesoryCarsM.setForeground(new java.awt.Color(255, 255, 255));
         accesoryCarsM.setText("0");
-        MaseratiTab.add(accesoryCarsM, new org.netbeans.lib.awtextra.AbsoluteConstraints(780, 380, 40, 40));
+        MaseratiTab.add(accesoryCarsM, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 390, 40, 40));
 
         standarCarsM.setFont(new java.awt.Font("Microsoft YaHei", 1, 18)); // NOI18N
         standarCarsM.setForeground(new java.awt.Color(255, 255, 255));
         standarCarsM.setText("0");
-        MaseratiTab.add(standarCarsM, new org.netbeans.lib.awtextra.AbsoluteConstraints(780, 340, 40, 40));
+        MaseratiTab.add(standarCarsM, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 350, 40, 40));
 
         assembled_labelM1.setFont(new java.awt.Font("Microsoft YaHei", 1, 24)); // NOI18N
         assembled_labelM1.setForeground(new java.awt.Color(255, 255, 153));
-        assembled_labelM1.setText("CARS ASSEMBLED:");
-        MaseratiTab.add(assembled_labelM1, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 360, 240, 40));
+        assembled_labelM1.setText("CARS ASSEMBLED");
+        MaseratiTab.add(assembled_labelM1, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 310, 240, 40));
 
         daysLeftM1.setFont(new java.awt.Font("Microsoft YaHei", 1, 24)); // NOI18N
         daysLeftM1.setForeground(new java.awt.Color(255, 255, 153));
         daysLeftM1.setText("0");
-        MaseratiTab.add(daysLeftM1, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 290, 50, 40));
+        MaseratiTab.add(daysLeftM1, new org.netbeans.lib.awtextra.AbsoluteConstraints(780, 360, 50, 40));
 
         assembled_labelM2.setFont(new java.awt.Font("Microsoft YaHei", 1, 24)); // NOI18N
         assembled_labelM2.setForeground(new java.awt.Color(255, 255, 153));
         assembled_labelM2.setText("COSTS:");
-        MaseratiTab.add(assembled_labelM2, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 470, 100, 40));
+        MaseratiTab.add(assembled_labelM2, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 520, 100, 40));
 
         costsM.setFont(new java.awt.Font("Microsoft YaHei", 1, 24)); // NOI18N
         costsM.setForeground(new java.awt.Color(255, 255, 153));
         costsM.setText("0");
-        MaseratiTab.add(costsM, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 470, 50, 40));
+        MaseratiTab.add(costsM, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 520, 210, 40));
 
         assembled_labelM3.setFont(new java.awt.Font("Microsoft YaHei", 1, 24)); // NOI18N
         assembled_labelM3.setForeground(new java.awt.Color(255, 255, 153));
         assembled_labelM3.setText("UTILITY:");
-        MaseratiTab.add(assembled_labelM3, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 470, 120, 40));
+        MaseratiTab.add(assembled_labelM3, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 490, 120, 40));
 
         utilityM.setFont(new java.awt.Font("Microsoft YaHei", 1, 24)); // NOI18N
         utilityM.setForeground(new java.awt.Color(255, 255, 153));
         utilityM.setText("0");
-        MaseratiTab.add(utilityM, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 470, 50, 40));
+        MaseratiTab.add(utilityM, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 490, 50, 40));
 
         jTabbedPane1.addTab("Maserati", MaseratiTab);
 
@@ -1248,7 +1279,7 @@ public class MainUI extends javax.swing.JFrame {
     private javax.swing.JLabel accesoryCarsM;
     private javax.swing.JSpinner accesoryWorkersLamb;
     private javax.swing.JSpinner accesoryWorkersMase;
-    private javax.swing.JLabel accessoryPartsM1;
+    private javax.swing.JLabel accessoryPartsM;
     private javax.swing.JLabel accessoryWorkersL;
     private javax.swing.JLabel accessoryWorkersM;
     private javax.swing.JLabel accessory_label;
@@ -1301,7 +1332,7 @@ public class MainUI extends javax.swing.JFrame {
     private javax.swing.JLabel chas7;
     private javax.swing.JLabel chas8;
     private javax.swing.JLabel chas9;
-    private javax.swing.JLabel chasisPartsM2;
+    private javax.swing.JLabel chasisPartsM;
     private javax.swing.JLabel chasisWorkersL;
     private javax.swing.JSpinner chasisWorkersLamb;
     private javax.swing.JLabel chasisWorkersM;

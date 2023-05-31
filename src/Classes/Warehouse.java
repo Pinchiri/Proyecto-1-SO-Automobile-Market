@@ -106,10 +106,16 @@ public class Warehouse {
                         
                     }
                 }else{
-                    if(contador==2) {
+                    
+                    if(contador == 2) {
                         if ((this.carBodyQty >= 1) && (this.chasisQty >= 1) && (this.motorQty >= 2) && (this.wheelsQty >= 4) && (this.accessoryQty >= 3)) {
                                 contador = 0;
                                 this.carWithAccesory++;
+                                totalEarnings += 700000;
+                                userInterface.MaseEarnings("$" + Long.toString(getTotalEarnings()));
+                                
+                                System.out.println("especial");
+                                userInterface.MaseAC(Integer.toString(this.carWithAccesory));
                                 this.carBodyQty = this.carBodyQty - 1;
                                 this.chasisQty = this.chasisQty - 1;
                                 this.motorQty = this.motorQty - 2;
@@ -122,6 +128,11 @@ public class Warehouse {
                         if((this.carBodyQty >= 1) && (this.chasisQty >= 1) && (this.motorQty >= 2) && (this.wheelsQty >= 4)) {
                                 contador++;
                                 this.carStandard++;
+                                totalEarnings += 350000;
+                                userInterface.MaseEarnings("$" + Long.toString(getTotalEarnings()));
+                                
+                                userInterface.MaseSC(Integer.toString(this.carStandard));
+                                
                                 this.carBodyQty = this.carBodyQty - 1;
                                 this.chasisQty = this.chasisQty - 1;
                                 this.motorQty = this.motorQty - 2;
@@ -145,26 +156,25 @@ public class Warehouse {
                 if (this.chasisQty < this.maxChasisQty) {
                     this.chasisQty += finishedPart;
                     
-            
+                    if (this.nameplant.equals("Lamborghini")) {
+                        userInterface.LamborghiniChasis(Integer.toString(this.chasisQty));
+                    } else {
+                        userInterface.MaseChasis(Integer.toString(this.chasisQty));
+                    }
                     
-                    
-                    userInterface.LamborghiniChasis(Integer.toString(this.chasisQty));
                 }
-                
-                
                 break;
+                
             case "wheel":
                 
                 if (this.wheelsQty < this.maxWheelsQty) {
                     this.wheelsQty += finishedPart;
-                    String wheels = Integer.toString(this.wheelsQty);
                     
-       
-                    
-                    userInterface.LamborghiniWheels(Integer.toString(this.wheelsQty));
-                    
-                   
-                    
+                    if (this.nameplant.equals("Lamborghini")) {
+                        userInterface.LamborghiniWheels(Integer.toString(this.wheelsQty));
+                    } else {
+                        userInterface.MaseWheels(Integer.toString(this.wheelsQty));
+                    }   
                 }
                 
  
@@ -175,8 +185,12 @@ public class Warehouse {
                 if (this.motorQty < this.maxMotorQty) {
                     this.motorQty += finishedPart;
                     
+                    if (this.nameplant.equals("Lamborghini")) {
+                        userInterface.LamborghiniMotor(Integer.toString(this.motorQty));
+                    } else {
+                        userInterface.MaseMotor(Integer.toString(this.motorQty));
 
-                    userInterface.LamborghiniMotor(Integer.toString(this.motorQty));
+                    }
                 }
                 
                 break;
@@ -186,8 +200,13 @@ public class Warehouse {
                 if (this.accessoryQty < this.maxAccessoryQty) {
                     this.accessoryQty += finishedPart;
                     
-                 
-                    userInterface.LamborghiniAccesory(Integer.toString(this.accessoryQty));
+                    if (this.nameplant.equals("Lamborghini")) {
+                        userInterface.LamborghiniAccesory(Integer.toString(this.accessoryQty));
+
+                    } else {
+                        userInterface.MaseAccesory(Integer.toString(this.accessoryQty));  
+                    }
+                    
                 }
                 
                 break;
@@ -196,8 +215,12 @@ public class Warehouse {
                 if (this.carBodyQty < this.maxCarBodyQty) {
                     this.carBodyQty += finishedPart;
                     
-                 
-                    userInterface.LamborghinicarBody(Integer.toString(this.carBodyQty));
+                    if (this.nameplant.equals("Lamborghini")) {
+                        userInterface.LamborghinicarBody(Integer.toString(this.carBodyQty));  
+                    } else {
+                        userInterface.MaseCarBody(Integer.toString(this.carBodyQty));  
+                    }
+                    
 
                 }
                 
