@@ -8,6 +8,7 @@ package UserInterface;
 import Classes.Config;
 import Classes.ReadFile;
 import Classes.VehiclePlant;
+import javax.swing.JOptionPane;
 
 public class MainUI extends javax.swing.JFrame {
     
@@ -18,7 +19,6 @@ public class MainUI extends javax.swing.JFrame {
     public int counterL = 0;
     public int counterM = 0;
 
-    
     /**
      * @param args the command line arguments
      */
@@ -121,7 +121,7 @@ public class MainUI extends javax.swing.JFrame {
      */
     public MainUI() {
         initComponents();
-
+        
         setVisible(true);
         setLocationRelativeTo(null);
         
@@ -131,6 +131,8 @@ public class MainUI extends javax.swing.JFrame {
         String txt = nfile.readTxt();
         nfile.readConfig(txt, config);
         System.out.println(config.getDayDuration());
+        
+        
 
     }
 
@@ -169,7 +171,7 @@ public class MainUI extends javax.swing.JFrame {
         bodyWorkersMase = new javax.swing.JSpinner();
         motorWorkersMase = new javax.swing.JSpinner();
         wheelWorkersMase = new javax.swing.JSpinner();
-        addProduct = new javax.swing.JButton();
+        setConfiguration = new javax.swing.JButton();
         dayDuration_label = new javax.swing.JLabel();
         chasis_label3 = new javax.swing.JLabel();
         chasis_label4 = new javax.swing.JLabel();
@@ -177,15 +179,12 @@ public class MainUI extends javax.swing.JFrame {
         dayDurationInput = new javax.swing.JTextPane();
         chasis_label5 = new javax.swing.JLabel();
         jScrollPane2 = new javax.swing.JScrollPane();
-        dayDurationInput1 = new javax.swing.JTextPane();
+        deliveryDaysInput = new javax.swing.JTextPane();
         dayDuration_label1 = new javax.swing.JLabel();
         assemblers_label = new javax.swing.JLabel();
         assemblersLamb = new javax.swing.JSpinner();
         assemblers_label2 = new javax.swing.JLabel();
         assemblersMase = new javax.swing.JSpinner();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
         LamborghiniTab = new javax.swing.JPanel();
         startL = new javax.swing.JButton();
         pauseL = new javax.swing.JButton();
@@ -374,19 +373,24 @@ public class MainUI extends javax.swing.JFrame {
         wheel_label.setText("Wheels Workers");
         ConfigTab.add(wheel_label, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 340, 120, 30));
 
-        accesoryWorkersLamb.setModel(new javax.swing.SpinnerNumberModel(1, 1, 12, 1));
+        accesoryWorkersLamb.setFont(new java.awt.Font("Microsoft YaHei", 1, 12)); // NOI18N
+        accesoryWorkersLamb.setModel(new javax.swing.SpinnerNumberModel(1, 1, 13, 1));
         ConfigTab.add(accesoryWorkersLamb, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 390, -1, 30));
 
-        chasisWorkersLamb.setModel(new javax.swing.SpinnerNumberModel(1, 1, 12, 1));
+        chasisWorkersLamb.setFont(new java.awt.Font("Microsoft YaHei", 1, 12)); // NOI18N
+        chasisWorkersLamb.setModel(new javax.swing.SpinnerNumberModel(1, 1, 13, 1));
         ConfigTab.add(chasisWorkersLamb, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 190, -1, 30));
 
-        bodyWorkersLamb.setModel(new javax.swing.SpinnerNumberModel(1, 1, 12, 1));
+        bodyWorkersLamb.setFont(new java.awt.Font("Microsoft YaHei", 1, 12)); // NOI18N
+        bodyWorkersLamb.setModel(new javax.swing.SpinnerNumberModel(1, 1, 13, 1));
         ConfigTab.add(bodyWorkersLamb, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 240, -1, 30));
 
-        motorWorkersLamb.setModel(new javax.swing.SpinnerNumberModel(1, 1, 12, 1));
+        motorWorkersLamb.setFont(new java.awt.Font("Microsoft YaHei", 1, 12)); // NOI18N
+        motorWorkersLamb.setModel(new javax.swing.SpinnerNumberModel(1, 1, 13, 1));
         ConfigTab.add(motorWorkersLamb, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 290, -1, 30));
 
-        wheelWorkersLamb.setModel(new javax.swing.SpinnerNumberModel(1, 1, 12, 1));
+        wheelWorkersLamb.setFont(new java.awt.Font("Microsoft YaHei", 1, 12)); // NOI18N
+        wheelWorkersLamb.setModel(new javax.swing.SpinnerNumberModel(1, 1, 13, 1));
         ConfigTab.add(wheelWorkersLamb, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 340, -1, 30));
 
         accessory_label1.setBackground(new java.awt.Color(102, 102, 102));
@@ -424,38 +428,43 @@ public class MainUI extends javax.swing.JFrame {
         wheel_label1.setText("Wheels Workers");
         ConfigTab.add(wheel_label1, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 340, 120, 30));
 
-        accesoryWorkersMase.setModel(new javax.swing.SpinnerNumberModel(1, 1, null, 1));
+        accesoryWorkersMase.setFont(new java.awt.Font("Microsoft YaHei", 1, 12)); // NOI18N
+        accesoryWorkersMase.setModel(new javax.swing.SpinnerNumberModel(1, 1, 5, 1));
         ConfigTab.add(accesoryWorkersMase, new org.netbeans.lib.awtextra.AbsoluteConstraints(820, 390, -1, 30));
 
-        chasisWorkersMase.setModel(new javax.swing.SpinnerNumberModel(1, 1, null, 1));
+        chasisWorkersMase.setFont(new java.awt.Font("Microsoft YaHei", 1, 12)); // NOI18N
+        chasisWorkersMase.setModel(new javax.swing.SpinnerNumberModel(1, 1, 5, 1));
         ConfigTab.add(chasisWorkersMase, new org.netbeans.lib.awtextra.AbsoluteConstraints(820, 190, -1, 30));
 
-        bodyWorkersMase.setModel(new javax.swing.SpinnerNumberModel(1, 1, null, 1));
+        bodyWorkersMase.setFont(new java.awt.Font("Microsoft YaHei", 1, 12)); // NOI18N
+        bodyWorkersMase.setModel(new javax.swing.SpinnerNumberModel(1, 1, 5, 1));
         ConfigTab.add(bodyWorkersMase, new org.netbeans.lib.awtextra.AbsoluteConstraints(820, 240, -1, 30));
 
-        motorWorkersMase.setModel(new javax.swing.SpinnerNumberModel(1, 1, null, 1));
+        motorWorkersMase.setFont(new java.awt.Font("Microsoft YaHei", 1, 12)); // NOI18N
+        motorWorkersMase.setModel(new javax.swing.SpinnerNumberModel(1, 1, 5, 1));
         ConfigTab.add(motorWorkersMase, new org.netbeans.lib.awtextra.AbsoluteConstraints(820, 290, -1, 30));
 
-        wheelWorkersMase.setModel(new javax.swing.SpinnerNumberModel(1, 1, null, 1));
+        wheelWorkersMase.setFont(new java.awt.Font("Microsoft YaHei", 1, 12)); // NOI18N
+        wheelWorkersMase.setModel(new javax.swing.SpinnerNumberModel(1, 1, 5, 1));
         ConfigTab.add(wheelWorkersMase, new org.netbeans.lib.awtextra.AbsoluteConstraints(820, 340, -1, 30));
 
-        addProduct.setBackground(new java.awt.Color(255, 255, 153));
-        addProduct.setFont(new java.awt.Font("Microsoft YaHei UI", 1, 12)); // NOI18N
-        addProduct.setForeground(new java.awt.Color(51, 51, 51));
-        addProduct.setText("SET CONFIGURATION");
-        addProduct.addActionListener(new java.awt.event.ActionListener() {
+        setConfiguration.setBackground(new java.awt.Color(255, 255, 153));
+        setConfiguration.setFont(new java.awt.Font("Microsoft YaHei UI", 1, 18)); // NOI18N
+        setConfiguration.setForeground(new java.awt.Color(51, 51, 51));
+        setConfiguration.setText("SET CONFIGURATION");
+        setConfiguration.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                addProductActionPerformed(evt);
+                setConfigurationActionPerformed(evt);
             }
         });
-        ConfigTab.add(addProduct, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 410, 260, 50));
+        ConfigTab.add(setConfiguration, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 410, 260, 50));
 
         dayDuration_label.setBackground(new java.awt.Color(102, 102, 102));
         dayDuration_label.setFont(new java.awt.Font("Microsoft YaHei", 1, 12)); // NOI18N
         dayDuration_label.setForeground(new java.awt.Color(255, 255, 255));
         dayDuration_label.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        dayDuration_label.setText("Day Duration");
-        ConfigTab.add(dayDuration_label, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 170, 90, 30));
+        dayDuration_label.setText("Day Duration (seconds)");
+        ConfigTab.add(dayDuration_label, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 170, 170, 30));
 
         chasis_label3.setBackground(new java.awt.Color(102, 102, 102));
         chasis_label3.setFont(new java.awt.Font("Microsoft YaHei", 1, 10)); // NOI18N
@@ -471,6 +480,9 @@ public class MainUI extends javax.swing.JFrame {
         chasis_label4.setText("MAXIMUM 18 WORKERS");
         ConfigTab.add(chasis_label4, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 150, 180, 30));
 
+        dayDurationInput.setBackground(new java.awt.Color(255, 255, 255));
+        dayDurationInput.setFont(new java.awt.Font("Microsoft YaHei", 0, 12)); // NOI18N
+        dayDurationInput.setForeground(new java.awt.Color(51, 51, 51));
         jScrollPane1.setViewportView(dayDurationInput);
 
         ConfigTab.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 200, 120, -1));
@@ -482,7 +494,10 @@ public class MainUI extends javax.swing.JFrame {
         chasis_label5.setText("Chasis Workers");
         ConfigTab.add(chasis_label5, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 190, 110, 30));
 
-        jScrollPane2.setViewportView(dayDurationInput1);
+        deliveryDaysInput.setBackground(new java.awt.Color(255, 255, 255));
+        deliveryDaysInput.setFont(new java.awt.Font("Microsoft YaHei", 0, 12)); // NOI18N
+        deliveryDaysInput.setForeground(new java.awt.Color(51, 51, 51));
+        jScrollPane2.setViewportView(deliveryDaysInput);
 
         ConfigTab.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 270, 120, -1));
 
@@ -500,7 +515,8 @@ public class MainUI extends javax.swing.JFrame {
         assemblers_label.setText("Assemblers");
         ConfigTab.add(assemblers_label, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 440, 80, 30));
 
-        assemblersLamb.setModel(new javax.swing.SpinnerNumberModel(1, 1, 12, 1));
+        assemblersLamb.setFont(new java.awt.Font("Microsoft YaHei", 1, 12)); // NOI18N
+        assemblersLamb.setModel(new javax.swing.SpinnerNumberModel(1, 1, 13, 1));
         ConfigTab.add(assemblersLamb, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 440, -1, 30));
 
         assemblers_label2.setBackground(new java.awt.Color(102, 102, 102));
@@ -510,17 +526,9 @@ public class MainUI extends javax.swing.JFrame {
         assemblers_label2.setText("Assemblers");
         ConfigTab.add(assemblers_label2, new org.netbeans.lib.awtextra.AbsoluteConstraints(720, 440, 80, 30));
 
-        assemblersMase.setModel(new javax.swing.SpinnerNumberModel(1, 1, 12, 1));
+        assemblersMase.setFont(new java.awt.Font("Microsoft YaHei", 1, 12)); // NOI18N
+        assemblersMase.setModel(new javax.swing.SpinnerNumberModel(1, 1, 5, 1));
         ConfigTab.add(assemblersMase, new org.netbeans.lib.awtextra.AbsoluteConstraints(820, 440, -1, 30));
-
-        jButton1.setText("Start");
-        ConfigTab.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 340, -1, -1));
-
-        jButton2.setText("Resume");
-        ConfigTab.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 340, -1, -1));
-
-        jButton3.setText("Stop");
-        ConfigTab.add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 340, -1, -1));
 
         jTabbedPane1.addTab("Configuration", ConfigTab);
 
@@ -1175,9 +1183,92 @@ public class MainUI extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void addProductActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addProductActionPerformed
-     
-    }//GEN-LAST:event_addProductActionPerformed
+    private void setConfigurationActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_setConfigurationActionPerformed
+        String configString = "General\ndayDuration\n";
+        boolean pass = true;
+        
+        try{
+            int dayDuration = Integer.parseInt(dayDurationInput.getText()) * 1000;
+            int deliveryDays = Integer.parseInt(deliveryDaysInput.getText());
+            
+            configString += Integer.toString(dayDuration) + "\ndeliveryDays\n" + Integer.toString(deliveryDays) + "\n";
+    
+        } catch(Exception e) {
+            JOptionPane.showMessageDialog(null, "You have to enter a number");
+            pass = false;
+        }
+        
+        if (pass) {
+            try {
+                //Lamborghini
+                configString += "\nLamborghini\nchasis\n";
+
+                Integer chasisL = (Integer) chasisWorkersLamb.getValue();
+                configString += chasisL.toString() + "\nbody\n";
+
+                Integer bodyL = (Integer) bodyWorkersLamb.getValue();
+                configString += bodyL + "\nmotor\n";
+
+                Integer motorL = (Integer) motorWorkersLamb.getValue();
+                configString += motorL + "\nwheel\n";
+
+                Integer wheelL = (Integer) wheelWorkersLamb.getValue();
+                configString += wheelL + "\naccessory\n";
+
+                Integer accessoryL = (Integer) accesoryWorkersLamb.getValue();
+                configString += accessoryL + "\nassembler\n";
+
+                Integer assemblerL = (Integer) assemblersLamb.getValue();
+                configString += assemblerL + "\n";
+
+                int sumL = chasisL + bodyL + motorL + wheelL + accessoryL + assemblerL;
+
+                //Maserati
+                configString += "\nMaserati\nchasis\n";
+
+                Integer chasisM = (Integer) chasisWorkersMase.getValue();
+                configString += chasisM.toString() + "\nbody\n";
+
+                Integer bodyM = (Integer) bodyWorkersMase.getValue();
+                configString += bodyM + "\nmotor\n";
+
+                Integer motorM = (Integer) motorWorkersMase.getValue();
+                configString += motorM + "\nwheel\n";
+
+                Integer wheelM = (Integer) wheelWorkersMase.getValue();
+                configString += wheelM + "\naccessory\n";
+
+                Integer accessoryM = (Integer) accesoryWorkersMase.getValue();
+                configString += accessoryM + "\nassembler\n";
+
+                Integer assemblerM = (Integer) assemblersMase.getValue();
+                configString += assemblerM;
+
+                System.out.println(configString);
+                int sumM = chasisM + bodyM + motorM + wheelM + accessoryM + assemblerM;
+
+
+                if ((sumL > 18) || (sumM > 10)) {
+                    throw new Exception(); 
+                }
+                
+                ReadFile file = new ReadFile();
+                file.printTxt(configString);
+
+                String newConfig = file.readTxt();
+                file.readConfig(newConfig, config);
+
+            } catch(Exception e) {
+
+                JOptionPane.showMessageDialog(null, "Enter correct amounts of workers. The maximum capacity of Lamborghini is 18 workers and for Maserati is 10 workers" + e);
+            }
+        }
+        
+        
+        
+        
+        
+    }//GEN-LAST:event_setConfigurationActionPerformed
                              
 
     private void startMActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_startMActionPerformed
@@ -1189,8 +1280,6 @@ public class MainUI extends javax.swing.JFrame {
             counterM++;
             MaseratiPlant = new VehiclePlant("Maserati", this, config); 
             System.out.println(config.getDayDuration());
-            
-            MaseratiQtys(Integer.toString(MaseratiPlant.getChasisWorkers()), Integer.toString(MaseratiPlant.getBodyWorkers()), Integer.toString(MaseratiPlant.getMotorWorkers()), Integer.toString(MaseratiPlant.getWheelWorkers()), Integer.toString(MaseratiPlant.getAccessoryWorkers()), Integer.toString(MaseratiPlant.getAssemblers()));
             
             MaseratiPlant.initializeWorkers();
         
@@ -1291,7 +1380,6 @@ public class MainUI extends javax.swing.JFrame {
     private javax.swing.JLabel accessoryWorkersM;
     private javax.swing.JLabel accessory_label;
     private javax.swing.JLabel accessory_label1;
-    private javax.swing.JButton addProduct;
     private javax.swing.JLabel assembled_labelM;
     private javax.swing.JLabel assembled_labelM1;
     private javax.swing.JLabel assembled_labelM2;
@@ -1352,11 +1440,11 @@ public class MainUI extends javax.swing.JFrame {
     private javax.swing.JLabel costsL;
     private javax.swing.JLabel costsM;
     private javax.swing.JTextPane dayDurationInput;
-    private javax.swing.JTextPane dayDurationInput1;
     private javax.swing.JLabel dayDuration_label;
     private javax.swing.JLabel dayDuration_label1;
     private javax.swing.JLabel daysLeftLLamborghini;
     private javax.swing.JLabel daysLeftM1;
+    private javax.swing.JTextPane deliveryDaysInput;
     private javax.swing.JLabel directorStatusL;
     private javax.swing.JLabel directorStatusM;
     private javax.swing.JLabel directorStatus_label;
@@ -1365,9 +1453,6 @@ public class MainUI extends javax.swing.JFrame {
     private javax.swing.JLabel earningsM;
     private javax.swing.JLabel faultsQtyL;
     private javax.swing.JLabel faultsQtyM1;
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JTabbedPane jTabbedPane1;
@@ -1398,6 +1483,7 @@ public class MainUI extends javax.swing.JFrame {
     private javax.swing.JLabel motor_label1;
     private javax.swing.JButton pauseL;
     private javax.swing.JButton pauseM;
+    private javax.swing.JButton setConfiguration;
     private javax.swing.JLabel standarCarsL;
     private javax.swing.JLabel standarCarsM;
     private javax.swing.JButton startL;
