@@ -120,6 +120,17 @@ public class MainUI extends javax.swing.JFrame {
     public void DaysLeftMaserati(String text){
         DaysLeftMaserati.setText(text);
     }
+    
+    public void managerStatusL(String text){
+        managerStatusL.setText(text);
+    }
+    
+    
+            
+    public void managerStatusM1(String text){
+        managerStatusM1.setText(text);
+    }        
+            
     /**
      * Creates new form MainUI
      */
@@ -1283,7 +1294,7 @@ public class MainUI extends javax.swing.JFrame {
             MaseratiPlant = new VehiclePlant("Maserati", this, config); 
             
             
-            MaseratiPlant.initializeWorkers();
+           
         
        // }
     }//GEN-LAST:event_startMActionPerformed

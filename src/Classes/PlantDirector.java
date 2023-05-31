@@ -5,7 +5,7 @@
  */
 package Classes;
 
-import static Classes.OperationsManager.daysLeft;
+
 import UserInterface.MainUI;
 import static UserInterface.MainUI.config;
 import static java.lang.Thread.sleep;
@@ -76,7 +76,7 @@ public class PlantDirector extends Thread {
                 
                 }else{
                 
-                this.userInterface.DaysLeftMaserati(Integer.toString(daysLeft));
+                this.userInterface.DaysLeftMaserati(Integer.toString(this.dias));
                 this.userInterface.MaseEarnings("$" + Long.toString(warehouse.getTotalEarnings()));
                 
                 manager.resetdays();

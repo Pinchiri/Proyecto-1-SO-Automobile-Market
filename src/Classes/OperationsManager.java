@@ -18,18 +18,22 @@ public class OperationsManager extends Thread {
     private float salary;
     private boolean idle;
     private int sixteenHours;
-    public static int daysLeft;
+    public int daysLeft;
     private float accSalary;
     private int dayDurationInMs;
     private VehiclePlant plant;
     private MainUI userInterface;
     private int dayduration;
     private String nameplant;
+    public float acummulatedTime = 0;
 
     public OperationsManager(float salary, int daysLeft, VehiclePlant plant, MainUI userInterface,int dayduration,String nameplant) {
         this.salary = salary;
         this.sixteenHours = 16;
         this.idle = false;
+        
+        
+        
         this.daysLeft = daysLeft;
         this.accSalary = 0;
         this.plant = plant;
@@ -48,16 +52,60 @@ public class OperationsManager extends Thread {
             try {
             
            // this.userInterface.lambCosts(Long.toString(calculateCosts()));
-            Thread.sleep(dayduration);
+           acummulatedTime = 0;
+           
+           
+           
+           while (acummulatedTime < (this.dayduration*0.67)) {
+          
+         if(nameplant.equals("Lamborghini")){      
+            if (idle) {
+                acummulatedTime += dayduration*0.0208;
+                idle = false;
+                Thread.sleep((long) (dayduration*0.0208));
+                userInterface.managerStatusL("Watching Formula 1");
+                
+            } else {
+                acummulatedTime += dayduration*0.0208;
+                idle = true; 
+                Thread.sleep((long) (dayduration*0.0208));
+                userInterface.managerStatusL("Working accountability");
+                
+            }
+           
+                
+         }else {
+             if (idle) {
+                acummulatedTime += dayduration*0.0208;
+                idle = false;
+                Thread.sleep((long) (dayduration*0.0208));
+                userInterface.managerStatusM1("Watching Formula 1");
+                
+            } else {
+                acummulatedTime += dayduration*0.0208;
+                idle = true; 
+                Thread.sleep((long) (dayduration*0.0208));
+                userInterface.managerStatusM1("Working accountability");
+                
+            }
+           
+         }            
+          
+      }
+           
+            
+            
             
             this.daysLeft--;
             
             if(nameplant.equals("Lamborghini")){
-                this.userInterface.daysLeftLamborghini(Integer.toString(daysLeft));
+                this.userInterface.daysLeftLamborghini(Integer.toString(this.daysLeft));
+                userInterface.managerStatusL("Changing days"); 
             }else{
-                this.userInterface.DaysLeftMaserati(Integer.toString(daysLeft));
+                this.userInterface.DaysLeftMaserati(Integer.toString(this.daysLeft));
+                userInterface.managerStatusM1("Changing days");
             }
-            
+            Thread.sleep((long) (this.dayduration*0.33));
            
             
             } catch (InterruptedException ex) {

@@ -78,10 +78,26 @@ public class VehiclePlant {
         
         int arrayIndex = 0;
         
-        OperationsManager manager = new OperationsManager(20, config.getDeliveryDays(), this, this.userInterface,config.getDayDuration(),this.name);
-        PlantDirector director = new PlantDirector(30,config.getDayDuration(),this,this.userInterface,manager,this.warehouse,this.name);
-        manager.start();
-        director.start();
+        if(this.name.equals("Lamborghini")){
+            OperationsManager lamborghiniManager = new OperationsManager(20, config.getDeliveryDays(), this, this.userInterface, config.getDayDuration(), this.name);
+            lamborghiniManager.start();
+            
+            PlantDirector director = new PlantDirector(30,config.getDayDuration(),this,this.userInterface,lamborghiniManager,this.warehouse,this.name);
+       
+            director.start();
+            
+        }else {
+            OperationsManager maseratiManager = new OperationsManager(20, config.getDeliveryDays(), this, this.userInterface, config.getDayDuration(), this.name);
+            maseratiManager.start();
+            
+            PlantDirector director = new PlantDirector(30,config.getDayDuration(),this,this.userInterface, maseratiManager,this.warehouse,this.name);
+       
+            director.start();
+            
+        }
+        
+       
+        
         
 
         //Chasis workers
