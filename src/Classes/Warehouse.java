@@ -112,7 +112,7 @@ public class Warehouse {
                                 contador = 0;
                                 this.carWithAccesory++;
                                 totalEarnings += 700000;
-                                userInterface.MaseEarnings("$" + Long.toString(getTotalEarnings()));
+                           
                                 
                                 System.out.println("especial");
                                 this.userInterface.MaseAC(Integer.toString(this.carWithAccesory));
@@ -129,7 +129,7 @@ public class Warehouse {
                                 contador++;
                                 this.carStandard++;
                                 totalEarnings += 350000;
-                                userInterface.MaseEarnings("$" + Long.toString(getTotalEarnings()));
+                              
                                 
                                 this.userInterface.MaseSC(Integer.toString(this.carStandard));
                                 

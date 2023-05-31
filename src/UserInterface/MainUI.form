@@ -589,9 +589,6 @@
               <SubComponents>
                 <Component class="javax.swing.JTextPane" name="dayDurationInput">
                   <Properties>
-                    <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                      <Color blue="ff" green="ff" red="ff" type="rgb"/>
-                    </Property>
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                       <Font name="Microsoft YaHei" size="12" style="0"/>
                     </Property>
@@ -636,9 +633,6 @@
               <SubComponents>
                 <Component class="javax.swing.JTextPane" name="deliveryDaysInput">
                   <Properties>
-                    <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                      <Color blue="ff" green="ff" red="ff" type="rgb"/>
-                    </Property>
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                       <Font name="Microsoft YaHei" size="12" style="0"/>
                     </Property>
@@ -2571,7 +2565,7 @@
                 </Constraint>
               </Constraints>
             </Component>
-            <Component class="javax.swing.JLabel" name="daysLeftM1">
+            <Component class="javax.swing.JLabel" name="DaysLeftMaserati">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Microsoft YaHei" size="24" style="1"/>

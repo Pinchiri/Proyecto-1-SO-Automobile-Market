@@ -116,6 +116,10 @@ public class MainUI extends javax.swing.JFrame {
     public void daysLeftLamborghini(String text){
       daysLeftLLamborghini.setText(text);
     }
+    
+    public void DaysLeftMaserati(String text){
+        DaysLeftMaserati.setText(text);
+    }
     /**
      * Creates new form MainUI
      */
@@ -294,7 +298,7 @@ public class MainUI extends javax.swing.JFrame {
         accesoryCarsM = new javax.swing.JLabel();
         standarCarsM = new javax.swing.JLabel();
         assembled_labelM1 = new javax.swing.JLabel();
-        daysLeftM1 = new javax.swing.JLabel();
+        DaysLeftMaserati = new javax.swing.JLabel();
         assembled_labelM2 = new javax.swing.JLabel();
         costsM = new javax.swing.JLabel();
         assembled_labelM3 = new javax.swing.JLabel();
@@ -480,7 +484,6 @@ public class MainUI extends javax.swing.JFrame {
         chasis_label4.setText("MAXIMUM 18 WORKERS");
         ConfigTab.add(chasis_label4, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 150, 180, 30));
 
-        dayDurationInput.setBackground(new java.awt.Color(255, 255, 255));
         dayDurationInput.setFont(new java.awt.Font("Microsoft YaHei", 0, 12)); // NOI18N
         dayDurationInput.setForeground(new java.awt.Color(51, 51, 51));
         jScrollPane1.setViewportView(dayDurationInput);
@@ -494,7 +497,6 @@ public class MainUI extends javax.swing.JFrame {
         chasis_label5.setText("Chasis Workers");
         ConfigTab.add(chasis_label5, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 190, 110, 30));
 
-        deliveryDaysInput.setBackground(new java.awt.Color(255, 255, 255));
         deliveryDaysInput.setFont(new java.awt.Font("Microsoft YaHei", 0, 12)); // NOI18N
         deliveryDaysInput.setForeground(new java.awt.Color(51, 51, 51));
         jScrollPane2.setViewportView(deliveryDaysInput);
@@ -1151,10 +1153,10 @@ public class MainUI extends javax.swing.JFrame {
         assembled_labelM1.setText("CARS ASSEMBLED");
         MaseratiTab.add(assembled_labelM1, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 310, 240, 40));
 
-        daysLeftM1.setFont(new java.awt.Font("Microsoft YaHei", 1, 24)); // NOI18N
-        daysLeftM1.setForeground(new java.awt.Color(255, 255, 153));
-        daysLeftM1.setText("0");
-        MaseratiTab.add(daysLeftM1, new org.netbeans.lib.awtextra.AbsoluteConstraints(780, 360, 50, 40));
+        DaysLeftMaserati.setFont(new java.awt.Font("Microsoft YaHei", 1, 24)); // NOI18N
+        DaysLeftMaserati.setForeground(new java.awt.Color(255, 255, 153));
+        DaysLeftMaserati.setText("0");
+        MaseratiTab.add(DaysLeftMaserati, new org.netbeans.lib.awtextra.AbsoluteConstraints(780, 360, 50, 40));
 
         assembled_labelM2.setFont(new java.awt.Font("Microsoft YaHei", 1, 24)); // NOI18N
         assembled_labelM2.setForeground(new java.awt.Color(255, 255, 153));
@@ -1272,18 +1274,18 @@ public class MainUI extends javax.swing.JFrame {
                              
 
     private void startMActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_startMActionPerformed
-        if(counterM > 0){
+    /*    if(counterM > 0){
             LamborghiniWheels.setText("0");
             MaseratiPlant.StopWorker();
         }
         else {
-            counterM++;
+            counterM++; */
             MaseratiPlant = new VehiclePlant("Maserati", this, config); 
-            System.out.println(config.getDayDuration());
+            
             
             MaseratiPlant.initializeWorkers();
         
-        }
+       // }
     }//GEN-LAST:event_startMActionPerformed
 
     private void stopMActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_stopMActionPerformed
@@ -1357,6 +1359,7 @@ public class MainUI extends javax.swing.JFrame {
     private javax.swing.JPanel ConfigTab;
     private javax.swing.JLabel Config_label;
     private javax.swing.JLabel DayLeftLamborghini1;
+    private javax.swing.JLabel DaysLeftMaserati;
     private javax.swing.JLabel General_label;
     private javax.swing.JLabel L_label;
     private javax.swing.JLabel Lambog_label;
@@ -1443,7 +1446,6 @@ public class MainUI extends javax.swing.JFrame {
     private javax.swing.JLabel dayDuration_label;
     private javax.swing.JLabel dayDuration_label1;
     private javax.swing.JLabel daysLeftLLamborghini;
-    private javax.swing.JLabel daysLeftM1;
     private javax.swing.JTextPane deliveryDaysInput;
     private javax.swing.JLabel directorStatusL;
     private javax.swing.JLabel directorStatusM;

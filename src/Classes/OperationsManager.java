@@ -24,9 +24,9 @@ public class OperationsManager extends Thread {
     private VehiclePlant plant;
     private MainUI userInterface;
     private int dayduration;
-    private String nameplant
+    private String nameplant;
 
-    public OperationsManager(float salary, int daysLeft, VehiclePlant plant, MainUI userInterface,int dayduration,String nameplat) {
+    public OperationsManager(float salary, int daysLeft, VehiclePlant plant, MainUI userInterface,int dayduration,String nameplant) {
         this.salary = salary;
         this.sixteenHours = 16;
         this.idle = false;
@@ -42,6 +42,7 @@ public class OperationsManager extends Thread {
     @Override
     public void run(){
         
+        
      
         while (true) {
             try {
@@ -51,11 +52,13 @@ public class OperationsManager extends Thread {
             
             this.daysLeft--;
             
-            if(this.nameplant.equals("Lamborghini")){
+            if(nameplant.equals("Lamborghini")){
                 this.userInterface.daysLeftLamborghini(Integer.toString(daysLeft));
+            }else{
+                this.userInterface.DaysLeftMaserati(Integer.toString(daysLeft));
             }
             
-            this.userInterface.daysLeftLamborghini(Integer.toString(daysLeft));
+           
             
             } catch (InterruptedException ex) {
                 Logger.getLogger(OperationsManager.class.getName()).log(Level.SEVERE, null, ex);
@@ -73,6 +76,11 @@ public class OperationsManager extends Thread {
             totalCosts += plant.getWorkers()[i].getAccSalary();
         }
         return totalCosts;
+    }
+    
+    public void resetdays(){
+        
+       daysLeft = 30;
     }
     
     //Getters and Setters

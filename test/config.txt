@@ -1,14 +1,14 @@
 General
 dayDuration
-1000
+2000
 deliveryDays
-30
+15
 
 Lamborghini
 chasis
-1
+2
 body
-1
+2
 motor
 1
 wheel
@@ -20,11 +20,11 @@ assembler
 
 Maserati
 chasis
-1
+2
 body
-1
+2
 motor
-1
+2
 wheel
 1
 accessory

@@ -5,6 +5,7 @@
  */
 package Classes;
 
+import static Classes.OperationsManager.daysLeft;
 import UserInterface.MainUI;
 import static UserInterface.MainUI.config;
 import static java.lang.Thread.sleep;
@@ -27,14 +28,16 @@ public class PlantDirector extends Thread {
     private int daydurantion;
     private boolean pausar = false;
     private int dias = 0;
+    private String nameplant;
     
-    public PlantDirector(float salary, int dayduration, VehiclePlant plant, MainUI userInterface,OperationsManager manager, Warehouse warehouse) {
+    public PlantDirector(float salary, int dayduration, VehiclePlant plant, MainUI userInterface,OperationsManager manager, Warehouse warehouse, String nameplant) {
         this.salary = salary;
         this.daydurantion = dayduration;
         this.accSalary = 0;
         this.manager = manager;
         this.userInterface = userInterface;
         this.warehouse = warehouse;
+        this.nameplant = nameplant;
         
         
        }
@@ -55,14 +58,32 @@ public class PlantDirector extends Thread {
             }  
             
             Thread.sleep(daydurantion);
+            System.out.println(daydurantion);
             
             if(this.manager.daysLeft == 0){
           
                 this.dias = config.getDeliveryDays();
                 System.out.println(this.dias);
+                
+                
+            
+                if(nameplant.equals("Lamborghini")){
+                
                 this.userInterface.daysLeftLamborghini(Integer.toString(this.dias));
                 this.userInterface.lambEarnings("$" + Long.toString(warehouse.getTotalEarnings()));
-            }else{
+                
+                manager.resetdays();
+                
+                }else{
+                
+                this.userInterface.DaysLeftMaserati(Integer.toString(daysLeft));
+                this.userInterface.MaseEarnings("$" + Long.toString(warehouse.getTotalEarnings()));
+                
+                manager.resetdays();
+                
+                    
+                    
+                }
                 /* 
                 
                 Codigo para revisar el project manager
