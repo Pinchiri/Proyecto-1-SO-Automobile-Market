@@ -52,7 +52,6 @@ public class Worker extends Thread{
             }     
                  
              payCheck();
-             sleep(1000);
              produceForTheDay();
 //             System.out.println(this.accSalary);
                  
@@ -60,9 +59,9 @@ public class Worker extends Thread{
             sleep(this.dayDurationInMs);
               
             
-        } catch (InterruptedException ex) {
-            Logger.getLogger(Worker.class.getName()).log(Level.SEVERE, null, ex);
-        }
+            } catch (InterruptedException ex) {
+                Logger.getLogger(Worker.class.getName()).log(Level.SEVERE, null, ex);
+            }
         }
           
     }
@@ -90,7 +89,7 @@ public class Worker extends Thread{
                 plant.mutex.acquire();
                 plant.warehouse.updateStorage(this.type, (int) this.productionCounter );
                 plant.mutex.release();
-                Thread.sleep(dayDurationInMs);
+//                Thread.sleep(dayDurationInMs);
                 
                 
             } catch (InterruptedException ex) {
@@ -104,7 +103,30 @@ public class Worker extends Thread{
             
         } 
     }
-    
+
+    public float getSalary() {
+        return salary;
+    }
+
+    public void setSalary(float salary) {
+        this.salary = salary;
+    }
+
+    public float getAccSalary() {
+        return accSalary;
+    }
+
+    public void setAccSalary(float accSalary) {
+        this.accSalary = accSalary;
+    }
+
+    public String getType() {
+        return type;
+    }
+
+    public void setType(String type) {
+        this.type = type;
+    }
     
     
 }

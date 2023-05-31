@@ -14,6 +14,7 @@ public class MainUI extends javax.swing.JFrame {
     
     public static VehiclePlant MaseratiPlant;
     public static VehiclePlant LamborghiniPlant;
+    public static Config config;
     public int counterL = 0;
     public int counterM = 0;
 
@@ -115,17 +116,15 @@ public class MainUI extends javax.swing.JFrame {
     public MainUI() {
         initComponents();
 
-        
-        MaseratiPlant = new VehiclePlant("Ferrari",1,this);
-
         setVisible(true);
         setLocationRelativeTo(null);
         
-        Config config = new Config();
+        config = new Config();
         
         ReadFile nfile = new ReadFile();
         String txt = nfile.readTxt();
         nfile.readConfig(txt, config);
+        System.out.println(config.getDayDuration());
 
     }
 
@@ -1182,7 +1181,8 @@ public class MainUI extends javax.swing.JFrame {
         }
         else {
             counterM++;
-            MaseratiPlant = new VehiclePlant("Maserati", 1, this); 
+            MaseratiPlant = new VehiclePlant("Maserati", this, config); 
+            System.out.println(config.getDayDuration());
             
             MaseratiQtys(Integer.toString(MaseratiPlant.getChasisWorkers()), Integer.toString(MaseratiPlant.getBodyWorkers()), Integer.toString(MaseratiPlant.getMotorWorkers()), Integer.toString(MaseratiPlant.getWheelWorkers()), Integer.toString(MaseratiPlant.getAccessoryWorkers()), Integer.toString(MaseratiPlant.getAssemblers()));
             
@@ -1207,11 +1207,11 @@ public class MainUI extends javax.swing.JFrame {
         }
         else {
             counterL++;
-            LamborghiniPlant = new VehiclePlant("Lamborghini", 1, this); 
-            
+            LamborghiniPlant = new VehiclePlant("Lamborghini", this, config);
+                       
             LamborghiniQtys(Integer.toString(LamborghiniPlant.getChasisWorkers()), Integer.toString(LamborghiniPlant.getBodyWorkers()), Integer.toString(LamborghiniPlant.getMotorWorkers()), Integer.toString(LamborghiniPlant.getWheelWorkers()), Integer.toString(LamborghiniPlant.getAccessoryWorkers()), Integer.toString(LamborghiniPlant.getAssemblers()));
             
-            LamborghiniPlant.initializeWorkers();
+//            LamborghiniPlant.initializeWorkers();
         
         }
     }//GEN-LAST:event_startLActionPerformed
