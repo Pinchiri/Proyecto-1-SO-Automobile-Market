@@ -41,9 +41,10 @@ public class VehiclePlant {
         this.name = name;
         this.dayDurationInMs = dayDuration;
 
-        this.warehouse = new Warehouse(name, 25, 20, 55, 35, 10, userInterface);
+        this.warehouse = new Warehouse(name,25, 20, 55, 35, 10, userInterface);
         this.mutex = new Semaphore(1);
         this.userInterface = userInterface;
+
         
         if (getName().equals("Lamborghini")) {
             this.maxWorkerQty = 18;
@@ -60,11 +61,6 @@ public class VehiclePlant {
         this.bodyWorkers = 1;
         this.motorWorkers = 1;
         this.wheelWorkers = 1;
- 
-        this.warehouse = new Warehouse(name,25, 20, 55, 35, 10, userInterface);
-        this.mutex = new Semaphore(1);
-        this.userInterface = userInterface;
-        
 
         this.accessoryWorkers = 1;
         this.assemblers = 1;
@@ -75,15 +71,20 @@ public class VehiclePlant {
     
     public void initializeWorkers(){
         
- 
-        
         int arrayIndex = 0;
+
         //Chasis workers
         for (int i = 0; i < getChasisWorkers(); i++) {
             if (getName().equals("Lamborghini")) {
                 Worker worker = new Worker(0.25f, 20, getDayDurationInMs(), "chasis",this);
+                worker.start();
+                workers[arrayIndex] = worker;
+                arrayIndex++;
             } else {
                 Worker worker = new Worker(0.5f, 20, getDayDurationInMs(), "chasis",this);
+                worker.start();
+                workers[arrayIndex] = worker;
+                arrayIndex++;
             }
         }
         
@@ -95,22 +96,24 @@ public class VehiclePlant {
             arrayIndex++;
         }
         
+       
         
         //Car Body Workers
         for (int i = 0; i <= getBodyWorkers(); i++) {
             if (getName().equals("Lamborghini")) {
-                Worker worker = new Worker(0.25f, 20, getDayDurationInMs(), "chasis",this);
+                Worker worker = new Worker(0.25f, 20, getDayDurationInMs(), "carBody",this);
+
                 worker.start();
                 workers[arrayIndex] = worker;
                 arrayIndex++;
             } else {
-                Worker worker = new Worker(0.5f, 20, getDayDurationInMs(), "chasis",this);
+                Worker worker = new Worker(0.5f, 20, getDayDurationInMs(), "carBody",this);
+
                 worker.start();
                 workers[arrayIndex] = worker;
                 arrayIndex++;
             }
   
-            
         }
         
         
@@ -118,12 +121,15 @@ public class VehiclePlant {
         for (int i = 0; i < getMotorWorkers(); i++) {
 
             if (getName().equals("Lamborghini")) {
-                Worker worker = new Worker(1f, 20, getDayDurationInMs(), "chasis",this);
+                Worker worker = new Worker(1f, 20, getDayDurationInMs(), "motors",this);
+
                 worker.start();
                 workers[arrayIndex] = worker;
                 arrayIndex++;
             } else {
-                Worker worker = new Worker(3f, 20, getDayDurationInMs(), "chasis",this);
+
+                Worker worker = new Worker(3f, 20, getDayDurationInMs(), "motors",this);
+
                 worker.start();
                 workers[arrayIndex] = worker;
                 arrayIndex++;
@@ -135,12 +141,16 @@ public class VehiclePlant {
         //Wheel Workers
         for (int i = 0; i < getWheelWorkers(); i++) {
             if (getName().equals("Lamborghini")) {
-                Worker worker = new Worker(5f, 20, getDayDurationInMs(), "chasis",this);
+
+                Worker worker = new Worker(5f, 20, getDayDurationInMs(), "wheel",this);
+
                 worker.start();
                 workers[arrayIndex] = worker;
                 arrayIndex++;
             } else {
-                Worker worker = new Worker(3f, 20, getDayDurationInMs(), "chasis",this);
+
+                Worker worker = new Worker(3f, 20, getDayDurationInMs(), "wheel",this);
+
                 worker.start();
                 workers[arrayIndex] = worker;
                 arrayIndex++;
@@ -152,24 +162,40 @@ public class VehiclePlant {
         //Accesory Workers
         for (int i = 0; i < getAccessoryWorkers(); i++) {
             if (getName().equals("Lamborghini")) {
-                Worker worker = new Worker(0.5f, 20, getDayDurationInMs(), "chasis",this);
+
+                Worker worker = new Worker(0.5f, 20, getDayDurationInMs(), "accesory",this);
+
                 worker.start();
                 workers[arrayIndex] = worker;
                 arrayIndex++;
             } else {
-                Worker worker = new Worker(0.34f, 20, getDayDurationInMs(), "chasis",this);
+
+                Worker worker = new Worker(0.34f, 20, getDayDurationInMs(), "accesory",this);
+
+                worker.start();
+                workers[arrayIndex] = worker;
+                arrayIndex++;
+            }  
+        }
+        
+        for (int i = 0; i < getAssemblers() ; i++) {
+            if (getName().equals("Lamborghini")) {
+                Worker worker = new Worker(0.5f, 20, getDayDurationInMs(), "assembler",this);
+                worker.start();
+                workers[arrayIndex] = worker;
+                arrayIndex++;
+            } else {
+                Worker worker = new Worker(0.34f, 20, getDayDurationInMs(), "assembler",this);
                 worker.start();
                 workers[arrayIndex] = worker;
                 arrayIndex++;
             }
-            
-            
         }
-
+  
     }
     
     
-   
+ 
     
     public void ResumeWorker(){
        

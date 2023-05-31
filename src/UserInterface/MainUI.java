@@ -855,6 +855,8 @@ public class MainUI extends javax.swing.JFrame {
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
         // TODO add your handling code here:
 
+        LamborghiniPlant = new VehiclePlant("Lamborgini",1,this); 
+
         if(contador > 0){
             LamborghiniWheels.setText("0");
             LamborghiniPlant.StopWorker();
@@ -867,22 +869,9 @@ public class MainUI extends javax.swing.JFrame {
         
         }
         
-        
-        
     }//GEN-LAST:event_jButton5ActionPerformed
+                             
 
- 
-    private void startMActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_startMActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_startMActionPerformed
-
-    private void stopMActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_stopMActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_stopMActionPerformed
-
-    private void pauseMActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pauseMActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_pauseMActionPerformed
     private void jTextField2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField2ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextField2ActionPerformed
@@ -922,6 +911,19 @@ public class MainUI extends javax.swing.JFrame {
     private void LamborghiniAssemblerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_LamborghiniAssemblerActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_LamborghiniAssemblerActionPerformed
+
+    private void startMActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_startMActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_startMActionPerformed
+
+    private void stopMActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_stopMActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_stopMActionPerformed
+
+    private void pauseMActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pauseMActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_pauseMActionPerformed
+
 
     /**
      * @param args the command line arguments
@@ -1059,6 +1061,11 @@ public class MainUI extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JTabbedPane jTabbedPane1;
     private javax.swing.JTextField jTextField1;
+    private javax.swing.JTextField jTextField2;
+    private javax.swing.JTextField jTextField3;
+    private javax.swing.JTextField jTextField4;
+    private javax.swing.JTextField jTextField5;
+    private javax.swing.JTextField jTextField6;
     private javax.swing.JLabel managerSalaryDiscountM;
     private javax.swing.JLabel managerStatusM1;
     private javax.swing.JLabel managerStatus_label;
@@ -1069,11 +1076,6 @@ public class MainUI extends javax.swing.JFrame {
     private javax.swing.JLabel maxChaM;
     private javax.swing.JLabel maxMotM;
     private javax.swing.JLabel motorPartsM;
-    private javax.swing.JTextField jTextField2;
-    private javax.swing.JTextField jTextField3;
-    private javax.swing.JTextField jTextField4;
-    private javax.swing.JTextField jTextField5;
-    private javax.swing.JTextField jTextField6;
     private javax.swing.JSpinner motorWorkersLamb;
     private javax.swing.JLabel motorWorkersM1;
     private javax.swing.JSpinner motorWorkersMase;
