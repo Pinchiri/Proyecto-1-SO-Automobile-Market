@@ -18,7 +18,7 @@ public class OperationsManager extends Thread {
     private float salary;
     private boolean idle;
     private int sixteenHours;
-    private int daysLeft;
+    public static int daysLeft;
     private float accSalary;
     private int dayDurationInMs;
     private VehiclePlant plant;
@@ -36,17 +36,14 @@ public class OperationsManager extends Thread {
     @Override
     public void run(){
         
-        try {
-            sleep(1000);
-        } catch (InterruptedException ex) {
-            Logger.getLogger(Worker.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        
+     
         while (true) {
             try {
             
             this.userInterface.lambCosts(Long.toString(calculateCosts()));
             sleep(getDayDurationInMs());
+            
+            this.daysLeft--;
             
             
             } catch (InterruptedException ex) {

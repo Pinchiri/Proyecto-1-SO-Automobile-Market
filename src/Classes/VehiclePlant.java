@@ -153,6 +153,7 @@ public class VehiclePlant {
             
             //Operations Manager
             OperationsManager manager = new OperationsManager(20, config.getDeliveryDays(), this, this.userInterface);
+            PlantDirector director = new PlantDirector(30,config.getDayDuration(),this,this.userInterface,manager,this.warehouse);
             
         }
         
