@@ -110,6 +110,12 @@ public class MainUI extends javax.swing.JFrame {
     public void MaseAC(String text) {
         accesoryCarsM.setText(text);
     }
+    
+   
+    
+    public void daysLeftLamborghini(String text){
+      daysLeftLLamborghini.setText(text);
+    }
     /**
      * Creates new form MainUI
      */
@@ -208,13 +214,13 @@ public class MainUI extends javax.swing.JFrame {
         managerStatus_label5 = new javax.swing.JLabel();
         managerStatusL = new javax.swing.JLabel();
         wm_label7 = new javax.swing.JLabel();
-        wm_label8 = new javax.swing.JLabel();
+        DayLeftLamborghini1 = new javax.swing.JLabel();
         chas19 = new javax.swing.JLabel();
         chas20 = new javax.swing.JLabel();
         accesoryCarsL = new javax.swing.JLabel();
         standarCarsL = new javax.swing.JLabel();
         assembled_labelM4 = new javax.swing.JLabel();
-        daysLeftL = new javax.swing.JLabel();
+        daysLeftLLamborghini = new javax.swing.JLabel();
         chas21 = new javax.swing.JLabel();
         LamborghiniMotor = new javax.swing.JLabel();
         chas22 = new javax.swing.JLabel();
@@ -687,10 +693,10 @@ public class MainUI extends javax.swing.JFrame {
         wm_label7.setText("MANAGER");
         LamborghiniTab.add(wm_label7, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 120, 150, 40));
 
-        wm_label8.setFont(new java.awt.Font("Microsoft YaHei", 1, 24)); // NOI18N
-        wm_label8.setForeground(new java.awt.Color(255, 255, 153));
-        wm_label8.setText("DAYS LEFT:");
-        LamborghiniTab.add(wm_label8, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 360, 150, 40));
+        DayLeftLamborghini1.setFont(new java.awt.Font("Microsoft YaHei", 1, 24)); // NOI18N
+        DayLeftLamborghini1.setForeground(new java.awt.Color(255, 255, 153));
+        DayLeftLamborghini1.setText("DAYS LEFT:");
+        LamborghiniTab.add(DayLeftLamborghini1, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 360, 150, 40));
 
         chas19.setFont(new java.awt.Font("Microsoft YaHei", 1, 18)); // NOI18N
         chas19.setForeground(new java.awt.Color(255, 255, 255));
@@ -719,10 +725,10 @@ public class MainUI extends javax.swing.JFrame {
         assembled_labelM4.setText("CARS ASSEMBLED");
         LamborghiniTab.add(assembled_labelM4, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 310, 240, 40));
 
-        daysLeftL.setFont(new java.awt.Font("Microsoft YaHei", 1, 24)); // NOI18N
-        daysLeftL.setForeground(new java.awt.Color(255, 255, 153));
-        daysLeftL.setText("0");
-        LamborghiniTab.add(daysLeftL, new org.netbeans.lib.awtextra.AbsoluteConstraints(780, 360, 50, 40));
+        daysLeftLLamborghini.setFont(new java.awt.Font("Microsoft YaHei", 1, 24)); // NOI18N
+        daysLeftLLamborghini.setForeground(new java.awt.Color(255, 255, 153));
+        daysLeftLLamborghini.setText("0");
+        LamborghiniTab.add(daysLeftLLamborghini, new org.netbeans.lib.awtextra.AbsoluteConstraints(780, 360, 50, 40));
 
         chas21.setFont(new java.awt.Font("Microsoft YaHei", 1, 18)); // NOI18N
         chas21.setForeground(new java.awt.Color(255, 255, 255));
@@ -1261,6 +1267,7 @@ public class MainUI extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel ConfigTab;
     private javax.swing.JLabel Config_label;
+    private javax.swing.JLabel DayLeftLamborghini1;
     private javax.swing.JLabel General_label;
     private javax.swing.JLabel L_label;
     private javax.swing.JLabel Lambog_label;
@@ -1348,7 +1355,7 @@ public class MainUI extends javax.swing.JFrame {
     private javax.swing.JTextPane dayDurationInput1;
     private javax.swing.JLabel dayDuration_label;
     private javax.swing.JLabel dayDuration_label1;
-    private javax.swing.JLabel daysLeftL;
+    private javax.swing.JLabel daysLeftLLamborghini;
     private javax.swing.JLabel daysLeftM1;
     private javax.swing.JLabel directorStatusL;
     private javax.swing.JLabel directorStatusM;
@@ -1414,7 +1421,8 @@ public class MainUI extends javax.swing.JFrame {
     private javax.swing.JLabel wm_label5;
     private javax.swing.JLabel wm_label6;
     private javax.swing.JLabel wm_label7;
-    private javax.swing.JLabel wm_label8;
     private javax.swing.JLabel wm_label9;
     // End of variables declaration//GEN-END:variables
+
+   
 }

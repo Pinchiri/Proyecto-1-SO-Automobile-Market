@@ -77,6 +77,12 @@ public class VehiclePlant {
     public void initializeWorkers(){
         
         int arrayIndex = 0;
+        
+        OperationsManager manager = new OperationsManager(20, config.getDeliveryDays(), this, this.userInterface,config.getDayDuration(),this.name);
+        PlantDirector director = new PlantDirector(30,config.getDayDuration(),this,this.userInterface,manager,this.warehouse);
+        manager.start();
+        director.start();
+        
 
         //Chasis workers
         for (int i = 0; i < getChasisWorkers(); i++) {
@@ -152,8 +158,7 @@ public class VehiclePlant {
             }
             
             //Operations Manager
-            OperationsManager manager = new OperationsManager(20, config.getDeliveryDays(), this, this.userInterface);
-            PlantDirector director = new PlantDirector(30,config.getDayDuration(),this,this.userInterface,manager,this.warehouse);
+            
             
         }
         

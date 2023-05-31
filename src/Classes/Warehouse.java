@@ -70,10 +70,10 @@ public class Warehouse {
                                 contador = 0;
                                 this.carWithAccesory++;
                                 totalEarnings += 750000;
-                                userInterface.lambEarnings("$" + Long.toString(getTotalEarnings()));
+                                
                                 
                                 System.out.println("especial");
-                                userInterface.LamborghiniAC(Integer.toString(this.carWithAccesory));
+                                this.userInterface.LamborghiniAC(Integer.toString(this.carWithAccesory));
                                 this.carBodyQty = this.carBodyQty - 4;
                                 this.chasisQty = this.chasisQty - 2;
                                 this.motorQty = this.motorQty - 6;
@@ -89,9 +89,9 @@ public class Warehouse {
                                 System.out.println("standard");
                                 this.carStandard++;
                                 totalEarnings += 400000;
-                                userInterface.lambEarnings("$" + Long.toString(getTotalEarnings()));
                                 
-                                userInterface.LamborghiniSC(Integer.toString(this.carStandard));
+                                
+                                this.userInterface.LamborghiniSC(Integer.toString(this.carStandard));
   
                                 this.carBodyQty = this.carBodyQty - 4;
                                 this.chasisQty = this.chasisQty - 2;
@@ -115,7 +115,7 @@ public class Warehouse {
                                 userInterface.MaseEarnings("$" + Long.toString(getTotalEarnings()));
                                 
                                 System.out.println("especial");
-                                userInterface.MaseAC(Integer.toString(this.carWithAccesory));
+                                this.userInterface.MaseAC(Integer.toString(this.carWithAccesory));
                                 this.carBodyQty = this.carBodyQty - 1;
                                 this.chasisQty = this.chasisQty - 1;
                                 this.motorQty = this.motorQty - 2;
@@ -131,7 +131,7 @@ public class Warehouse {
                                 totalEarnings += 350000;
                                 userInterface.MaseEarnings("$" + Long.toString(getTotalEarnings()));
                                 
-                                userInterface.MaseSC(Integer.toString(this.carStandard));
+                                this.userInterface.MaseSC(Integer.toString(this.carStandard));
                                 
                                 this.carBodyQty = this.carBodyQty - 1;
                                 this.chasisQty = this.chasisQty - 1;

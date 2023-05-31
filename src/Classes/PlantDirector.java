@@ -26,7 +26,7 @@ public class PlantDirector extends Thread {
     private Warehouse warehouse;
     private int daydurantion;
     private boolean pausar = false;
-    
+    private int dias = 0;
     
     public PlantDirector(float salary, int dayduration, VehiclePlant plant, MainUI userInterface,OperationsManager manager, Warehouse warehouse) {
         this.salary = salary;
@@ -39,8 +39,10 @@ public class PlantDirector extends Thread {
         
        }
     
-    
-    public void run(){    
+    @Override
+    public void run(){
+        
+        System.out.println("Comenzo director");
      
         while (true) {
              try {
@@ -52,11 +54,14 @@ public class PlantDirector extends Thread {
                 }    
             }  
             
-            sleep(daydurantion);
+            Thread.sleep(daydurantion);
             
-            if(manager.daysLeft == 0){
-                resetdays();
-                this.userInterface.DayLeftLamborghini(Integer.toString(manager.daysLeft));
+            if(this.manager.daysLeft == 0){
+          
+                this.dias = config.getDeliveryDays();
+                System.out.println(this.dias);
+                this.userInterface.daysLeftLamborghini(Integer.toString(this.dias));
+                this.userInterface.lambEarnings("$" + Long.toString(warehouse.getTotalEarnings()));
             }else{
                 /* 
                 
@@ -89,7 +94,5 @@ public class PlantDirector extends Thread {
         this.accSalary += this.salary;
     }
     
-    public void resetdays(){
-        manager.daysLeft = config.getDeliveryDays();
-    }
+    
 }

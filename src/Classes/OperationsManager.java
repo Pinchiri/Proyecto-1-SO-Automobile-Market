@@ -23,14 +23,20 @@ public class OperationsManager extends Thread {
     private int dayDurationInMs;
     private VehiclePlant plant;
     private MainUI userInterface;
+    private int dayduration;
+    private String nameplant
 
-    public OperationsManager(float salary, int daysLeft, VehiclePlant plant, MainUI userInterface) {
+    public OperationsManager(float salary, int daysLeft, VehiclePlant plant, MainUI userInterface,int dayduration,String nameplat) {
         this.salary = salary;
         this.sixteenHours = 16;
         this.idle = false;
         this.daysLeft = daysLeft;
         this.accSalary = 0;
         this.plant = plant;
+        this.userInterface = userInterface;
+        this.dayduration = dayduration;
+        this.nameplant = nameplant;
+        
     }
     
     @Override
@@ -40,11 +46,16 @@ public class OperationsManager extends Thread {
         while (true) {
             try {
             
-            this.userInterface.lambCosts(Long.toString(calculateCosts()));
-            sleep(getDayDurationInMs());
+           // this.userInterface.lambCosts(Long.toString(calculateCosts()));
+            Thread.sleep(dayduration);
             
             this.daysLeft--;
             
+            if(this.nameplant.equals("Lamborghini")){
+                this.userInterface.daysLeftLamborghini(Integer.toString(daysLeft));
+            }
+            
+            this.userInterface.daysLeftLamborghini(Integer.toString(daysLeft));
             
             } catch (InterruptedException ex) {
                 Logger.getLogger(OperationsManager.class.getName()).log(Level.SEVERE, null, ex);
