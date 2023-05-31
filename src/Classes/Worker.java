@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package classes;
+package Classes;
 
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -42,8 +42,6 @@ public class Worker extends Thread{
             Logger.getLogger(Worker.class.getName()).log(Level.SEVERE, null, ex);
         }
         
-        
-        
         while(true) {
              try {
                  
@@ -54,14 +52,13 @@ public class Worker extends Thread{
             }     
                  
              payCheck();
+             sleep(1000);
              produceForTheDay();
 //             System.out.println(this.accSalary);
                  
                  
             sleep(this.dayDurationInMs);
-            
-            
-            
+              
             
         } catch (InterruptedException ex) {
             Logger.getLogger(Worker.class.getName()).log(Level.SEVERE, null, ex);
@@ -78,60 +75,8 @@ public class Worker extends Thread{
     public void reanudar(){
         this.pausar = false;
     }
-  /**  
-    public void createPart() {
-        
-        if( plant.name == "lamborghin") {
+ 
 
-              try {
-
-                 Thread.sleep(4000);
-
-                while(true) {
-
-                 if(plant.mutex.availablePermits()> 0){
-
-                      plant.mutex.acquire();
-
-                      plant.warehouse.updateStorage(this.type, 4 );
-
-                      plant.mutex.release();
-
-                      break;
-                 }
-
-                }
-              }
-              catch (InterruptedException ex) {    
-
-           } 
-
-        }else{
-             try {
-
-                 Thread.sleep(4000);
-
-                while(true) {
-
-                 if(plant.mutex.availablePermits()> 0){
-
-                      plant.mutex.acquire();
-
-                      plant.warehouse.updateStorage(this.type, 2 );
-
-                      plant.mutex.release();
-
-                      break;
-                 }
-                }
-              }
-              catch (InterruptedException ex) {        
-           } 
-        }
-    } 
-    */
-  
-    
     public void payCheck() {
         this.accSalary += this.salary;
     }

@@ -5,34 +5,37 @@
  */
 package UserInterface;
 
+import Classes.Config;
 import Classes.ReadFile;
-import classes.VehiclePlant;
+import Classes.VehiclePlant;
 
-/**
- *
- * @author Rolando
- */
 public class MainUI extends javax.swing.JFrame {
-
-    public static VehiclePlant LamborghiniPlant;
+    
+    
     public static VehiclePlant MaseratiPlant;
+    public static VehiclePlant LamborghiniPlant;
+    public int contador = 0;
+
     /**
      * Creates new form MainUI
      */
     public MainUI() {
         initComponents();
+
+        
+        MaseratiPlant = new VehiclePlant("Ferrari",1,this);
+
         setVisible(true);
         setLocationRelativeTo(null);
         
-        LamborghiniPlant = new VehiclePlant("Lamborghini", 18, 1, this);
+        
+        
+        Config config = new Config();
         
         ReadFile nfile = new ReadFile();
         String txt = nfile.readTxt();
-        
-//        nfile.readConfig(txt);
-        
-        
-        
+        nfile.readConfig(txt, config);
+
     }
 
     /**
@@ -84,8 +87,82 @@ public class MainUI extends javax.swing.JFrame {
         assemblersLamb = new javax.swing.JSpinner();
         assemblers_label2 = new javax.swing.JLabel();
         assemblersMase = new javax.swing.JSpinner();
+        jButton1 = new javax.swing.JButton();
+        jButton2 = new javax.swing.JButton();
+        jButton3 = new javax.swing.JButton();
         LamborghiniTab = new javax.swing.JPanel();
+        jButton5 = new javax.swing.JButton();
+        jButton6 = new javax.swing.JButton();
+        jButton7 = new javax.swing.JButton();
+        jTextField1 = new javax.swing.JTextField();
+        LamborghiniMotor = new javax.swing.JTextField();
+        jTextField2 = new javax.swing.JTextField();
+        LamborghiniWheels = new javax.swing.JTextField();
+        jTextField3 = new javax.swing.JTextField();
+        jTextField4 = new javax.swing.JTextField();
+        jTextField5 = new javax.swing.JTextField();
+        LamborghiniCarbody = new javax.swing.JTextField();
+        LamborghiniChasis = new javax.swing.JTextField();
+        LamborghiniAccesory = new javax.swing.JTextField();
+        jTextField6 = new javax.swing.JTextField();
+        LamborghiniAssembler = new javax.swing.JTextField();
         MaseratiTab = new javax.swing.JPanel();
+        startM = new javax.swing.JButton();
+        pauseM = new javax.swing.JButton();
+        stopM = new javax.swing.JButton();
+        bodyWorkersM = new javax.swing.JLabel();
+        M_label = new javax.swing.JLabel();
+        wm_label = new javax.swing.JLabel();
+        chas = new javax.swing.JLabel();
+        chas1 = new javax.swing.JLabel();
+        motorPartsM = new javax.swing.JLabel();
+        chas2 = new javax.swing.JLabel();
+        wheelWorkersM = new javax.swing.JLabel();
+        chas3 = new javax.swing.JLabel();
+        accessoryWorkersM = new javax.swing.JLabel();
+        chas4 = new javax.swing.JLabel();
+        chasisWorkersM4 = new javax.swing.JLabel();
+        chas5 = new javax.swing.JLabel();
+        assemblerWorkersM = new javax.swing.JLabel();
+        wm_label1 = new javax.swing.JLabel();
+        chas6 = new javax.swing.JLabel();
+        chas7 = new javax.swing.JLabel();
+        chas8 = new javax.swing.JLabel();
+        chas9 = new javax.swing.JLabel();
+        managerStatus_label = new javax.swing.JLabel();
+        bodyPartsM = new javax.swing.JLabel();
+        wheelPartsM = new javax.swing.JLabel();
+        managerSalaryDiscountM = new javax.swing.JLabel();
+        motorWorkersM1 = new javax.swing.JLabel();
+        maxAcceM = new javax.swing.JLabel();
+        chasisPartsM2 = new javax.swing.JLabel();
+        maxChaM = new javax.swing.JLabel();
+        maxBoM = new javax.swing.JLabel();
+        maxMotM = new javax.swing.JLabel();
+        MaxWheeM = new javax.swing.JLabel();
+        wm_label2 = new javax.swing.JLabel();
+        directorStatusM = new javax.swing.JLabel();
+        chas12 = new javax.swing.JLabel();
+        directorStatus_label = new javax.swing.JLabel();
+        managerStatus_label2 = new javax.swing.JLabel();
+        accessoryPartsM1 = new javax.swing.JLabel();
+        faultsQtyM1 = new javax.swing.JLabel();
+        earningsM = new javax.swing.JLabel();
+        managerStatus_label3 = new javax.swing.JLabel();
+        managerStatusM1 = new javax.swing.JLabel();
+        wm_label4 = new javax.swing.JLabel();
+        assembled_labelM = new javax.swing.JLabel();
+        wm_label6 = new javax.swing.JLabel();
+        chas10 = new javax.swing.JLabel();
+        chas11 = new javax.swing.JLabel();
+        accesoryCarsM = new javax.swing.JLabel();
+        standarCarsM = new javax.swing.JLabel();
+        assembled_labelM1 = new javax.swing.JLabel();
+        daysLeftM1 = new javax.swing.JLabel();
+        assembled_labelM2 = new javax.swing.JLabel();
+        costsM = new javax.swing.JLabel();
+        assembled_labelM3 = new javax.swing.JLabel();
+        utilityM = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setResizable(false);
@@ -299,16 +376,459 @@ public class MainUI extends javax.swing.JFrame {
         assemblersMase.setModel(new javax.swing.SpinnerNumberModel(1, 1, 12, 1));
         ConfigTab.add(assemblersMase, new org.netbeans.lib.awtextra.AbsoluteConstraints(820, 440, -1, 30));
 
+        jButton1.setText("Start");
+        ConfigTab.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 340, -1, -1));
+
+        jButton2.setText("Resume");
+        ConfigTab.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 340, -1, -1));
+
+        jButton3.setText("Stop");
+        ConfigTab.add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 340, -1, -1));
+
         jTabbedPane1.addTab("Configuration", ConfigTab);
 
         LamborghiniTab.setBackground(new java.awt.Color(51, 51, 51));
         LamborghiniTab.setForeground(new java.awt.Color(255, 255, 255));
         LamborghiniTab.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jButton5.setText("Start");
+        jButton5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton5ActionPerformed(evt);
+            }
+        });
+        LamborghiniTab.add(jButton5, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 70, -1, -1));
+
+        jButton6.setText("Pausa");
+        LamborghiniTab.add(jButton6, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 70, -1, -1));
+
+        jButton7.setText("Stop");
+        jButton7.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton7ActionPerformed(evt);
+            }
+        });
+        LamborghiniTab.add(jButton7, new org.netbeans.lib.awtextra.AbsoluteConstraints(720, 70, -1, -1));
+
+        jTextField1.setText("assembler");
+        jTextField1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextField1ActionPerformed(evt);
+            }
+        });
+        LamborghiniTab.add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 270, 60, -1));
+
+        LamborghiniMotor.setText("0");
+        LamborghiniMotor.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                LamborghiniMotorActionPerformed(evt);
+            }
+        });
+        LamborghiniTab.add(LamborghiniMotor, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 280, 30, -1));
+
+        jTextField2.setText("wheels");
+        jTextField2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextField2ActionPerformed(evt);
+            }
+        });
+        LamborghiniTab.add(jTextField2, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 180, 50, -1));
+
+        LamborghiniWheels.setText("0");
+        LamborghiniWheels.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                LamborghiniWheelsActionPerformed(evt);
+            }
+        });
+        LamborghiniTab.add(LamborghiniWheels, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 180, 30, -1));
+
+        jTextField3.setText("chasis");
+        jTextField3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextField3ActionPerformed(evt);
+            }
+        });
+        LamborghiniTab.add(jTextField3, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 230, 50, -1));
+
+        jTextField4.setText("motors");
+        jTextField4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextField4ActionPerformed(evt);
+            }
+        });
+        LamborghiniTab.add(jTextField4, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 280, 40, -1));
+
+        jTextField5.setText("accesory");
+        jTextField5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextField5ActionPerformed(evt);
+            }
+        });
+        LamborghiniTab.add(jTextField5, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 330, 50, -1));
+
+        LamborghiniCarbody.setText("0");
+        LamborghiniCarbody.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                LamborghiniCarbodyActionPerformed(evt);
+            }
+        });
+        LamborghiniTab.add(LamborghiniCarbody, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 380, 30, -1));
+
+        LamborghiniChasis.setText("0");
+        LamborghiniChasis.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                LamborghiniChasisActionPerformed(evt);
+            }
+        });
+        LamborghiniTab.add(LamborghiniChasis, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 230, 30, -1));
+
+        LamborghiniAccesory.setText("0");
+        LamborghiniAccesory.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                LamborghiniAccesoryActionPerformed(evt);
+            }
+        });
+        LamborghiniTab.add(LamborghiniAccesory, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 330, 30, -1));
+
+        jTextField6.setText("carBody");
+        jTextField6.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextField6ActionPerformed(evt);
+            }
+        });
+        LamborghiniTab.add(jTextField6, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 380, 50, -1));
+
+        LamborghiniAssembler.setText("0");
+        LamborghiniAssembler.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                LamborghiniAssemblerActionPerformed(evt);
+            }
+        });
+        LamborghiniTab.add(LamborghiniAssembler, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 270, 30, -1));
+
         jTabbedPane1.addTab("Lamborghini", LamborghiniTab);
 
         MaseratiTab.setBackground(new java.awt.Color(51, 51, 51));
         MaseratiTab.setForeground(new java.awt.Color(255, 255, 255));
         MaseratiTab.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        startM.setBackground(new java.awt.Color(255, 255, 153));
+        startM.setFont(new java.awt.Font("Microsoft YaHei", 1, 18)); // NOI18N
+        startM.setForeground(new java.awt.Color(51, 51, 51));
+        startM.setText("Start");
+        startM.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                startMActionPerformed(evt);
+            }
+        });
+        MaseratiTab.add(startM, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 80, 90, 40));
+
+        pauseM.setBackground(new java.awt.Color(255, 255, 153));
+        pauseM.setFont(new java.awt.Font("Microsoft YaHei", 1, 18)); // NOI18N
+        pauseM.setForeground(new java.awt.Color(51, 51, 51));
+        pauseM.setText("Pause");
+        pauseM.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                pauseMActionPerformed(evt);
+            }
+        });
+        MaseratiTab.add(pauseM, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 80, 90, 40));
+
+        stopM.setBackground(new java.awt.Color(255, 255, 153));
+        stopM.setFont(new java.awt.Font("Microsoft YaHei", 1, 18)); // NOI18N
+        stopM.setForeground(new java.awt.Color(51, 51, 51));
+        stopM.setText("Stop");
+        stopM.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                stopMActionPerformed(evt);
+            }
+        });
+        MaseratiTab.add(stopM, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 80, 90, 40));
+
+        bodyWorkersM.setFont(new java.awt.Font("Microsoft YaHei", 1, 18)); // NOI18N
+        bodyWorkersM.setForeground(new java.awt.Color(255, 255, 255));
+        bodyWorkersM.setText("0");
+        MaseratiTab.add(bodyWorkersM, new org.netbeans.lib.awtextra.AbsoluteConstraints(780, 120, 40, 40));
+
+        M_label.setFont(new java.awt.Font("Microsoft YaHei", 1, 36)); // NOI18N
+        M_label.setForeground(new java.awt.Color(255, 255, 153));
+        M_label.setText("MASERATI");
+        MaseratiTab.add(M_label, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 10, 210, 60));
+
+        wm_label.setFont(new java.awt.Font("Microsoft YaHei", 1, 24)); // NOI18N
+        wm_label.setForeground(new java.awt.Color(255, 255, 153));
+        wm_label.setText("DIRECTOR");
+        MaseratiTab.add(wm_label, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 20, 140, 40));
+
+        chas.setFont(new java.awt.Font("Microsoft YaHei", 1, 18)); // NOI18N
+        chas.setForeground(new java.awt.Color(255, 255, 255));
+        chas.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        chas.setText("Body:");
+        MaseratiTab.add(chas, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 240, 60, 40));
+
+        chas1.setFont(new java.awt.Font("Microsoft YaHei", 1, 18)); // NOI18N
+        chas1.setForeground(new java.awt.Color(255, 255, 255));
+        chas1.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        chas1.setText("Motor:");
+        MaseratiTab.add(chas1, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 160, 70, 40));
+
+        motorPartsM.setFont(new java.awt.Font("Microsoft YaHei", 1, 18)); // NOI18N
+        motorPartsM.setForeground(new java.awt.Color(255, 255, 255));
+        motorPartsM.setText("0");
+        MaseratiTab.add(motorPartsM, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 290, 40, 40));
+
+        chas2.setFont(new java.awt.Font("Microsoft YaHei", 1, 18)); // NOI18N
+        chas2.setForeground(new java.awt.Color(255, 255, 255));
+        chas2.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        chas2.setText("Wheel:");
+        MaseratiTab.add(chas2, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 200, 70, 40));
+
+        wheelWorkersM.setFont(new java.awt.Font("Microsoft YaHei", 1, 18)); // NOI18N
+        wheelWorkersM.setForeground(new java.awt.Color(255, 255, 255));
+        wheelWorkersM.setText("0");
+        MaseratiTab.add(wheelWorkersM, new org.netbeans.lib.awtextra.AbsoluteConstraints(780, 200, 40, 40));
+
+        chas3.setFont(new java.awt.Font("Microsoft YaHei", 1, 18)); // NOI18N
+        chas3.setForeground(new java.awt.Color(255, 255, 255));
+        chas3.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        chas3.setText("Accesory:");
+        MaseratiTab.add(chas3, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 240, 100, 40));
+
+        accessoryWorkersM.setFont(new java.awt.Font("Microsoft YaHei", 1, 18)); // NOI18N
+        accessoryWorkersM.setForeground(new java.awt.Color(255, 255, 255));
+        accessoryWorkersM.setText("0");
+        MaseratiTab.add(accessoryWorkersM, new org.netbeans.lib.awtextra.AbsoluteConstraints(780, 240, 40, 40));
+
+        chas4.setFont(new java.awt.Font("Microsoft YaHei", 1, 18)); // NOI18N
+        chas4.setForeground(new java.awt.Color(255, 255, 255));
+        chas4.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        chas4.setText("Chasis:");
+        MaseratiTab.add(chas4, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 190, 70, 40));
+
+        chasisWorkersM4.setFont(new java.awt.Font("Microsoft YaHei", 1, 18)); // NOI18N
+        chasisWorkersM4.setForeground(new java.awt.Color(255, 255, 255));
+        chasisWorkersM4.setText("0");
+        MaseratiTab.add(chasisWorkersM4, new org.netbeans.lib.awtextra.AbsoluteConstraints(780, 80, 40, 40));
+
+        chas5.setFont(new java.awt.Font("Microsoft YaHei", 1, 18)); // NOI18N
+        chas5.setForeground(new java.awt.Color(255, 255, 255));
+        chas5.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        chas5.setText("Assembler:");
+        MaseratiTab.add(chas5, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 280, 100, 40));
+
+        assemblerWorkersM.setFont(new java.awt.Font("Microsoft YaHei", 1, 18)); // NOI18N
+        assemblerWorkersM.setForeground(new java.awt.Color(255, 255, 255));
+        assemblerWorkersM.setText("0");
+        MaseratiTab.add(assemblerWorkersM, new org.netbeans.lib.awtextra.AbsoluteConstraints(780, 280, 40, 40));
+
+        wm_label1.setFont(new java.awt.Font("Microsoft YaHei", 1, 24)); // NOI18N
+        wm_label1.setForeground(new java.awt.Color(255, 255, 153));
+        wm_label1.setText("WORKERS");
+        MaseratiTab.add(wm_label1, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 20, 140, 40));
+
+        chas6.setFont(new java.awt.Font("Microsoft YaHei", 1, 18)); // NOI18N
+        chas6.setForeground(new java.awt.Color(255, 255, 255));
+        chas6.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        chas6.setText("Chasis:");
+        MaseratiTab.add(chas6, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 80, 70, 40));
+
+        chas7.setFont(new java.awt.Font("Microsoft YaHei", 1, 18)); // NOI18N
+        chas7.setForeground(new java.awt.Color(255, 255, 255));
+        chas7.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        chas7.setText("Body:");
+        MaseratiTab.add(chas7, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 120, 70, 40));
+
+        chas8.setFont(new java.awt.Font("Microsoft YaHei", 1, 18)); // NOI18N
+        chas8.setForeground(new java.awt.Color(255, 255, 255));
+        chas8.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        chas8.setText("Motor:");
+        MaseratiTab.add(chas8, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 290, 70, 40));
+
+        chas9.setFont(new java.awt.Font("Microsoft YaHei", 1, 18)); // NOI18N
+        chas9.setForeground(new java.awt.Color(255, 255, 255));
+        chas9.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        chas9.setText("Wheel:");
+        MaseratiTab.add(chas9, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 340, 70, 40));
+
+        managerStatus_label.setFont(new java.awt.Font("Microsoft YaHei", 1, 18)); // NOI18N
+        managerStatus_label.setForeground(new java.awt.Color(255, 255, 255));
+        managerStatus_label.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        managerStatus_label.setText("Discounted:");
+        MaseratiTab.add(managerStatus_label, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 240, 120, 40));
+
+        bodyPartsM.setFont(new java.awt.Font("Microsoft YaHei", 1, 18)); // NOI18N
+        bodyPartsM.setForeground(new java.awt.Color(255, 255, 255));
+        bodyPartsM.setText("0");
+        MaseratiTab.add(bodyPartsM, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 240, 40, 40));
+
+        wheelPartsM.setFont(new java.awt.Font("Microsoft YaHei", 1, 18)); // NOI18N
+        wheelPartsM.setForeground(new java.awt.Color(255, 255, 255));
+        wheelPartsM.setText("0");
+        MaseratiTab.add(wheelPartsM, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 340, 40, 40));
+
+        managerSalaryDiscountM.setFont(new java.awt.Font("Microsoft YaHei", 1, 18)); // NOI18N
+        managerSalaryDiscountM.setForeground(new java.awt.Color(255, 255, 255));
+        managerSalaryDiscountM.setText("0");
+        MaseratiTab.add(managerSalaryDiscountM, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 240, 40, 40));
+
+        motorWorkersM1.setFont(new java.awt.Font("Microsoft YaHei", 1, 18)); // NOI18N
+        motorWorkersM1.setForeground(new java.awt.Color(255, 255, 255));
+        motorWorkersM1.setText("0");
+        MaseratiTab.add(motorWorkersM1, new org.netbeans.lib.awtextra.AbsoluteConstraints(780, 160, 40, 40));
+
+        maxAcceM.setFont(new java.awt.Font("Microsoft YaHei", 1, 18)); // NOI18N
+        maxAcceM.setForeground(new java.awt.Color(255, 255, 255));
+        maxAcceM.setText("/ 10");
+        MaseratiTab.add(maxAcceM, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 390, 40, 40));
+
+        chasisPartsM2.setFont(new java.awt.Font("Microsoft YaHei", 1, 18)); // NOI18N
+        chasisPartsM2.setForeground(new java.awt.Color(255, 255, 255));
+        chasisPartsM2.setText("0");
+        MaseratiTab.add(chasisPartsM2, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 190, 40, 40));
+
+        maxChaM.setFont(new java.awt.Font("Microsoft YaHei", 1, 18)); // NOI18N
+        maxChaM.setForeground(new java.awt.Color(255, 255, 255));
+        maxChaM.setText("/ 25");
+        MaseratiTab.add(maxChaM, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 190, 40, 40));
+
+        maxBoM.setFont(new java.awt.Font("Microsoft YaHei", 1, 18)); // NOI18N
+        maxBoM.setForeground(new java.awt.Color(255, 255, 255));
+        maxBoM.setText("/ 20");
+        MaseratiTab.add(maxBoM, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 240, 40, 40));
+
+        maxMotM.setFont(new java.awt.Font("Microsoft YaHei", 1, 18)); // NOI18N
+        maxMotM.setForeground(new java.awt.Color(255, 255, 255));
+        maxMotM.setText("/ 55");
+        MaseratiTab.add(maxMotM, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 290, 40, 40));
+
+        MaxWheeM.setFont(new java.awt.Font("Microsoft YaHei", 1, 18)); // NOI18N
+        MaxWheeM.setForeground(new java.awt.Color(255, 255, 255));
+        MaxWheeM.setText("/ 35");
+        MaseratiTab.add(MaxWheeM, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 340, 40, 40));
+
+        wm_label2.setFont(new java.awt.Font("Microsoft YaHei", 1, 24)); // NOI18N
+        wm_label2.setForeground(new java.awt.Color(255, 255, 153));
+        wm_label2.setText("CAR PARTS");
+        MaseratiTab.add(wm_label2, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 150, 160, 40));
+
+        directorStatusM.setFont(new java.awt.Font("Microsoft YaHei", 1, 18)); // NOI18N
+        directorStatusM.setForeground(new java.awt.Color(255, 255, 255));
+        directorStatusM.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        directorStatusM.setText("Nothing");
+        MaseratiTab.add(directorStatusM, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 60, 130, 40));
+
+        chas12.setFont(new java.awt.Font("Microsoft YaHei", 1, 18)); // NOI18N
+        chas12.setForeground(new java.awt.Color(255, 255, 255));
+        chas12.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        chas12.setText("Accesory:");
+        MaseratiTab.add(chas12, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 390, 100, 40));
+
+        directorStatus_label.setFont(new java.awt.Font("Microsoft YaHei", 1, 18)); // NOI18N
+        directorStatus_label.setForeground(new java.awt.Color(255, 255, 255));
+        directorStatus_label.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        directorStatus_label.setText("Status:");
+        MaseratiTab.add(directorStatus_label, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 60, 100, 40));
+
+        managerStatus_label2.setFont(new java.awt.Font("Microsoft YaHei", 1, 18)); // NOI18N
+        managerStatus_label2.setForeground(new java.awt.Color(255, 255, 255));
+        managerStatus_label2.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        managerStatus_label2.setText("Faults:");
+        MaseratiTab.add(managerStatus_label2, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 200, 100, 40));
+
+        accessoryPartsM1.setFont(new java.awt.Font("Microsoft YaHei", 1, 18)); // NOI18N
+        accessoryPartsM1.setForeground(new java.awt.Color(255, 255, 255));
+        accessoryPartsM1.setText("0");
+        MaseratiTab.add(accessoryPartsM1, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 390, 40, 40));
+
+        faultsQtyM1.setFont(new java.awt.Font("Microsoft YaHei", 1, 18)); // NOI18N
+        faultsQtyM1.setForeground(new java.awt.Color(255, 255, 255));
+        faultsQtyM1.setText("0");
+        MaseratiTab.add(faultsQtyM1, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 200, 40, 40));
+
+        earningsM.setFont(new java.awt.Font("Microsoft YaHei", 1, 24)); // NOI18N
+        earningsM.setForeground(new java.awt.Color(255, 255, 153));
+        earningsM.setText("0");
+        MaseratiTab.add(earningsM, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 470, 50, 40));
+
+        managerStatus_label3.setFont(new java.awt.Font("Microsoft YaHei", 1, 18)); // NOI18N
+        managerStatus_label3.setForeground(new java.awt.Color(255, 255, 255));
+        managerStatus_label3.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        managerStatus_label3.setText("Status:");
+        MaseratiTab.add(managerStatus_label3, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 160, 100, 40));
+
+        managerStatusM1.setFont(new java.awt.Font("Microsoft YaHei", 1, 18)); // NOI18N
+        managerStatusM1.setForeground(new java.awt.Color(255, 255, 255));
+        managerStatusM1.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        managerStatusM1.setText("Nothing");
+        MaseratiTab.add(managerStatusM1, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 160, 130, 40));
+
+        wm_label4.setFont(new java.awt.Font("Microsoft YaHei", 1, 24)); // NOI18N
+        wm_label4.setForeground(new java.awt.Color(255, 255, 153));
+        wm_label4.setText("MANAGER");
+        MaseratiTab.add(wm_label4, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 120, 150, 40));
+
+        assembled_labelM.setFont(new java.awt.Font("Microsoft YaHei", 1, 24)); // NOI18N
+        assembled_labelM.setForeground(new java.awt.Color(255, 255, 153));
+        assembled_labelM.setText("EARNINGS: ");
+        MaseratiTab.add(assembled_labelM, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 470, 150, 40));
+
+        wm_label6.setFont(new java.awt.Font("Microsoft YaHei", 1, 24)); // NOI18N
+        wm_label6.setForeground(new java.awt.Color(255, 255, 153));
+        wm_label6.setText("DAYS LEFT:");
+        MaseratiTab.add(wm_label6, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 290, 150, 40));
+
+        chas10.setFont(new java.awt.Font("Microsoft YaHei", 1, 18)); // NOI18N
+        chas10.setForeground(new java.awt.Color(255, 255, 255));
+        chas10.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        chas10.setText("With Accessorys:");
+        MaseratiTab.add(chas10, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 380, 170, 40));
+
+        chas11.setFont(new java.awt.Font("Microsoft YaHei", 1, 18)); // NOI18N
+        chas11.setForeground(new java.awt.Color(255, 255, 255));
+        chas11.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        chas11.setText("Standard:");
+        MaseratiTab.add(chas11, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 340, 100, 40));
+
+        accesoryCarsM.setFont(new java.awt.Font("Microsoft YaHei", 1, 18)); // NOI18N
+        accesoryCarsM.setForeground(new java.awt.Color(255, 255, 255));
+        accesoryCarsM.setText("0");
+        MaseratiTab.add(accesoryCarsM, new org.netbeans.lib.awtextra.AbsoluteConstraints(780, 380, 40, 40));
+
+        standarCarsM.setFont(new java.awt.Font("Microsoft YaHei", 1, 18)); // NOI18N
+        standarCarsM.setForeground(new java.awt.Color(255, 255, 255));
+        standarCarsM.setText("0");
+        MaseratiTab.add(standarCarsM, new org.netbeans.lib.awtextra.AbsoluteConstraints(780, 340, 40, 40));
+
+        assembled_labelM1.setFont(new java.awt.Font("Microsoft YaHei", 1, 24)); // NOI18N
+        assembled_labelM1.setForeground(new java.awt.Color(255, 255, 153));
+        assembled_labelM1.setText("CARS ASSEMBLED:");
+        MaseratiTab.add(assembled_labelM1, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 360, 240, 40));
+
+        daysLeftM1.setFont(new java.awt.Font("Microsoft YaHei", 1, 24)); // NOI18N
+        daysLeftM1.setForeground(new java.awt.Color(255, 255, 153));
+        daysLeftM1.setText("0");
+        MaseratiTab.add(daysLeftM1, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 290, 50, 40));
+
+        assembled_labelM2.setFont(new java.awt.Font("Microsoft YaHei", 1, 24)); // NOI18N
+        assembled_labelM2.setForeground(new java.awt.Color(255, 255, 153));
+        assembled_labelM2.setText("COSTS:");
+        MaseratiTab.add(assembled_labelM2, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 470, 100, 40));
+
+        costsM.setFont(new java.awt.Font("Microsoft YaHei", 1, 24)); // NOI18N
+        costsM.setForeground(new java.awt.Color(255, 255, 153));
+        costsM.setText("0");
+        MaseratiTab.add(costsM, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 470, 50, 40));
+
+        assembled_labelM3.setFont(new java.awt.Font("Microsoft YaHei", 1, 24)); // NOI18N
+        assembled_labelM3.setForeground(new java.awt.Color(255, 255, 153));
+        assembled_labelM3.setText("UTILITY:");
+        MaseratiTab.add(assembled_labelM3, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 470, 120, 40));
+
+        utilityM.setFont(new java.awt.Font("Microsoft YaHei", 1, 24)); // NOI18N
+        utilityM.setForeground(new java.awt.Color(255, 255, 153));
+        utilityM.setText("0");
+        MaseratiTab.add(utilityM, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 470, 50, 40));
+
         jTabbedPane1.addTab("Maserati", MaseratiTab);
 
         getContentPane().add(jTabbedPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 950, 605));
@@ -320,9 +840,114 @@ public class MainUI extends javax.swing.JFrame {
      
     }//GEN-LAST:event_addProductActionPerformed
 
+    private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton7ActionPerformed
+
+    private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextField1ActionPerformed
+
+    private void LamborghiniMotorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_LamborghiniMotorActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_LamborghiniMotorActionPerformed
+
+    private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
+        // TODO add your handling code here:
+
+        LamborghiniPlant = new VehiclePlant("Lamborgini",1,this); 
+
+        if(contador > 0){
+            LamborghiniWheels.setText("0");
+            LamborghiniPlant.StopWorker();
+        }
+        else {
+            contador = contador + 1;
+            LamborghiniPlant = new VehiclePlant("Lamborghini", 1, this); 
+
+            LamborghiniPlant.initializeWorkers();
+        
+        }
+        
+    }//GEN-LAST:event_jButton5ActionPerformed
+                             
+
+    private void jTextField2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField2ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextField2ActionPerformed
+
+    private void LamborghiniWheelsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_LamborghiniWheelsActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_LamborghiniWheelsActionPerformed
+
+    private void jTextField3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField3ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextField3ActionPerformed
+
+    private void jTextField4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField4ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextField4ActionPerformed
+
+    private void jTextField5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField5ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextField5ActionPerformed
+
+    private void LamborghiniCarbodyActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_LamborghiniCarbodyActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_LamborghiniCarbodyActionPerformed
+
+    private void LamborghiniChasisActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_LamborghiniChasisActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_LamborghiniChasisActionPerformed
+
+    private void LamborghiniAccesoryActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_LamborghiniAccesoryActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_LamborghiniAccesoryActionPerformed
+
+    private void jTextField6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField6ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextField6ActionPerformed
+
+    private void LamborghiniAssemblerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_LamborghiniAssemblerActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_LamborghiniAssemblerActionPerformed
+
+    private void startMActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_startMActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_startMActionPerformed
+
+    private void stopMActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_stopMActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_stopMActionPerformed
+
+    private void pauseMActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pauseMActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_pauseMActionPerformed
+
+
     /**
      * @param args the command line arguments
      */
+      
+    public void LamborghiniWheels(String text){
+        LamborghiniWheels.setText(text);
+    }
+    public void LamborghiniChasis(String text){
+        LamborghiniChasis.setText(text);
+    }
+    public void LamborghiniMotor(String text){
+        LamborghiniMotor.setText(text);
+    }
+    public void LamborghiniAccesory(String text){
+        LamborghiniAccesory.setText(text);
+    }
+    public void LamborghinicarBody(String text){
+        LamborghiniCarbody.setText(text);
+    }
+    public void LamborghiniAssembler(String text){
+        LamborghiniAssembler.setText(text);
+    }
+    
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
@@ -360,43 +985,117 @@ public class MainUI extends javax.swing.JFrame {
     private javax.swing.JLabel Config_label;
     private javax.swing.JLabel General_label;
     private javax.swing.JLabel Lambog_label;
+    private javax.swing.JTextField LamborghiniAccesory;
+    private javax.swing.JTextField LamborghiniAssembler;
+    private javax.swing.JTextField LamborghiniCarbody;
+    private javax.swing.JTextField LamborghiniChasis;
+    private javax.swing.JTextField LamborghiniMotor;
     private javax.swing.JPanel LamborghiniTab;
+    private javax.swing.JTextField LamborghiniWheels;
+    private javax.swing.JLabel M_label;
     private javax.swing.JPanel MaseratiTab;
     private javax.swing.JLabel Maserati_label;
+    private javax.swing.JLabel MaxWheeM;
+    private javax.swing.JLabel accesoryCarsM;
     private javax.swing.JSpinner accesoryWorkersLamb;
     private javax.swing.JSpinner accesoryWorkersMase;
+    private javax.swing.JLabel accessoryPartsM1;
+    private javax.swing.JLabel accessoryWorkersM;
     private javax.swing.JLabel accessory_label;
     private javax.swing.JLabel accessory_label1;
     private javax.swing.JButton addProduct;
+    private javax.swing.JLabel assembled_labelM;
+    private javax.swing.JLabel assembled_labelM1;
+    private javax.swing.JLabel assembled_labelM2;
+    private javax.swing.JLabel assembled_labelM3;
+    private javax.swing.JLabel assemblerWorkersM;
     private javax.swing.JSpinner assemblersLamb;
     private javax.swing.JSpinner assemblersMase;
     private javax.swing.JLabel assemblers_label;
     private javax.swing.JLabel assemblers_label2;
+    private javax.swing.JLabel bodyPartsM;
     private javax.swing.JSpinner bodyWorkersLamb;
+    private javax.swing.JLabel bodyWorkersM;
     private javax.swing.JSpinner bodyWorkersMase;
     private javax.swing.JLabel body_label;
     private javax.swing.JLabel body_label1;
+    private javax.swing.JLabel chas;
+    private javax.swing.JLabel chas1;
+    private javax.swing.JLabel chas10;
+    private javax.swing.JLabel chas11;
+    private javax.swing.JLabel chas12;
+    private javax.swing.JLabel chas2;
+    private javax.swing.JLabel chas3;
+    private javax.swing.JLabel chas4;
+    private javax.swing.JLabel chas5;
+    private javax.swing.JLabel chas6;
+    private javax.swing.JLabel chas7;
+    private javax.swing.JLabel chas8;
+    private javax.swing.JLabel chas9;
+    private javax.swing.JLabel chasisPartsM2;
     private javax.swing.JSpinner chasisWorkersLamb;
+    private javax.swing.JLabel chasisWorkersM4;
     private javax.swing.JSpinner chasisWorkersMase;
     private javax.swing.JLabel chasis_label;
     private javax.swing.JLabel chasis_label1;
     private javax.swing.JLabel chasis_label3;
     private javax.swing.JLabel chasis_label4;
     private javax.swing.JLabel chasis_label5;
+    private javax.swing.JLabel costsM;
     private javax.swing.JTextPane dayDurationInput;
     private javax.swing.JTextPane dayDurationInput1;
     private javax.swing.JLabel dayDuration_label;
     private javax.swing.JLabel dayDuration_label1;
+    private javax.swing.JLabel daysLeftM1;
+    private javax.swing.JLabel directorStatusM;
+    private javax.swing.JLabel directorStatus_label;
+    private javax.swing.JLabel earningsM;
+    private javax.swing.JLabel faultsQtyM1;
+    private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton2;
+    private javax.swing.JButton jButton3;
+    private javax.swing.JButton jButton5;
+    private javax.swing.JButton jButton6;
+    private javax.swing.JButton jButton7;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JTabbedPane jTabbedPane1;
+    private javax.swing.JTextField jTextField1;
+    private javax.swing.JTextField jTextField2;
+    private javax.swing.JTextField jTextField3;
+    private javax.swing.JTextField jTextField4;
+    private javax.swing.JTextField jTextField5;
+    private javax.swing.JTextField jTextField6;
+    private javax.swing.JLabel managerSalaryDiscountM;
+    private javax.swing.JLabel managerStatusM1;
+    private javax.swing.JLabel managerStatus_label;
+    private javax.swing.JLabel managerStatus_label2;
+    private javax.swing.JLabel managerStatus_label3;
+    private javax.swing.JLabel maxAcceM;
+    private javax.swing.JLabel maxBoM;
+    private javax.swing.JLabel maxChaM;
+    private javax.swing.JLabel maxMotM;
+    private javax.swing.JLabel motorPartsM;
     private javax.swing.JSpinner motorWorkersLamb;
+    private javax.swing.JLabel motorWorkersM1;
     private javax.swing.JSpinner motorWorkersMase;
     private javax.swing.JLabel motor_label;
     private javax.swing.JLabel motor_label1;
+    private javax.swing.JButton pauseM;
+    private javax.swing.JLabel standarCarsM;
+    private javax.swing.JButton startM;
+    private javax.swing.JButton stopM;
+    private javax.swing.JLabel utilityM;
+    private javax.swing.JLabel wheelPartsM;
     private javax.swing.JSpinner wheelWorkersLamb;
+    private javax.swing.JLabel wheelWorkersM;
     private javax.swing.JSpinner wheelWorkersMase;
     private javax.swing.JLabel wheel_label;
     private javax.swing.JLabel wheel_label1;
+    private javax.swing.JLabel wm_label;
+    private javax.swing.JLabel wm_label1;
+    private javax.swing.JLabel wm_label2;
+    private javax.swing.JLabel wm_label4;
+    private javax.swing.JLabel wm_label6;
     // End of variables declaration//GEN-END:variables
 }

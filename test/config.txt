@@ -15,6 +15,8 @@ wheel
 1
 accessory
 1
+assembler
+1
 
 Maserati
 chasis
@@ -26,4 +28,6 @@ motor
 wheel
 1
 accessory
+1
+assembler
 1
