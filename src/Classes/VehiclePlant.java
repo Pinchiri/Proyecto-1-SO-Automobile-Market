@@ -18,7 +18,7 @@ import UserInterface.MainUI;
  * @author Rolando
  */
 public class VehiclePlant {
-    String name;
+    private String name;
     //Workers
     private int maxWorkerQty;
     private int chasisWorkers;
@@ -76,12 +76,12 @@ public class VehiclePlant {
         //Chasis workers
         for (int i = 0; i < getChasisWorkers(); i++) {
             if (getName().equals("Lamborghini")) {
-                Worker worker = new Worker(0.25f, 20, getDayDurationInMs(), "chasis",this);
+                Worker worker = new Worker(0.25f, 10, getDayDurationInMs(), "chasis",this);
                 worker.start();
                 workers[arrayIndex] = worker;
                 arrayIndex++;
             } else {
-                Worker worker = new Worker(0.5f, 20, getDayDurationInMs(), "chasis",this);
+                Worker worker = new Worker(0.5f, 10, getDayDurationInMs(), "chasis",this);
                 worker.start();
                 workers[arrayIndex] = worker;
                 arrayIndex++;

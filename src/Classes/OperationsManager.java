@@ -16,6 +16,7 @@ public class OperationsManager {
     private int idleInterval;
     private int daysLeft;
     private float accSalary;
+    private int dayDurationInMs;
 
     public OperationsManager(float salary, int idleInterval, int daysLeft) {
         this.salary = salary;

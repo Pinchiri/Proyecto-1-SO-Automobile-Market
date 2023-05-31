@@ -18,8 +18,10 @@ public class Warehouse {
     public int wheelsQty;
     public int motorQty;
     public int accessoryQty;
-    public int carstandar;
-    public int carwithaccesory;
+    public int carStandard;
+    public int carWithAccesory;
+    
+    public long totalEarnings;
      
     public int maxChasisQty;
     public int maxCarBodyQty;
@@ -41,6 +43,7 @@ public class Warehouse {
         this.maxAccessoryQty = maxAccessory;
         this.nameplant = nameplant;
 
+        this.totalEarnings = 0;
 
         this.userInterface = userInterface;
 
@@ -50,26 +53,27 @@ public class Warehouse {
         this.wheelsQty = 0;
         this.motorQty = 0;
         this.accessoryQty = 0;
-        this.carstandar = 0;
-        this.carwithaccesory = 0;
+        this.carStandard = 0;
+        this.carWithAccesory = 0;
         
     }
-    
-    public void test(){
-        System.out.println("Estoy en warehouse");
-    }
-    
+
     public void updateStorage(String workerType, int finishedPart) {
         
         switch (workerType) {
             
             case "assembler":
                 
-                if(nameplant == "Lamborghini"){
-                    if(contador>3) {
-                        if (this.carBodyQty >= 1 && this.chasisQty >= 2 && this.motorQty >= 6 && this.wheelsQty >= 5 && this.accessoryQty >= 1) {
+                if(nameplant.equals("Lamborghini")){
+                    if(contador == 3) {
+                        if ((this.carBodyQty >= 1) && (this.chasisQty >= 2) && (this.motorQty >= 6) && (this.wheelsQty >= 5) && (this.accessoryQty >= 1)) {
                                 contador = 0;
-                                this.carwithaccesory++;
+                                this.carWithAccesory++;
+                                totalEarnings += 750000;
+                                userInterface.lambEarnings("$" + Long.toString(getTotalEarnings()));
+                                
+                                System.out.println("especial");
+                                userInterface.LamborghiniAC(Integer.toString(this.carWithAccesory));
                                 this.carBodyQty = this.carBodyQty - 4;
                                 this.chasisQty = this.chasisQty - 2;
                                 this.motorQty = this.motorQty - 6;
@@ -80,11 +84,15 @@ public class Warehouse {
                                 System.out.println("");
                          }
                     }else {
-                        if(this.carBodyQty >= 1 && this.chasisQty >= 2 && this.motorQty >= 6 && this.wheelsQty >= 5) {
+                        if((this.carBodyQty >= 1) && (this.chasisQty >= 2) && (this.motorQty >= 6) && (this.wheelsQty >= 5)) {
                                 contador++;
-                                System.out.println("LLEGO");
-                                this.carstandar++;
-                                userInterface.LamborghiniAssembler(Integer.toString(this.carstandar));
+                                System.out.println("standard");
+                                this.carStandard++;
+                                totalEarnings += 400000;
+                                userInterface.lambEarnings("$" + Long.toString(getTotalEarnings()));
+                                
+                                userInterface.LamborghiniSC(Integer.toString(this.carStandard));
+  
                                 this.carBodyQty = this.carBodyQty - 4;
                                 this.chasisQty = this.chasisQty - 2;
                                 this.motorQty = this.motorQty - 6;
@@ -98,10 +106,10 @@ public class Warehouse {
                         
                     }
                 }else{
-                    if(contador>2) {
-                        if (this.carBodyQty >= 1 && this.chasisQty >= 1 && this.motorQty >= 2 && this.wheelsQty >= 4 && this.accessoryQty >= 3) {
+                    if(contador==2) {
+                        if ((this.carBodyQty >= 1) && (this.chasisQty >= 1) && (this.motorQty >= 2) && (this.wheelsQty >= 4) && (this.accessoryQty >= 3)) {
                                 contador = 0;
-                                this.carwithaccesory++;
+                                this.carWithAccesory++;
                                 this.carBodyQty = this.carBodyQty - 1;
                                 this.chasisQty = this.chasisQty - 1;
                                 this.motorQty = this.motorQty - 2;
@@ -111,9 +119,9 @@ public class Warehouse {
                                 System.out.println("");
                          }
                     }else {
-                        if(this.carBodyQty >= 1 && this.chasisQty >= 1 && this.motorQty >= 2 && this.wheelsQty >= 4) {
+                        if((this.carBodyQty >= 1) && (this.chasisQty >= 1) && (this.motorQty >= 2) && (this.wheelsQty >= 4)) {
                                 contador++;
-                                this.carstandar++;
+                                this.carStandard++;
                                 this.carBodyQty = this.carBodyQty - 1;
                                 this.chasisQty = this.chasisQty - 1;
                                 this.motorQty = this.motorQty - 2;
@@ -197,5 +205,13 @@ public class Warehouse {
                 break;
         }
     }
+
+    public long getTotalEarnings() {
+        return totalEarnings;
+    }
+
+    public void setTotalEarnings(long totalEarnings) {
+        this.totalEarnings = totalEarnings;
+    }    
     
 }
