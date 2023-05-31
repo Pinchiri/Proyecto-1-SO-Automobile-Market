@@ -170,6 +170,10 @@ public class Warehouse {
                 if (this.wheelsQty < this.maxWheelsQty) {
                     this.wheelsQty += finishedPart;
                     
+                    if(this.wheelsQty >= this.maxWheelsQty ){
+                        this.wheelsQty = this.maxWheelsQty;
+                    }
+                    
                     if (this.nameplant.equals("Lamborghini")) {
                         userInterface.LamborghiniWheels(Integer.toString(this.wheelsQty));
                     } else {
@@ -214,6 +218,7 @@ public class Warehouse {
             case "carBody":
                 if (this.carBodyQty < this.maxCarBodyQty) {
                     this.carBodyQty += finishedPart;
+                   
                     
                     if (this.nameplant.equals("Lamborghini")) {
                         userInterface.LamborghinicarBody(Integer.toString(this.carBodyQty));  

@@ -82,13 +82,14 @@ public class Worker extends Thread{
     
     public void produceForTheDay(){
         this.productionCounter += this.productionPerDay;
+        
       
         
         if (this.productionCounter >= 1 && plant.mutex.availablePermits()> 0) {
             try {
-                plant.mutex.acquire();
+                plant.mutex.acquire(1);
                 plant.warehouse.updateStorage(this.type, (int) this.productionCounter );
-                plant.mutex.release();
+                plant.mutex.release(1);
 //                Thread.sleep(dayDurationInMs);
                 
                 
