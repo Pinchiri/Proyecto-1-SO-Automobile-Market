@@ -58,7 +58,7 @@ public class OperationsManager extends Thread {
            // this.userInterface.lambCosts(Long.toString(calculateCosts()));
            acummulatedTime = 0;
            
-           
+           this.daysLeft--;
            payCheck();
            
            while (acummulatedTime < (this.dayduration*0.67)) {
@@ -101,10 +101,10 @@ public class OperationsManager extends Thread {
             
             
             
-            this.daysLeft--;
+            
             
             if(nameplant.equals("Lamborghini")){
-               if(this.daysLeft> 0) 
+               if(this.daysLeft >= 0) 
                {
                 
                 this.userInterface.daysLeftLamborghini(Integer.toString(this.daysLeft));
@@ -112,7 +112,7 @@ public class OperationsManager extends Thread {
                }
             }else{
                     
-                    if(this.daysLeft> 0) 
+                    if(this.daysLeft>= 0) 
                {
                 this.userInterface.DaysLeftMaserati(Integer.toString(this.daysLeft));
                 userInterface.managerStatusM1("Changing days");

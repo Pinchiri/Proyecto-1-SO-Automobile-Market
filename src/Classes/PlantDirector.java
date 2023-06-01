@@ -70,10 +70,12 @@ public class PlantDirector extends Thread {
             }  
             payCheck();
 
-            Thread.sleep(dayDuration);
+            
             System.out.println(this.manager.daysLeft);
             
-            if(this.manager.daysLeft <= 0){
+            
+            
+            if( this.manager.daysLeft < 0 ){
           
 
                 
@@ -86,6 +88,7 @@ public class PlantDirector extends Thread {
                 
                 costo = this.warehouse.costototal;
                 ganancia = (int) this.warehouse.getTotalEarnings();
+                this.warehouse.totalEarnings = 0;
                 costo = costo - salarioquitado;
                 this.salarioquitado = 0;
                 this.fault = 0;
@@ -110,7 +113,7 @@ public class PlantDirector extends Thread {
                 
                 this.userInterface.directorStatusL("Reiniciando lote");
                 
-                
+                Thread.sleep(dayDuration);
                 
                 
                 
@@ -132,6 +135,7 @@ public class PlantDirector extends Thread {
                 
                 
                 ganancia = (int) this.warehouse.getTotalEarnings();
+                this.warehouse.totalEarnings = 0;
                 
                 utility = ganancia - costo;
                 
@@ -186,8 +190,8 @@ public class PlantDirector extends Thread {
 
                                     this.userInterface.directorStatusL("Watching manager");
 
-                                    Thread.sleep((long) (this.dayDuration*0.0196));
-                                    acummulatedTime += this.dayDuration*0.0196;
+                                    Thread.sleep((long) (this.dayDuration*0.01736));
+                                    acummulatedTime += this.dayDuration*0.01736;
 
                                     if(this.manager.isIdle() == false){
 
