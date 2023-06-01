@@ -186,9 +186,16 @@ public class MainUI extends javax.swing.JFrame {
         
         config = new Config();
         
-        ReadFile nfile = new ReadFile();
-        String txt = nfile.readTxt();
-        nfile.readConfig(txt, config);
+        try {
+            ReadFile nfile = new ReadFile();
+            String txt = nfile.readTxt();
+            nfile.readConfig(txt, config);
+            JOptionPane.showMessageDialog(null, "Config loaded succesfully!");
+        
+        } catch(Exception e) {
+            JOptionPane.showMessageDialog(null, "Error");
+        }
+        
         
         runningL = false;
         runningM = false;
@@ -267,6 +274,18 @@ public class MainUI extends javax.swing.JFrame {
         }
         
         
+    }
+    
+    public void disableStarts(String plantName) {
+        switch (plantName) {
+            
+            case "L":
+                startL.setEnabled(false);
+                break;
+                
+            case "M":
+                startM.setEnabled(false);
+        }
     }
     
     //Change Worker if Plus button
@@ -1906,6 +1925,7 @@ public class MainUI extends javax.swing.JFrame {
 
             runningM = true;
             disableButtonsM();
+            disableStarts("M");
             
             MaseratiPlant = new VehiclePlant("Maserati", this, config);
             MaseratiQtys(Integer.toString(MaseratiPlant.getChasisWorkers()), Integer.toString(MaseratiPlant.getBodyWorkers()), Integer.toString(MaseratiPlant.getMotorWorkers()), Integer.toString(MaseratiPlant.getWheelWorkers()), Integer.toString(MaseratiPlant.getAccessoryWorkers()), Integer.toString(MaseratiPlant.getAssemblers()));
@@ -1937,6 +1957,7 @@ public class MainUI extends javax.swing.JFrame {
 //            counterL++;
             runningL = true;
             disableButtonsL();
+            disableStarts("L");
             
             LamborghiniPlant = new VehiclePlant("Lamborghini", this, config);
             System.out.println(LamborghiniPlant.getAccessoryWorkers());       

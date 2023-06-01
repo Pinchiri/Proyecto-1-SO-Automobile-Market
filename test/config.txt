@@ -1,18 +1,18 @@
 General
 dayDuration
-10000
+1000
 deliveryDays
-30
+20
 
 Lamborghini
 chasis
-3
+1
 body
-2
+1
 motor
-3
+1
 wheel
-2
+1
 accessory
 1
 assembler

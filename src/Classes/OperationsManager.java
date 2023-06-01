@@ -42,7 +42,7 @@ public class OperationsManager extends Thread {
         this.dayduration = dayduration;
         this.nameplant = nameplant;
         
-        this.configurar = new Config();
+        this.configurar = configurar;
         
     }
     

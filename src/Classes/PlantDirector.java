@@ -98,10 +98,10 @@ public class PlantDirector extends Thread {
                 this.userInterface.MaseAC("0");
                 this.userInterface.LamborghiniSC("0");
                 
-                this.userInterface.costsL(Integer.toString(costo));
-                this.userInterface.UtilityL(Integer.toString(utility));
+                this.userInterface.costsL("$" + Integer.toString(costo));
+                this.userInterface.UtilityL("$" + Integer.toString(utility));
                 this.userInterface.faultsQtyL(Integer.toString(this.fault));
-                this.userInterface.managerSalaryDiscountL(Integer.toString(this.salarioquitado));
+                this.userInterface.managerSalaryDiscountL("$" + Integer.toString(this.salarioquitado));
                 
                 
                 
@@ -114,7 +114,7 @@ public class PlantDirector extends Thread {
                 
                 
                 
-                }else{
+                } else {
                 
                 this.userInterface.DaysLeftMaserati(Integer.toString(this.manager.daysLeft));
                 this.userInterface.MaseEarnings("$" + Long.toString(warehouse.getTotalEarnings()));
@@ -139,10 +139,10 @@ public class PlantDirector extends Thread {
                 this.userInterface.MaseAC("0");
                 this.userInterface.LamborghiniSC("0");
                 
-                this.userInterface.costsM(Integer.toString(costo));
-                this.userInterface.UtilityM(Integer.toString(utility));
+                this.userInterface.costsM("$" + Integer.toString(costo));
+                this.userInterface.UtilityM("$" + Integer.toString(utility));
                 this.userInterface.faultsQtyM1MS(Integer.toString(this.fault));
-                this.userInterface.managerSalaryDiscountMS(Integer.toString(this.salarioquitado));
+                this.userInterface.managerSalaryDiscountMS("$" + Integer.toString(this.salarioquitado));
                 
                 
                 
@@ -194,7 +194,7 @@ public class PlantDirector extends Thread {
                                         this.fault++;
 
                                         this.userInterface.faultsQtyL(Integer.toString(this.fault));
-                                        this.userInterface.managerSalaryDiscountL(Integer.toString(this.salarioquitado));
+                                        this.userInterface.managerSalaryDiscountL("$" + Integer.toString(this.salarioquitado));
                                         capturado = true;
 
                                     }
@@ -226,7 +226,7 @@ public class PlantDirector extends Thread {
                                         this.fault++;
 
                                         this.userInterface.faultsQtyM1MS(Integer.toString(this.fault));
-                                        this.userInterface.managerSalaryDiscountMS(Integer.toString(this.salarioquitado));
+                                        this.userInterface.managerSalaryDiscountMS("$" + Integer.toString(this.salarioquitado));
                                         capturado = true;
 
                                     }
