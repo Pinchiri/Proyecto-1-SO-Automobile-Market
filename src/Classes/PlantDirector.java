@@ -26,7 +26,7 @@ public class PlantDirector extends Thread {
     private MainUI userInterface;
     private OperationsManager manager;
     private Warehouse warehouse;
-    private int daydurantion;
+    private int dayDuration;
     private boolean pausar = false;
     private int dias = 0;
     private String nameplant;
@@ -44,7 +44,7 @@ public class PlantDirector extends Thread {
     
     public PlantDirector(float salary, int dayduration, VehiclePlant plant, MainUI userInterface,OperationsManager manager, Warehouse warehouse, String nameplant) {
         this.salary = salary;
-        this.daydurantion = dayduration;
+        this.dayDuration = dayduration;
         this.accSalary = 0;
         this.manager = manager;
         this.userInterface = userInterface;
@@ -72,8 +72,8 @@ public class PlantDirector extends Thread {
                 }    
             }  
             payCheck();
-            Thread.sleep(daydurantion);
-            System.out.println(daydurantion);
+            Thread.sleep(dayDuration);
+            System.out.println(dayDuration);
             
             if(this.manager.daysLeft == 0){
           
@@ -168,24 +168,24 @@ public class PlantDirector extends Thread {
                 int hora = 0;
                 capturado = false;
                 
-                while (acummulatedTime < (this.daydurantion)) {
+                while (acummulatedTime < (this.dayDuration)) {
                         
                         hora++;   
 
                         if(nameplant.equals("Lamborghini")){      
 
-                        acummulatedTime += this.daydurantion*0.0416;
+                        acummulatedTime += this.dayDuration*0.0416;
 
-                        Thread.sleep((long) (this.daydurantion*0.0416));
+                        Thread.sleep((long) (this.dayDuration*0.0416));
 
                             if(hora == horaAleatoria){
                                 
                                 if(capturado == false) {
 
-                                    this.userInterface.directorStatusL("Lookings manager");
+                                    this.userInterface.directorStatusL("Watching manager");
 
-                                    Thread.sleep((long) (this.daydurantion*0.0196));
-                                    acummulatedTime += this.daydurantion*0.0196;
+                                    Thread.sleep((long) (this.dayDuration*0.0196));
+                                    acummulatedTime += this.dayDuration*0.0196;
 
                                     if(this.manager.isIdle() == false){
 
@@ -206,9 +206,9 @@ public class PlantDirector extends Thread {
                         }
                             else {
                         
-                                acummulatedTime += this.daydurantion*0.0416;
+                                acummulatedTime += this.dayDuration*0.0416;
 
-                        Thread.sleep((long) (this.daydurantion*0.0416));
+                                Thread.sleep((long) (this.dayDuration*0.0416));
 
                             if(hora == horaAleatoria){
                                 
@@ -216,8 +216,8 @@ public class PlantDirector extends Thread {
 
                                     this.userInterface.directorStatusM("Lookings manager");
 
-                                    Thread.sleep((long) (this.daydurantion*0.0196));
-                                    acummulatedTime += this.daydurantion*0.0196;
+                                    Thread.sleep((long) (this.dayDuration*0.0196));
+                                    acummulatedTime += this.dayDuration*0.0196;
 
                                     if(this.manager.isIdle() == false){
 
@@ -234,9 +234,12 @@ public class PlantDirector extends Thread {
                                  this.userInterface.directorStatusM("Working ");
                                 
                                 
-                                }}} 
+                                }
+                            }
+                        } 
 
-                        }}
+                        }
+            }
         }   catch (InterruptedException ex) {
                 Logger.getLogger(PlantDirector.class.getName()).log(Level.SEVERE, null, ex);
             }
