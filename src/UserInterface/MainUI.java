@@ -186,7 +186,6 @@ public class MainUI extends javax.swing.JFrame {
         ReadFile nfile = new ReadFile();
         String txt = nfile.readTxt();
         nfile.readConfig(txt, config);
-        System.out.println(config.getDayDuration());
         
         
 
@@ -1803,6 +1802,8 @@ public class MainUI extends javax.swing.JFrame {
 
                 String newConfig = file.readTxt();
                 file.readConfig(newConfig, config);
+                System.out.println(config.getInitialAccesorys());
+                
 
             } catch(Exception e) {
 
@@ -1841,17 +1842,17 @@ public class MainUI extends javax.swing.JFrame {
 
     private void startLActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_startLActionPerformed
 
-        if(counterL > 0){
-            LamborghiniWheels.setText("0");
-            LamborghiniPlant.StopWorker();
-        }
-        else {
-            counterL++;
+//        if(counterL > 0){
+//            LamborghiniWheels.setText("0");
+//            LamborghiniPlant.StopWorker();
+//        }
+//        else {
+//            counterL++;
             LamborghiniPlant = new VehiclePlant("Lamborghini", this, config);
-                       
+            System.out.println(LamborghiniPlant.getAccessoryWorkers());       
             LamborghiniQtys(Integer.toString(LamborghiniPlant.getChasisWorkers()), Integer.toString(LamborghiniPlant.getBodyWorkers()), Integer.toString(LamborghiniPlant.getMotorWorkers()), Integer.toString(LamborghiniPlant.getWheelWorkers()), Integer.toString(LamborghiniPlant.getAccessoryWorkers()), Integer.toString(LamborghiniPlant.getAssemblers()));
         
-        }
+//        }
     }//GEN-LAST:event_startLActionPerformed
 
     private void pauseLActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pauseLActionPerformed
