@@ -97,6 +97,8 @@ public class PlantDirector extends Thread {
                 this.warehouse.resetcars();
                 this.userInterface.MaseAC("0");
                 this.userInterface.LamborghiniSC("0");
+                this.userInterface.LamborghiniAC("0");
+                this.userInterface.MaseAC("0");
                 
                 this.userInterface.costsL(Integer.toString(costo));
                 this.userInterface.UtilityL(Integer.toString(utility));
@@ -138,6 +140,9 @@ public class PlantDirector extends Thread {
                 this.warehouse.resetcars();
                 this.userInterface.MaseAC("0");
                 this.userInterface.LamborghiniSC("0");
+                this.userInterface.LamborghiniAC("0");
+                this.userInterface.MaseAC("0");
+                        
                 
                 this.userInterface.costsM(Integer.toString(costo));
                 this.userInterface.UtilityM(Integer.toString(utility));

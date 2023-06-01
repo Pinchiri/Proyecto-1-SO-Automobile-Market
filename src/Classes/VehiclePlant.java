@@ -60,13 +60,24 @@ public class VehiclePlant {
         
         this.workers = new Worker[maxWorkerQty];
         
-        this.chasisWorkers = 1;
-        this.bodyWorkers = 1;
-        this.motorWorkers = 1;
-        this.wheelWorkers = 1;
+        if (this.name.equals("Lamborghini")) {
+            this.chasisWorkers = config.getInitialChasis();
+            this.bodyWorkers = config.getInitialBodys();
+            this.motorWorkers = config.getInitialMotors();
+            this.wheelWorkers = config.getInitialWheels();
+            this.accessoryWorkers = config.getInitialAccesorys();
+            this.assemblers = config.getInitialAssemblers();
+        } else {
+            this.chasisWorkers = config.getInitialChasisM();
+            this.bodyWorkers = config.getInitialBodysM();
+            this.motorWorkers = config.getInitialMotorsM();
+            this.wheelWorkers = config.getInitialWheelsM();
+            this.accessoryWorkers = config.getInitialAccesorysM();
+            this.assemblers = config.getInitialAssemblersM();
+        }
+        
 
-        this.accessoryWorkers = 1;
-        this.assemblers = 1;
+        
         
         initializeWorkers();
           
