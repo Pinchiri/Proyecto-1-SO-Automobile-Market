@@ -73,9 +73,9 @@ public class PlantDirector extends Thread {
             }  
             payCheck();
             Thread.sleep(daydurantion);
-            System.out.println(daydurantion);
+            System.out.println(this.manager.daysLeft);
             
-            if(this.manager.daysLeft == 0){
+            if(this.manager.daysLeft <= 0){
           
 
                 
