@@ -79,7 +79,7 @@ public class VehiclePlant {
         int arrayIndex = 0;
         
         if(this.name.equals("Lamborghini")){
-            OperationsManager lamborghiniManager = new OperationsManager(20, config.getDeliveryDays(), this, this.userInterface, config.getDayDuration(), this.name);
+            OperationsManager lamborghiniManager = new OperationsManager(20, config.getDeliveryDays(), this, this.userInterface, config.getDayDuration(), this.name, this.config);
             lamborghiniManager.start();
             
             PlantDirector director = new PlantDirector(30,config.getDayDuration(),this,this.userInterface,lamborghiniManager,this.warehouse,this.name);
@@ -87,7 +87,7 @@ public class VehiclePlant {
             director.start();
             
         }else {
-            OperationsManager maseratiManager = new OperationsManager(20, config.getDeliveryDays(), this, this.userInterface, config.getDayDuration(), this.name);
+            OperationsManager maseratiManager = new OperationsManager(20, config.getDeliveryDays(), this, this.userInterface, config.getDayDuration(), this.name,this.config);
             maseratiManager.start();
             
             PlantDirector director = new PlantDirector(30,config.getDayDuration(),this,this.userInterface, maseratiManager,this.warehouse,this.name);
@@ -317,6 +317,15 @@ public class VehiclePlant {
         this.assemblers = assemblers;
     }
 
+    public long calculateCosts() {
+        
+        long totalCosts = 0;
+        
+        for (Worker worker : workers) {
+        totalCosts+= worker.getAccSalary();
+}
+        return totalCosts;
+    }
     
     
 }

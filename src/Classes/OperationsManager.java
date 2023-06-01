@@ -26,12 +26,13 @@ public class OperationsManager extends Thread {
     private int dayduration;
     private String nameplant;
     public float acummulatedTime = 0;
+    public Config configurar;
 
-    public OperationsManager(float salary, int daysLeft, VehiclePlant plant, MainUI userInterface,int dayduration,String nameplant) {
+    public OperationsManager(float salary, int daysLeft, VehiclePlant plant, MainUI userInterface,int dayduration,String nameplant,Config configurar) {
         this.salary = salary;
         this.sixteenHours = 16;
         this.idle = false;
-        
+        this.configurar = configurar;
         
         
         this.daysLeft = daysLeft;
@@ -40,6 +41,8 @@ public class OperationsManager extends Thread {
         this.userInterface = userInterface;
         this.dayduration = dayduration;
         this.nameplant = nameplant;
+        
+        this.configurar = new Config();
         
     }
     
@@ -55,6 +58,7 @@ public class OperationsManager extends Thread {
            acummulatedTime = 0;
            
            
+           payCheck();
            
            while (acummulatedTime < (this.dayduration*0.67)) {
           
@@ -116,19 +120,11 @@ public class OperationsManager extends Thread {
         
     }
     
-    public long calculateCosts() {
-        
-        long totalCosts = 0;
-        
-        for (int i = 0; i < plant.getWorkers().length; i++) {
-            totalCosts += plant.getWorkers()[i].getAccSalary();
-        }
-        return totalCosts;
-    }
     
     public void resetdays(){
-        
-       daysLeft = 30;
+  
+        daysLeft = configurar.getDeliveryDays();
+       
     }
     
     //Getters and Setters
@@ -170,6 +166,14 @@ public class OperationsManager extends Thread {
 
     public void setDayDurationInMs(int dayDurationInMs) {
         this.dayDurationInMs = dayDurationInMs;
+    }
+    
+    public void payCheck() {
+        this.accSalary += this.salary*24;
+    }
+    
+    public void ResetSalario(){
+        this.accSalary = 0;
     }
    
     
