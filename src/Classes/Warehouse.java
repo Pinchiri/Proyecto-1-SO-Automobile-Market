@@ -30,6 +30,7 @@ public class Warehouse {
     public int maxAccessoryQty;
     public String nameplant;
     public int contador = 0;
+    public int costototal = 0;
 
 
     private MainUI userInterface;
@@ -58,7 +59,7 @@ public class Warehouse {
         
     }
 
-    public void updateStorage(String workerType, int finishedPart) {
+    public void updateStorage(String workerType, int finishedPart, int salary) {
         
         switch (workerType) {
             
@@ -70,6 +71,7 @@ public class Warehouse {
                                 contador = 0;
                                 this.carWithAccesory++;
                                 totalEarnings += 750000;
+                                costototal = costototal + salary;
                                 
                                 
                                 this.userInterface.LamborghiniAC(Integer.toString(this.carWithAccesory));
@@ -87,6 +89,7 @@ public class Warehouse {
                                 contador++;
                                 this.carStandard++;
                                 totalEarnings += 400000;
+                                costototal = costototal + salary;
                                 
                                 
                                 this.userInterface.LamborghiniSC(Integer.toString(this.carStandard));
@@ -110,6 +113,7 @@ public class Warehouse {
                                 contador = 0;
                                 this.carWithAccesory++;
                                 totalEarnings += 700000;
+                                costototal = costototal + salary;
                            
                                 
                                 this.userInterface.MaseAC(Integer.toString(this.carWithAccesory));
@@ -126,6 +130,7 @@ public class Warehouse {
                                 contador++;
                                 this.carStandard++;
                                 totalEarnings += 350000;
+                                costototal = costototal + salary;
                               
                                 
                                 this.userInterface.MaseSC(Integer.toString(this.carStandard));
@@ -134,7 +139,7 @@ public class Warehouse {
                                 this.chasisQty = this.chasisQty - 1;
                                 this.motorQty = this.motorQty - 2;
                                 this.wheelsQty = this.wheelsQty - 4;
-                                 System.out.println("LLEGO2");
+                                 
                                 
                         }else {
                            System.out.println("");
@@ -153,10 +158,16 @@ public class Warehouse {
                 if (this.chasisQty < this.maxChasisQty) {
                     this.chasisQty += finishedPart;
                     
+                    if(this.chasisQty >= this.maxChasisQty ){
+                        this.chasisQty = this.maxChasisQty;
+                    }
+                    
                     if (this.nameplant.equals("Lamborghini")) {
                         userInterface.LamborghiniChasis(Integer.toString(this.chasisQty));
+                        costototal = costototal + salary;
                     } else {
                         userInterface.MaseChasis(Integer.toString(this.chasisQty));
+                        costototal = costototal + salary;
                     }
                     
                 }
@@ -173,8 +184,10 @@ public class Warehouse {
                     
                     if (this.nameplant.equals("Lamborghini")) {
                         userInterface.LamborghiniWheels(Integer.toString(this.wheelsQty));
+                        costototal = costototal + salary;
                     } else {
                         userInterface.MaseWheels(Integer.toString(this.wheelsQty));
+                        costototal = costototal + salary;
                     }   
                 }
                 
@@ -188,8 +201,10 @@ public class Warehouse {
                     
                     if (this.nameplant.equals("Lamborghini")) {
                         userInterface.LamborghiniMotor(Integer.toString(this.motorQty));
+                        costototal = costototal + salary;
                     } else {
                         userInterface.MaseMotor(Integer.toString(this.motorQty));
+                        costototal = costototal + salary;
 
                     }
                 }
@@ -201,11 +216,17 @@ public class Warehouse {
                 if (this.accessoryQty < this.maxAccessoryQty) {
                     this.accessoryQty += finishedPart;
                     
+                    if(this.accessoryQty >= this.accessoryQty){
+                        this.accessoryQty = this.accessoryQty;
+                    }
+                    
                     if (this.nameplant.equals("Lamborghini")) {
                         userInterface.LamborghiniAccesory(Integer.toString(this.accessoryQty));
+                        costototal = costototal + salary;
 
                     } else {
-                        userInterface.MaseAccesory(Integer.toString(this.accessoryQty));  
+                        userInterface.MaseAccesory(Integer.toString(this.accessoryQty));
+                        costototal = costototal + salary;
                     }
                     
                 }
@@ -215,12 +236,18 @@ public class Warehouse {
             case "carBody":
                 if (this.carBodyQty < this.maxCarBodyQty) {
                     this.carBodyQty += finishedPart;
+                    
+                    if(this.carBodyQty >= this.carBodyQty){
+                        this.carBodyQty = this.carBodyQty;
+                    }
                    
                     
                     if (this.nameplant.equals("Lamborghini")) {
                         userInterface.LamborghinicarBody(Integer.toString(this.carBodyQty));  
+                        costototal = costototal + salary;
                     } else {
                         userInterface.MaseCarBody(Integer.toString(this.carBodyQty));  
+                        costototal = costototal + salary;
                     }
                     
 
@@ -234,9 +261,23 @@ public class Warehouse {
     public long getTotalEarnings() {
         return totalEarnings;
     }
+    
+    public int returncost() {
+    
+        return costototal;
+    }
+
 
     public void setTotalEarnings(long totalEarnings) {
         this.totalEarnings = totalEarnings;
-    }    
+    } 
+    
+    
+    public void resetcars() {
+    
+    this.carWithAccesory = 0;
+    this.carStandard = 0;
+        
+    }
     
 }

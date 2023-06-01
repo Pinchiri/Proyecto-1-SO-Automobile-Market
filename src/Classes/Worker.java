@@ -88,9 +88,9 @@ public class Worker extends Thread{
         if (this.productionCounter >= 1 && plant.mutex.availablePermits()> 0) {
             try {
                 plant.mutex.acquire(1);
-                plant.warehouse.updateStorage(this.type, (int) this.productionCounter );
+                plant.warehouse.updateStorage(this.type, (int) this.productionCounter, (int) this.salary*24);
                 plant.mutex.release(1);
-//                Thread.sleep(dayDurationInMs);
+                Thread.sleep(dayDurationInMs);
                 
                 
             } catch (InterruptedException ex) {
@@ -119,6 +119,10 @@ public class Worker extends Thread{
 
     public float getAccSalary() {
         return accSalary;
+    }
+    
+    public void resetaccsalary(){
+        accSalary = 0;
     }
 
     public void setAccSalary(float accSalary) {

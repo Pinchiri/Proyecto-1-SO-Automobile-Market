@@ -18,24 +18,31 @@ public class OperationsManager extends Thread {
     private float salary;
     private boolean idle;
     private int sixteenHours;
-    public static int daysLeft;
+    public int daysLeft;
     private float accSalary;
     private int dayDurationInMs;
     private VehiclePlant plant;
     private MainUI userInterface;
     private int dayduration;
     private String nameplant;
+    public float acummulatedTime = 0;
+    public Config configurar;
 
-    public OperationsManager(float salary, int daysLeft, VehiclePlant plant, MainUI userInterface,int dayduration,String nameplant) {
+    public OperationsManager(float salary, int daysLeft, VehiclePlant plant, MainUI userInterface,int dayduration,String nameplant,Config configurar) {
         this.salary = salary;
         this.sixteenHours = 16;
         this.idle = false;
+        this.configurar = configurar;
+        
+        
         this.daysLeft = daysLeft;
         this.accSalary = 0;
         this.plant = plant;
         this.userInterface = userInterface;
         this.dayduration = dayduration;
         this.nameplant = nameplant;
+        
+        this.configurar = new Config();
         
     }
     
@@ -48,16 +55,61 @@ public class OperationsManager extends Thread {
             try {
             
            // this.userInterface.lambCosts(Long.toString(calculateCosts()));
-            Thread.sleep(dayduration);
+           acummulatedTime = 0;
+           
+           
+           payCheck();
+           
+           while (acummulatedTime < (this.dayduration*0.67)) {
+          
+         if(nameplant.equals("Lamborghini")){      
+            if (idle) {
+                acummulatedTime += dayduration*0.0208;
+                idle = false;
+                Thread.sleep((long) (dayduration*0.0208));
+                userInterface.managerStatusL("Watching Formula 1");
+                
+            } else {
+                acummulatedTime += dayduration*0.0208;
+                idle = true; 
+                Thread.sleep((long) (dayduration*0.0208));
+                userInterface.managerStatusL("Working accountability");
+                
+            }
+           
+                
+         }else {
+             if (idle) {
+                acummulatedTime += dayduration*0.0208;
+                idle = false;
+                Thread.sleep((long) (dayduration*0.0208));
+                userInterface.managerStatusM1("Watching Formula 1");
+                
+            } else {
+                acummulatedTime += dayduration*0.0208;
+                idle = true; 
+                Thread.sleep((long) (dayduration*0.0208));
+                userInterface.managerStatusM1("Working accountability");
+                
+            }
+           
+         }            
+          
+      }
+           
+            
+            
             
             this.daysLeft--;
             
             if(nameplant.equals("Lamborghini")){
-                this.userInterface.daysLeftLamborghini(Integer.toString(daysLeft));
+                this.userInterface.daysLeftLamborghini(Integer.toString(this.daysLeft));
+                userInterface.managerStatusL("Changing days"); 
             }else{
-                this.userInterface.DaysLeftMaserati(Integer.toString(daysLeft));
+                this.userInterface.DaysLeftMaserati(Integer.toString(this.daysLeft));
+                userInterface.managerStatusM1("Changing days");
             }
-            
+            Thread.sleep((long) (this.dayduration*0.33));
            
             
             } catch (InterruptedException ex) {
@@ -67,7 +119,7 @@ public class OperationsManager extends Thread {
         
         
     }
-    
+
     public long calculateCosts() throws InterruptedException {
         
         long totalCosts = 0;
@@ -77,10 +129,12 @@ public class OperationsManager extends Thread {
         }
         return totalCosts;
     }
+
     
     public void resetdays(){
-        
-       daysLeft = 30;
+  
+        daysLeft = configurar.getDeliveryDays();
+       
     }
     
     //Getters and Setters
@@ -122,6 +176,14 @@ public class OperationsManager extends Thread {
 
     public void setDayDurationInMs(int dayDurationInMs) {
         this.dayDurationInMs = dayDurationInMs;
+    }
+    
+    public void payCheck() {
+        this.accSalary += this.salary*24;
+    }
+    
+    public void ResetSalario(){
+        this.accSalary = 0;
     }
    
     
