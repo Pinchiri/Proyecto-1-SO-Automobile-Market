@@ -99,10 +99,14 @@ public class Worker extends Thread{
             
            
             // intentar acceder al almacén
-            
             this.productionCounter = 0;
             
         } 
+    }
+    
+    public void changeParams(float productionRate, float salary) {
+        setSalary(salary);
+        setProductionPerDay(productionRate);
     }
 
     public float getSalary() {
@@ -128,6 +132,13 @@ public class Worker extends Thread{
     public void setType(String type) {
         this.type = type;
     }
-    
-    
+
+    public float getProductionPerDay() {
+        return productionPerDay;
+    }
+
+    public void setProductionPerDay(float productionPerDay) {
+        this.productionPerDay = productionPerDay;
+    }
+ 
 }

@@ -11,7 +11,7 @@ import java.util.logging.Logger;
 
 /**
  *
- * @author Rolando
+ * @author Andres
  */
 public class OperationsManager extends Thread {
     
@@ -68,7 +68,7 @@ public class OperationsManager extends Thread {
         
     }
     
-    public long calculateCosts() {
+    public long calculateCosts() throws InterruptedException {
         
         long totalCosts = 0;
         

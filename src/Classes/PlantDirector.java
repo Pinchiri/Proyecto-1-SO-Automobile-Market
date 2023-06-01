@@ -14,7 +14,7 @@ import java.util.logging.Logger;
 
 /**
  *
- * @author Rolando
+ * @author Andres
  */
 public class PlantDirector extends Thread {
     
@@ -58,29 +58,28 @@ public class PlantDirector extends Thread {
             }  
             
             Thread.sleep(daydurantion);
-            System.out.println(daydurantion);
             
             if(this.manager.daysLeft == 0){
           
-                this.dias = config.getDeliveryDays();
-                System.out.println(this.dias);
+                    this.dias = config.getDeliveryDays();
+                    System.out.println(this.dias);
+
+
+
+                    if(nameplant.equals("Lamborghini")){
+
+                    this.userInterface.daysLeftLamborghini(Integer.toString(this.dias));
+                    this.userInterface.lambEarnings("$" + Long.toString(warehouse.getTotalEarnings()));
+
+                    manager.resetdays();
                 
+                } else {
                 
-            
-                if(nameplant.equals("Lamborghini")){
-                
-                this.userInterface.daysLeftLamborghini(Integer.toString(this.dias));
-                this.userInterface.lambEarnings("$" + Long.toString(warehouse.getTotalEarnings()));
-                
-                manager.resetdays();
-                
-                }else{
-                
-                this.userInterface.DaysLeftMaserati(Integer.toString(daysLeft));
-                this.userInterface.MaseEarnings("$" + Long.toString(warehouse.getTotalEarnings()));
-                
-                manager.resetdays();
-                
+                    this.userInterface.DaysLeftMaserati(Integer.toString(daysLeft));
+                    this.userInterface.MaseEarnings("$" + Long.toString(warehouse.getTotalEarnings()));
+
+                    manager.resetdays();
+
                     
                     
                 }

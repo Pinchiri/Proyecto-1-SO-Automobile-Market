@@ -139,6 +139,210 @@ public class MainUI extends javax.swing.JFrame {
         
 
     }
+    
+    //Change Worker if Plus button
+    public void changeWorkerPlus(VehiclePlant plant, String workerType) {
+        System.out.println(workerType);
+        switch(workerType) {
+            
+            case "chasis":
+                
+                for (int i = 0; i < plant.getWorkers().length; i++) {
+                    
+
+                    if (plant.getWorkers()[i].getType().equals("waiting")) {
+
+                        plant.getWorkers()[i].setType("chasis");
+                        
+                        if (plant.getName().equals("Lamborghini")) {
+                            plant.getWorkers()[i].changeParams(0.25f, 10);
+                            
+                        } else {
+                            plant.getWorkers()[i].changeParams(0.5f, 10);
+                        }   
+                    }
+                }
+                break;
+                
+            case "carBody":
+                
+                 for (int i = 0; i < plant.getWorkers().length; i++) {
+            
+                    if (plant.getWorkers()[i].getType().equals("waiting")) {
+                        
+                        plant.getWorkers()[i].setType("carBody");
+                        
+                        if (plant.getName().equals("Lamborghini")) {
+                            plant.getWorkers()[i].changeParams(0.25f, 10);
+                            
+                        } else {
+                            plant.getWorkers()[i].changeParams(0.5f, 10);
+                        }   
+                    }
+                }
+                break;
+                
+            case "motors":
+                
+                 for (int i = 0; i < plant.getWorkers().length; i++) {
+            
+                    if (plant.getWorkers()[i].getType().equals("waiting")) {
+                        
+                        plant.getWorkers()[i].setType("motors");
+                        
+                        if (plant.getName().equals("Lamborghini")) {
+                            plant.getWorkers()[i].changeParams(1f, 10);
+                            
+                        } else {
+                            plant.getWorkers()[i].changeParams(3f, 10);
+                        }   
+                    }
+                }
+                break;
+                
+            case "wheel":
+                
+                 for (int i = 0; i < plant.getWorkers().length; i++) {
+            
+                    if (plant.getWorkers()[i].getType().equals("waiting")) {
+                        
+                        plant.getWorkers()[i].setType("wheel");
+                        
+                        if (plant.getName().equals("Lamborghini")) {
+                            plant.getWorkers()[i].changeParams(5f, 10);
+                            
+                        } else {
+                            plant.getWorkers()[i].changeParams(3f, 10);
+                        }   
+                    }
+                }
+                break;
+                
+            case "accesory":
+                
+                 for (int i = 0; i < plant.getWorkers().length; i++) {
+            
+                    if (plant.getWorkers()[i].getType().equals("waiting")) {
+                        
+                        plant.getWorkers()[i].setType("accesory");
+                        
+                        if (plant.getName().equals("Lamborghini")) {
+                            plant.getWorkers()[i].changeParams(0.5f, 10);
+                            
+                        } else {
+                            plant.getWorkers()[i].changeParams(0.34f, 10);
+                        }   
+                    }
+                }
+                break;
+                
+            case "assembler":
+                
+                 for (int i = 0; i < plant.getWorkers().length; i++) {
+            
+                    if (plant.getWorkers()[i].getType().equals("waiting")) {
+                        
+                        plant.getWorkers()[i].setType("assembler");
+                        
+                        if (plant.getName().equals("Lamborghini")) {
+                            plant.getWorkers()[i].changeParams(0.5f, 10);
+                            
+                        } else {
+                            plant.getWorkers()[i].changeParams(0.34f, 10);
+                        }   
+                    }
+                }
+                break;
+        }
+               
+    }
+    
+    //Change Worker if Minus button
+    public void changeWorkerMinus(VehiclePlant plant, String workerType) {
+        
+        switch(workerType) {
+            
+            case "chasis":
+                
+                for (int i = 0; i < plant.getWorkers().length; i++) {
+            
+                    if (plant.getWorkers()[i].getType().equals("chasis")) {
+                        
+                        plant.getWorkers()[i].setType("waiting");
+                        plant.getWorkers()[i].changeParams(0, 0);
+
+                    }
+                    
+                }
+                break;
+                
+            case "carBody":
+                
+                for (int i = 0; i < plant.getWorkers().length; i++) {
+            
+                    if (plant.getWorkers()[i].getType().equals("carBody")) {
+                        
+                        plant.getWorkers()[i].setType("waiting");
+                        plant.getWorkers()[i].changeParams(0, 0);
+                    }
+                   
+                }
+                break;
+                
+            case "motors":
+                
+                for (int i = 0; i < plant.getWorkers().length; i++) {
+            
+                    if (plant.getWorkers()[i].getType().equals("motors")) {
+                        
+                        plant.getWorkers()[i].setType("waiting");
+                        plant.getWorkers()[i].changeParams(0, 0);
+                    }
+                    
+                }
+                break;
+                
+            case "wheel":
+                
+                for (int i = 0; i < plant.getWorkers().length; i++) {
+            
+                    if (plant.getWorkers()[i].getType().equals("wheels")) {
+                        
+                        plant.getWorkers()[i].setType("waiting");
+                        plant.getWorkers()[i].changeParams(0, 0);
+                    }
+                    
+                }
+                break;
+                
+            case "accesory":
+                
+                for (int i = 0; i < plant.getWorkers().length; i++) {
+            
+                    if (plant.getWorkers()[i].getType().equals("accesory")) {
+                        
+                        plant.getWorkers()[i].setType("waiting");
+                        plant.getWorkers()[i].changeParams(0, 0);
+                    }
+                    
+                }
+                break;
+                
+            case "assembler":
+                
+                for (int i = 0; i < plant.getWorkers().length; i++) {
+            
+                    if (plant.getWorkers()[i].getType().equals("assembler")) {
+                        
+                        plant.getWorkers()[i].setType("waiting");
+                        plant.getWorkers()[i].changeParams(0, 0);
+                    }
+                    
+                }
+                break;
+        }
+               
+    }
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -246,10 +450,22 @@ public class MainUI extends javax.swing.JFrame {
         costsL = new javax.swing.JLabel();
         assembled_labelM7 = new javax.swing.JLabel();
         utilityL = new javax.swing.JLabel();
+        chasisPlusL = new javax.swing.JButton();
+        bodyPlusL = new javax.swing.JButton();
+        motorPlusL = new javax.swing.JButton();
+        chasisMinL = new javax.swing.JButton();
+        bodyMinL = new javax.swing.JButton();
+        motorMinL = new javax.swing.JButton();
+        wheelPlusL = new javax.swing.JButton();
+        wheelMinL = new javax.swing.JButton();
+        accMinL = new javax.swing.JButton();
+        accPlusL = new javax.swing.JButton();
+        assemblerMinL = new javax.swing.JButton();
+        assemblerPlusL = new javax.swing.JButton();
         MaseratiTab = new javax.swing.JPanel();
         startM = new javax.swing.JButton();
         pauseM = new javax.swing.JButton();
-        stopM = new javax.swing.JButton();
+        chasisMin = new javax.swing.JButton();
         bodyWorkersM = new javax.swing.JLabel();
         M_label = new javax.swing.JLabel();
         wm_label = new javax.swing.JLabel();
@@ -303,6 +519,18 @@ public class MainUI extends javax.swing.JFrame {
         costsM = new javax.swing.JLabel();
         assembled_labelM3 = new javax.swing.JLabel();
         utilityM = new javax.swing.JLabel();
+        stopM = new javax.swing.JButton();
+        chasisPlus = new javax.swing.JButton();
+        bodyPlus = new javax.swing.JButton();
+        bodyMin = new javax.swing.JButton();
+        motorPlus = new javax.swing.JButton();
+        motorMin = new javax.swing.JButton();
+        wheelPlus = new javax.swing.JButton();
+        wheelMin = new javax.swing.JButton();
+        accMin = new javax.swing.JButton();
+        accPlus = new javax.swing.JButton();
+        assemblerMin = new javax.swing.JButton();
+        assemblerPlus = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setResizable(false);
@@ -855,6 +1083,138 @@ public class MainUI extends javax.swing.JFrame {
         utilityL.setText("0");
         LamborghiniTab.add(utilityL, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 490, 50, 40));
 
+        chasisPlusL.setBackground(new java.awt.Color(255, 255, 153));
+        chasisPlusL.setFont(new java.awt.Font("Microsoft YaHei", 1, 18)); // NOI18N
+        chasisPlusL.setForeground(new java.awt.Color(51, 51, 51));
+        chasisPlusL.setText("+");
+        chasisPlusL.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                chasisPlusLActionPerformed(evt);
+            }
+        });
+        LamborghiniTab.add(chasisPlusL, new org.netbeans.lib.awtextra.AbsoluteConstraints(810, 90, 50, 20));
+
+        bodyPlusL.setBackground(new java.awt.Color(255, 255, 153));
+        bodyPlusL.setFont(new java.awt.Font("Microsoft YaHei", 1, 18)); // NOI18N
+        bodyPlusL.setForeground(new java.awt.Color(51, 51, 51));
+        bodyPlusL.setText("+");
+        bodyPlusL.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bodyPlusLActionPerformed(evt);
+            }
+        });
+        LamborghiniTab.add(bodyPlusL, new org.netbeans.lib.awtextra.AbsoluteConstraints(810, 130, 50, 20));
+
+        motorPlusL.setBackground(new java.awt.Color(255, 255, 153));
+        motorPlusL.setFont(new java.awt.Font("Microsoft YaHei", 1, 18)); // NOI18N
+        motorPlusL.setForeground(new java.awt.Color(51, 51, 51));
+        motorPlusL.setText("+");
+        motorPlusL.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                motorPlusLActionPerformed(evt);
+            }
+        });
+        LamborghiniTab.add(motorPlusL, new org.netbeans.lib.awtextra.AbsoluteConstraints(810, 170, 50, 20));
+
+        chasisMinL.setBackground(new java.awt.Color(255, 255, 153));
+        chasisMinL.setFont(new java.awt.Font("Microsoft YaHei", 1, 18)); // NOI18N
+        chasisMinL.setForeground(new java.awt.Color(51, 51, 51));
+        chasisMinL.setText("-");
+        chasisMinL.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                chasisMinLActionPerformed(evt);
+            }
+        });
+        LamborghiniTab.add(chasisMinL, new org.netbeans.lib.awtextra.AbsoluteConstraints(870, 90, 50, 20));
+
+        bodyMinL.setBackground(new java.awt.Color(255, 255, 153));
+        bodyMinL.setFont(new java.awt.Font("Microsoft YaHei", 1, 18)); // NOI18N
+        bodyMinL.setForeground(new java.awt.Color(51, 51, 51));
+        bodyMinL.setText("-");
+        bodyMinL.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bodyMinLActionPerformed(evt);
+            }
+        });
+        LamborghiniTab.add(bodyMinL, new org.netbeans.lib.awtextra.AbsoluteConstraints(870, 130, 50, 20));
+
+        motorMinL.setBackground(new java.awt.Color(255, 255, 153));
+        motorMinL.setFont(new java.awt.Font("Microsoft YaHei", 1, 18)); // NOI18N
+        motorMinL.setForeground(new java.awt.Color(51, 51, 51));
+        motorMinL.setText("-");
+        motorMinL.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                motorMinLActionPerformed(evt);
+            }
+        });
+        LamborghiniTab.add(motorMinL, new org.netbeans.lib.awtextra.AbsoluteConstraints(870, 170, 50, 20));
+
+        wheelPlusL.setBackground(new java.awt.Color(255, 255, 153));
+        wheelPlusL.setFont(new java.awt.Font("Microsoft YaHei", 1, 18)); // NOI18N
+        wheelPlusL.setForeground(new java.awt.Color(51, 51, 51));
+        wheelPlusL.setText("+");
+        wheelPlusL.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                wheelPlusLActionPerformed(evt);
+            }
+        });
+        LamborghiniTab.add(wheelPlusL, new org.netbeans.lib.awtextra.AbsoluteConstraints(810, 210, 50, 20));
+
+        wheelMinL.setBackground(new java.awt.Color(255, 255, 153));
+        wheelMinL.setFont(new java.awt.Font("Microsoft YaHei", 1, 18)); // NOI18N
+        wheelMinL.setForeground(new java.awt.Color(51, 51, 51));
+        wheelMinL.setText("-");
+        wheelMinL.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                wheelMinLActionPerformed(evt);
+            }
+        });
+        LamborghiniTab.add(wheelMinL, new org.netbeans.lib.awtextra.AbsoluteConstraints(870, 210, 50, 20));
+
+        accMinL.setBackground(new java.awt.Color(255, 255, 153));
+        accMinL.setFont(new java.awt.Font("Microsoft YaHei", 1, 18)); // NOI18N
+        accMinL.setForeground(new java.awt.Color(51, 51, 51));
+        accMinL.setText("-");
+        accMinL.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                accMinLActionPerformed(evt);
+            }
+        });
+        LamborghiniTab.add(accMinL, new org.netbeans.lib.awtextra.AbsoluteConstraints(870, 250, 50, 20));
+
+        accPlusL.setBackground(new java.awt.Color(255, 255, 153));
+        accPlusL.setFont(new java.awt.Font("Microsoft YaHei", 1, 18)); // NOI18N
+        accPlusL.setForeground(new java.awt.Color(51, 51, 51));
+        accPlusL.setText("+");
+        accPlusL.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                accPlusLActionPerformed(evt);
+            }
+        });
+        LamborghiniTab.add(accPlusL, new org.netbeans.lib.awtextra.AbsoluteConstraints(810, 250, 50, 20));
+
+        assemblerMinL.setBackground(new java.awt.Color(255, 255, 153));
+        assemblerMinL.setFont(new java.awt.Font("Microsoft YaHei", 1, 18)); // NOI18N
+        assemblerMinL.setForeground(new java.awt.Color(51, 51, 51));
+        assemblerMinL.setText("-");
+        assemblerMinL.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                assemblerMinLActionPerformed(evt);
+            }
+        });
+        LamborghiniTab.add(assemblerMinL, new org.netbeans.lib.awtextra.AbsoluteConstraints(870, 290, 50, 20));
+
+        assemblerPlusL.setBackground(new java.awt.Color(255, 255, 153));
+        assemblerPlusL.setFont(new java.awt.Font("Microsoft YaHei", 1, 18)); // NOI18N
+        assemblerPlusL.setForeground(new java.awt.Color(51, 51, 51));
+        assemblerPlusL.setText("+");
+        assemblerPlusL.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                assemblerPlusLActionPerformed(evt);
+            }
+        });
+        LamborghiniTab.add(assemblerPlusL, new org.netbeans.lib.awtextra.AbsoluteConstraints(810, 290, 50, 20));
+
         jTabbedPane1.addTab("Lamborghini", LamborghiniTab);
 
         MaseratiTab.setBackground(new java.awt.Color(51, 51, 51));
@@ -883,16 +1243,16 @@ public class MainUI extends javax.swing.JFrame {
         });
         MaseratiTab.add(pauseM, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 80, 90, 40));
 
-        stopM.setBackground(new java.awt.Color(255, 255, 153));
-        stopM.setFont(new java.awt.Font("Microsoft YaHei", 1, 18)); // NOI18N
-        stopM.setForeground(new java.awt.Color(51, 51, 51));
-        stopM.setText("Stop");
-        stopM.addActionListener(new java.awt.event.ActionListener() {
+        chasisMin.setBackground(new java.awt.Color(255, 255, 153));
+        chasisMin.setFont(new java.awt.Font("Microsoft YaHei", 1, 18)); // NOI18N
+        chasisMin.setForeground(new java.awt.Color(51, 51, 51));
+        chasisMin.setText("-");
+        chasisMin.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                stopMActionPerformed(evt);
+                chasisMinActionPerformed(evt);
             }
         });
-        MaseratiTab.add(stopM, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 80, 90, 40));
+        MaseratiTab.add(chasisMin, new org.netbeans.lib.awtextra.AbsoluteConstraints(870, 90, 50, 20));
 
         bodyWorkersM.setFont(new java.awt.Font("Microsoft YaHei", 1, 18)); // NOI18N
         bodyWorkersM.setForeground(new java.awt.Color(255, 255, 255));
@@ -1178,6 +1538,138 @@ public class MainUI extends javax.swing.JFrame {
         utilityM.setText("0");
         MaseratiTab.add(utilityM, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 490, 50, 40));
 
+        stopM.setBackground(new java.awt.Color(255, 255, 153));
+        stopM.setFont(new java.awt.Font("Microsoft YaHei", 1, 18)); // NOI18N
+        stopM.setForeground(new java.awt.Color(51, 51, 51));
+        stopM.setText("Stop");
+        stopM.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                stopMActionPerformed(evt);
+            }
+        });
+        MaseratiTab.add(stopM, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 80, 90, 40));
+
+        chasisPlus.setBackground(new java.awt.Color(255, 255, 153));
+        chasisPlus.setFont(new java.awt.Font("Microsoft YaHei", 1, 18)); // NOI18N
+        chasisPlus.setForeground(new java.awt.Color(51, 51, 51));
+        chasisPlus.setText("+");
+        chasisPlus.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                chasisPlusActionPerformed(evt);
+            }
+        });
+        MaseratiTab.add(chasisPlus, new org.netbeans.lib.awtextra.AbsoluteConstraints(810, 90, 50, 20));
+
+        bodyPlus.setBackground(new java.awt.Color(255, 255, 153));
+        bodyPlus.setFont(new java.awt.Font("Microsoft YaHei", 1, 18)); // NOI18N
+        bodyPlus.setForeground(new java.awt.Color(51, 51, 51));
+        bodyPlus.setText("+");
+        bodyPlus.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bodyPlusActionPerformed(evt);
+            }
+        });
+        MaseratiTab.add(bodyPlus, new org.netbeans.lib.awtextra.AbsoluteConstraints(810, 130, 50, 20));
+
+        bodyMin.setBackground(new java.awt.Color(255, 255, 153));
+        bodyMin.setFont(new java.awt.Font("Microsoft YaHei", 1, 18)); // NOI18N
+        bodyMin.setForeground(new java.awt.Color(51, 51, 51));
+        bodyMin.setText("-");
+        bodyMin.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bodyMinActionPerformed(evt);
+            }
+        });
+        MaseratiTab.add(bodyMin, new org.netbeans.lib.awtextra.AbsoluteConstraints(870, 130, 50, 20));
+
+        motorPlus.setBackground(new java.awt.Color(255, 255, 153));
+        motorPlus.setFont(new java.awt.Font("Microsoft YaHei", 1, 18)); // NOI18N
+        motorPlus.setForeground(new java.awt.Color(51, 51, 51));
+        motorPlus.setText("+");
+        motorPlus.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                motorPlusActionPerformed(evt);
+            }
+        });
+        MaseratiTab.add(motorPlus, new org.netbeans.lib.awtextra.AbsoluteConstraints(810, 170, 50, 20));
+
+        motorMin.setBackground(new java.awt.Color(255, 255, 153));
+        motorMin.setFont(new java.awt.Font("Microsoft YaHei", 1, 18)); // NOI18N
+        motorMin.setForeground(new java.awt.Color(51, 51, 51));
+        motorMin.setText("-");
+        motorMin.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                motorMinActionPerformed(evt);
+            }
+        });
+        MaseratiTab.add(motorMin, new org.netbeans.lib.awtextra.AbsoluteConstraints(870, 170, 50, 20));
+
+        wheelPlus.setBackground(new java.awt.Color(255, 255, 153));
+        wheelPlus.setFont(new java.awt.Font("Microsoft YaHei", 1, 18)); // NOI18N
+        wheelPlus.setForeground(new java.awt.Color(51, 51, 51));
+        wheelPlus.setText("+");
+        wheelPlus.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                wheelPlusActionPerformed(evt);
+            }
+        });
+        MaseratiTab.add(wheelPlus, new org.netbeans.lib.awtextra.AbsoluteConstraints(810, 210, 50, 20));
+
+        wheelMin.setBackground(new java.awt.Color(255, 255, 153));
+        wheelMin.setFont(new java.awt.Font("Microsoft YaHei", 1, 18)); // NOI18N
+        wheelMin.setForeground(new java.awt.Color(51, 51, 51));
+        wheelMin.setText("-");
+        wheelMin.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                wheelMinActionPerformed(evt);
+            }
+        });
+        MaseratiTab.add(wheelMin, new org.netbeans.lib.awtextra.AbsoluteConstraints(870, 210, 50, 20));
+
+        accMin.setBackground(new java.awt.Color(255, 255, 153));
+        accMin.setFont(new java.awt.Font("Microsoft YaHei", 1, 18)); // NOI18N
+        accMin.setForeground(new java.awt.Color(51, 51, 51));
+        accMin.setText("-");
+        accMin.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                accMinActionPerformed(evt);
+            }
+        });
+        MaseratiTab.add(accMin, new org.netbeans.lib.awtextra.AbsoluteConstraints(870, 250, 50, 20));
+
+        accPlus.setBackground(new java.awt.Color(255, 255, 153));
+        accPlus.setFont(new java.awt.Font("Microsoft YaHei", 1, 18)); // NOI18N
+        accPlus.setForeground(new java.awt.Color(51, 51, 51));
+        accPlus.setText("+");
+        accPlus.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                accPlusActionPerformed(evt);
+            }
+        });
+        MaseratiTab.add(accPlus, new org.netbeans.lib.awtextra.AbsoluteConstraints(810, 250, 50, 20));
+
+        assemblerMin.setBackground(new java.awt.Color(255, 255, 153));
+        assemblerMin.setFont(new java.awt.Font("Microsoft YaHei", 1, 18)); // NOI18N
+        assemblerMin.setForeground(new java.awt.Color(51, 51, 51));
+        assemblerMin.setText("-");
+        assemblerMin.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                assemblerMinActionPerformed(evt);
+            }
+        });
+        MaseratiTab.add(assemblerMin, new org.netbeans.lib.awtextra.AbsoluteConstraints(870, 290, 50, 20));
+
+        assemblerPlus.setBackground(new java.awt.Color(255, 255, 153));
+        assemblerPlus.setFont(new java.awt.Font("Microsoft YaHei", 1, 18)); // NOI18N
+        assemblerPlus.setForeground(new java.awt.Color(51, 51, 51));
+        assemblerPlus.setText("+");
+        assemblerPlus.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                assemblerPlusActionPerformed(evt);
+            }
+        });
+        MaseratiTab.add(assemblerPlus, new org.netbeans.lib.awtextra.AbsoluteConstraints(810, 290, 50, 20));
+
         jTabbedPane1.addTab("Maserati", MaseratiTab);
 
         getContentPane().add(jTabbedPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 950, 605));
@@ -1267,30 +1759,29 @@ public class MainUI extends javax.swing.JFrame {
         }
         
         
-        
+       
         
         
     }//GEN-LAST:event_setConfigurationActionPerformed
                              
 
     private void startMActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_startMActionPerformed
-    /*    if(counterM > 0){
-            LamborghiniWheels.setText("0");
-            MaseratiPlant.StopWorker();
-        }
-        else {
-            counterM++; */
-            MaseratiPlant = new VehiclePlant("Maserati", this, config); 
-            
-            
-            MaseratiPlant.initializeWorkers();
-        
-       // }
+
+            MaseratiPlant = new VehiclePlant("Maserati", this, config);
+            MaseratiQtys(Integer.toString(MaseratiPlant.getChasisWorkers()), Integer.toString(MaseratiPlant.getBodyWorkers()), Integer.toString(MaseratiPlant.getMotorWorkers()), Integer.toString(MaseratiPlant.getWheelWorkers()), Integer.toString(MaseratiPlant.getAccessoryWorkers()), Integer.toString(MaseratiPlant.getAssemblers()));
+
     }//GEN-LAST:event_startMActionPerformed
 
-    private void stopMActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_stopMActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_stopMActionPerformed
+    private void chasisMinActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_chasisMinActionPerformed
+       if (Integer.parseInt(chasisWorkersM.getText()) > 1) {
+            int chasisInt = Integer.parseInt(chasisWorkersM.getText()) - 1;
+            chasisWorkersM.setText(Integer.toString(chasisInt));
+            changeWorkerMinus(MaseratiPlant, "chasis");
+            MaseratiPlant.reduceChasisWorkers();
+        } else {
+            JOptionPane.showMessageDialog(null, "You have reached minimum capacity");
+        }
+    }//GEN-LAST:event_chasisMinActionPerformed
 
     private void pauseMActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pauseMActionPerformed
         // TODO add your handling code here:
@@ -1307,8 +1798,6 @@ public class MainUI extends javax.swing.JFrame {
             LamborghiniPlant = new VehiclePlant("Lamborghini", this, config);
                        
             LamborghiniQtys(Integer.toString(LamborghiniPlant.getChasisWorkers()), Integer.toString(LamborghiniPlant.getBodyWorkers()), Integer.toString(LamborghiniPlant.getMotorWorkers()), Integer.toString(LamborghiniPlant.getWheelWorkers()), Integer.toString(LamborghiniPlant.getAccessoryWorkers()), Integer.toString(LamborghiniPlant.getAssemblers()));
-            
-//            LamborghiniPlant.initializeWorkers();
         
         }
     }//GEN-LAST:event_startLActionPerformed
@@ -1320,6 +1809,284 @@ public class MainUI extends javax.swing.JFrame {
     private void stopLActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_stopLActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_stopLActionPerformed
+
+    private void stopMActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_stopMActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_stopMActionPerformed
+
+    private void chasisPlusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_chasisPlusActionPerformed
+        if ((MaseratiPlant.sumWorkers() < 10)) {
+            int chasisInt = Integer.parseInt(chasisWorkersM.getText()) + 1;
+            chasisWorkersM.setText(Integer.toString(chasisInt));
+
+            changeWorkerPlus(MaseratiPlant, "chasis");
+            MaseratiPlant.plusChasisWorkers();
+        } else {
+            JOptionPane.showMessageDialog(null, "You have reached maximum capacity");
+        }
+    }//GEN-LAST:event_chasisPlusActionPerformed
+
+    private void bodyPlusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bodyPlusActionPerformed
+        if ((MaseratiPlant.sumWorkers() < 10)) {
+            int bodyInt = Integer.parseInt(bodyWorkersM.getText()) + 1;
+            bodyWorkersM.setText(Integer.toString(bodyInt));
+
+            changeWorkerPlus(MaseratiPlant, "carBody");
+            MaseratiPlant.plusBodyWorkers();
+        
+        } else {
+            JOptionPane.showMessageDialog(null, "You have reached maximum capacity");
+        }
+        
+    }//GEN-LAST:event_bodyPlusActionPerformed
+
+    private void bodyMinActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bodyMinActionPerformed
+        if ((Integer.parseInt(bodyWorkersM.getText()) > 1)) {
+            int bodyInt = Integer.parseInt(bodyWorkersM.getText()) - 1;
+            bodyWorkersM.setText(Integer.toString(bodyInt));
+            changeWorkerMinus(MaseratiPlant, "carBody");
+            MaseratiPlant.reduceBodyWorkers();
+        } else {
+            JOptionPane.showMessageDialog(null, "You have reached minimum capacity");
+        }
+    }//GEN-LAST:event_bodyMinActionPerformed
+
+    private void motorPlusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_motorPlusActionPerformed
+        if ((MaseratiPlant.sumWorkers() < 10)) {
+            int motorInt = Integer.parseInt(motorWorkersM.getText()) + 1;
+            motorWorkersM.setText(Integer.toString(motorInt));
+
+            changeWorkerPlus(MaseratiPlant, "motors");
+            MaseratiPlant.plusMotorWorkers();
+        
+        } else {
+            JOptionPane.showMessageDialog(null, "You have reached maximum capacity");
+        }
+    }//GEN-LAST:event_motorPlusActionPerformed
+
+    private void motorMinActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_motorMinActionPerformed
+        if ((Integer.parseInt(motorWorkersM.getText()) > 1)) {
+            int motorInt = Integer.parseInt(motorWorkersM.getText()) - 1;
+            motorWorkersM.setText(Integer.toString(motorInt));
+            changeWorkerMinus(MaseratiPlant, "motors");
+            MaseratiPlant.reduceMotorWorkers();
+        } else {
+            JOptionPane.showMessageDialog(null, "You have reached minimum capacity");
+        }
+    }//GEN-LAST:event_motorMinActionPerformed
+
+    private void wheelPlusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_wheelPlusActionPerformed
+        if ((MaseratiPlant.sumWorkers() < 10)) {
+            int wheelInt = Integer.parseInt(wheelWorkersM.getText()) + 1;
+            wheelWorkersM.setText(Integer.toString(wheelInt));
+
+            changeWorkerPlus(MaseratiPlant, "wheel");
+            MaseratiPlant.plusWheelWorkers();
+        
+        } else {
+            JOptionPane.showMessageDialog(null, "You have reached maximum capacity");
+        }
+    }//GEN-LAST:event_wheelPlusActionPerformed
+
+    private void wheelMinActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_wheelMinActionPerformed
+        if ((Integer.parseInt(wheelWorkersM.getText()) > 1)) {
+            int wheelInt = Integer.parseInt(wheelWorkersM.getText()) - 1;
+            wheelWorkersM.setText(Integer.toString(wheelInt));
+            changeWorkerMinus(MaseratiPlant, "wheel");
+            MaseratiPlant.reduceWheelWorkers();
+        } else {
+            JOptionPane.showMessageDialog(null, "You have reached minimum capacity");
+        }
+    }//GEN-LAST:event_wheelMinActionPerformed
+
+    private void accMinActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_accMinActionPerformed
+        if ((Integer.parseInt(accessoryWorkersM.getText()) > 1)) {
+            int accessoryInt = Integer.parseInt(accessoryWorkersM.getText()) - 1;
+            accessoryWorkersM.setText(Integer.toString(accessoryInt));
+            changeWorkerMinus(MaseratiPlant, "accesory");
+            MaseratiPlant.reduceAccessoryWorkers();
+        } else {
+            JOptionPane.showMessageDialog(null, "You have reached minimum capacity");
+        }
+    }//GEN-LAST:event_accMinActionPerformed
+
+    private void accPlusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_accPlusActionPerformed
+        if ((MaseratiPlant.sumWorkers() < 10)) {
+            int accessoryInt = Integer.parseInt(accessoryWorkersM.getText()) + 1;
+            accessoryWorkersM.setText(Integer.toString(accessoryInt));
+
+            changeWorkerPlus(MaseratiPlant, "accesory");
+            MaseratiPlant.plusAccessoryWorkers();
+        
+        } else {
+            JOptionPane.showMessageDialog(null, "You have reached maximum capacity");
+        }
+    }//GEN-LAST:event_accPlusActionPerformed
+
+    private void assemblerMinActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_assemblerMinActionPerformed
+        if ((Integer.parseInt(assemblerWorkersM.getText()) > 1)) {
+            int assemblerInt = Integer.parseInt(assemblerWorkersM.getText()) - 1;
+            assemblerWorkersM.setText(Integer.toString(assemblerInt));
+            changeWorkerMinus(MaseratiPlant, "assembler");
+            MaseratiPlant.reduceAssemblers();
+        } else {
+            JOptionPane.showMessageDialog(null, "You have reached minimum capacity");
+        }
+    }//GEN-LAST:event_assemblerMinActionPerformed
+
+    private void assemblerPlusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_assemblerPlusActionPerformed
+        if ((MaseratiPlant.sumWorkers() < 10)) {
+            int assemblerInt = Integer.parseInt(assemblerWorkersM.getText()) + 1;
+            assemblerWorkersM.setText(Integer.toString(assemblerInt));
+
+            changeWorkerPlus(MaseratiPlant, "assembler");
+            MaseratiPlant.plusAssemblers();
+        
+        } else {
+            JOptionPane.showMessageDialog(null, "You have reached maximum capacity");
+        }
+    }//GEN-LAST:event_assemblerPlusActionPerformed
+
+    private void chasisPlusLActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_chasisPlusLActionPerformed
+        if ((LamborghiniPlant.sumWorkers() >= 18)) {
+            JOptionPane.showMessageDialog(null, "You have reached maximum capacity");
+            
+        } else {
+            int chasisInt = Integer.parseInt(chasisWorkersL.getText()) + 1;
+            chasisWorkersL.setText(Integer.toString(chasisInt));
+        
+            changeWorkerPlus(LamborghiniPlant, "chasis");
+            LamborghiniPlant.plusChasisWorkers();
+            System.out.println(LamborghiniPlant.sumWorkers());
+  
+        }
+        
+    }//GEN-LAST:event_chasisPlusLActionPerformed
+
+    private void bodyPlusLActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bodyPlusLActionPerformed
+        if ((LamborghiniPlant.sumWorkers() < 18)) {
+            int bodyInt = Integer.parseInt(bodyWorkersL.getText()) + 1;
+            bodyWorkersL.setText(Integer.toString(bodyInt));
+            changeWorkerPlus(LamborghiniPlant, "carBody");
+            LamborghiniPlant.plusBodyWorkers();
+        } else {
+            JOptionPane.showMessageDialog(null, "You have reached maximum capacity");
+        }
+         
+    }//GEN-LAST:event_bodyPlusLActionPerformed
+
+    private void motorPlusLActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_motorPlusLActionPerformed
+        if ((LamborghiniPlant.sumWorkers() < 18)) {
+            int motorInt = Integer.parseInt(motorWorkersL.getText()) + 1;
+            motorWorkersL.setText(Integer.toString(motorInt));
+            changeWorkerPlus(LamborghiniPlant, "motors");
+            LamborghiniPlant.plusMotorWorkers();
+        } else {
+            JOptionPane.showMessageDialog(null, "You have reached maximum capacity");
+            
+        }
+    }//GEN-LAST:event_motorPlusLActionPerformed
+
+    private void chasisMinLActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_chasisMinLActionPerformed
+        if (Integer.parseInt(chasisWorkersL.getText()) > 1) {
+            int chasisInt = Integer.parseInt(chasisWorkersL.getText()) - 1;
+            chasisWorkersL.setText(Integer.toString(chasisInt));
+            changeWorkerMinus(LamborghiniPlant, "chasis");
+            LamborghiniPlant.reduceChasisWorkers();
+        } else {
+            JOptionPane.showMessageDialog(null, "You have reached minimum capacity");
+        }
+    }//GEN-LAST:event_chasisMinLActionPerformed
+
+    private void bodyMinLActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bodyMinLActionPerformed
+        if ((Integer.parseInt(bodyWorkersL.getText()) > 1)) {
+            int bodyInt = Integer.parseInt(bodyWorkersL.getText()) - 1;
+            bodyWorkersL.setText(Integer.toString(bodyInt));
+            changeWorkerMinus(LamborghiniPlant, "body");
+            LamborghiniPlant.reduceBodyWorkers();
+        } else {
+            JOptionPane.showMessageDialog(null, "You have reached minimum capacity");
+        }
+    }//GEN-LAST:event_bodyMinLActionPerformed
+
+    private void motorMinLActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_motorMinLActionPerformed
+        if ((Integer.parseInt(motorWorkersL.getText()) > 1)) {
+            int motorInt = Integer.parseInt(motorWorkersL.getText()) - 1;
+            motorWorkersL.setText(Integer.toString(motorInt));
+            changeWorkerMinus(LamborghiniPlant, "motors");
+            LamborghiniPlant.reduceMotorWorkers();
+        } else {
+            JOptionPane.showMessageDialog(null, "You have reached minimum capacity");
+        }
+    }//GEN-LAST:event_motorMinLActionPerformed
+
+    private void wheelPlusLActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_wheelPlusLActionPerformed
+        if ((LamborghiniPlant.sumWorkers() < 18)) {
+            int wheelInt = Integer.parseInt(wheelWorkersL.getText()) + 1;
+            wheelWorkersL.setText(Integer.toString(wheelInt));
+            changeWorkerPlus(LamborghiniPlant, "wheel");
+            LamborghiniPlant.plusWheelWorkers();
+        } else {
+            JOptionPane.showMessageDialog(null, "You have reached maximum capacity");
+        }
+    }//GEN-LAST:event_wheelPlusLActionPerformed
+
+    private void wheelMinLActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_wheelMinLActionPerformed
+        if ((Integer.parseInt(wheelWorkersL.getText()) > 1)) {
+            int wheelInt = Integer.parseInt(wheelWorkersL.getText()) - 1;
+            wheelWorkersL.setText(Integer.toString(wheelInt));
+            changeWorkerMinus(LamborghiniPlant, "wheel");
+            LamborghiniPlant.reduceWheelWorkers();
+        } else {
+            JOptionPane.showMessageDialog(null, "You have reached minimum capacity");
+        }
+    }//GEN-LAST:event_wheelMinLActionPerformed
+
+    private void accMinLActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_accMinLActionPerformed
+        if ((Integer.parseInt(accessoryWorkersL.getText()) > 1)) {
+            int accInt = Integer.parseInt(accessoryWorkersL.getText()) - 1;
+            accessoryWorkersL.setText(Integer.toString(accInt));
+            changeWorkerMinus(LamborghiniPlant, "accesory");
+            LamborghiniPlant.reduceAccessoryWorkers();
+        } else {
+            JOptionPane.showMessageDialog(null, "You have reached minimum capacity");
+        }
+    }//GEN-LAST:event_accMinLActionPerformed
+
+    private void accPlusLActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_accPlusLActionPerformed
+        if ((LamborghiniPlant.sumWorkers() < 18)) {
+            int accessoryInt = Integer.parseInt(accessoryWorkersL.getText()) + 1;
+            accessoryWorkersL.setText(Integer.toString(accessoryInt));
+            changeWorkerPlus(LamborghiniPlant, "accesory");
+            LamborghiniPlant.plusAccessoryWorkers();
+        } else {
+            JOptionPane.showMessageDialog(null, "You have reached maximum capacity");
+        }
+    }//GEN-LAST:event_accPlusLActionPerformed
+
+    private void assemblerMinLActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_assemblerMinLActionPerformed
+
+        if ((Integer.parseInt(assemblerWorkersL.getText()) > 1)) {
+            int assemblerInt = Integer.parseInt(assemblerWorkersL.getText()) - 1;
+            assemblerWorkersL.setText(Integer.toString(assemblerInt));
+            changeWorkerMinus(LamborghiniPlant, "assembler");
+            LamborghiniPlant.reduceAssemblers();
+            
+        } else {
+            JOptionPane.showMessageDialog(null, "You have reached minimum capacity");
+        }
+    }//GEN-LAST:event_assemblerMinLActionPerformed
+
+    private void assemblerPlusLActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_assemblerPlusLActionPerformed
+        if ((LamborghiniPlant.sumWorkers() < 18)) {
+            int assemblerInt = Integer.parseInt(assemblerWorkersL.getText()) + 1;
+            assemblerWorkersL.setText(Integer.toString(assemblerInt));
+            changeWorkerPlus(LamborghiniPlant, "assembler");
+            LamborghiniPlant.plusAssemblers();
+        } else {
+            JOptionPane.showMessageDialog(null, "You have reached maximum capacity");
+        }
+    }//GEN-LAST:event_assemblerPlusLActionPerformed
 
 
     
@@ -1374,6 +2141,10 @@ public class MainUI extends javax.swing.JFrame {
     private javax.swing.JLabel Maserati_label;
     private javax.swing.JLabel MaxWheeM;
     private javax.swing.JLabel MaxWheeM1;
+    private javax.swing.JButton accMin;
+    private javax.swing.JButton accMinL;
+    private javax.swing.JButton accPlus;
+    private javax.swing.JButton accPlusL;
     private javax.swing.JLabel accesoryCarsL;
     private javax.swing.JLabel accesoryCarsM;
     private javax.swing.JSpinner accesoryWorkersLamb;
@@ -1391,13 +2162,21 @@ public class MainUI extends javax.swing.JFrame {
     private javax.swing.JLabel assembled_labelM5;
     private javax.swing.JLabel assembled_labelM6;
     private javax.swing.JLabel assembled_labelM7;
+    private javax.swing.JButton assemblerMin;
+    private javax.swing.JButton assemblerMinL;
+    private javax.swing.JButton assemblerPlus;
+    private javax.swing.JButton assemblerPlusL;
     private javax.swing.JLabel assemblerWorkersL;
     private javax.swing.JLabel assemblerWorkersM;
     private javax.swing.JSpinner assemblersLamb;
     private javax.swing.JSpinner assemblersMase;
     private javax.swing.JLabel assemblers_label;
     private javax.swing.JLabel assemblers_label2;
+    private javax.swing.JButton bodyMin;
+    private javax.swing.JButton bodyMinL;
     private javax.swing.JLabel bodyPartsM;
+    private javax.swing.JButton bodyPlus;
+    private javax.swing.JButton bodyPlusL;
     private javax.swing.JLabel bodyWorkersL;
     private javax.swing.JSpinner bodyWorkersLamb;
     private javax.swing.JLabel bodyWorkersM;
@@ -1430,7 +2209,11 @@ public class MainUI extends javax.swing.JFrame {
     private javax.swing.JLabel chas7;
     private javax.swing.JLabel chas8;
     private javax.swing.JLabel chas9;
+    private javax.swing.JButton chasisMin;
+    private javax.swing.JButton chasisMinL;
     private javax.swing.JLabel chasisPartsM;
+    private javax.swing.JButton chasisPlus;
+    private javax.swing.JButton chasisPlusL;
     private javax.swing.JLabel chasisWorkersL;
     private javax.swing.JSpinner chasisWorkersLamb;
     private javax.swing.JLabel chasisWorkersM;
@@ -1476,7 +2259,11 @@ public class MainUI extends javax.swing.JFrame {
     private javax.swing.JLabel maxChaM1;
     private javax.swing.JLabel maxMotM;
     private javax.swing.JLabel maxMotM1;
+    private javax.swing.JButton motorMin;
+    private javax.swing.JButton motorMinL;
     private javax.swing.JLabel motorPartsM;
+    private javax.swing.JButton motorPlus;
+    private javax.swing.JButton motorPlusL;
     private javax.swing.JLabel motorWorkersL;
     private javax.swing.JSpinner motorWorkersLamb;
     private javax.swing.JLabel motorWorkersM;
@@ -1494,7 +2281,11 @@ public class MainUI extends javax.swing.JFrame {
     private javax.swing.JButton stopM;
     private javax.swing.JLabel utilityL;
     private javax.swing.JLabel utilityM;
+    private javax.swing.JButton wheelMin;
+    private javax.swing.JButton wheelMinL;
     private javax.swing.JLabel wheelPartsM;
+    private javax.swing.JButton wheelPlus;
+    private javax.swing.JButton wheelPlusL;
     private javax.swing.JLabel wheelWorkersL;
     private javax.swing.JSpinner wheelWorkersLamb;
     private javax.swing.JLabel wheelWorkersM;

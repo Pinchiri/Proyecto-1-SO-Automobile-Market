@@ -72,7 +72,6 @@ public class Warehouse {
                                 totalEarnings += 750000;
                                 
                                 
-                                System.out.println("especial");
                                 this.userInterface.LamborghiniAC(Integer.toString(this.carWithAccesory));
                                 this.carBodyQty = this.carBodyQty - 4;
                                 this.chasisQty = this.chasisQty - 2;
@@ -86,7 +85,6 @@ public class Warehouse {
                     }else {
                         if((this.carBodyQty >= 1) && (this.chasisQty >= 2) && (this.motorQty >= 6) && (this.wheelsQty >= 5)) {
                                 contador++;
-                                System.out.println("standard");
                                 this.carStandard++;
                                 totalEarnings += 400000;
                                 
@@ -114,7 +112,6 @@ public class Warehouse {
                                 totalEarnings += 700000;
                            
                                 
-                                System.out.println("especial");
                                 this.userInterface.MaseAC(Integer.toString(this.carWithAccesory));
                                 this.carBodyQty = this.carBodyQty - 1;
                                 this.chasisQty = this.chasisQty - 1;
