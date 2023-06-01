@@ -103,11 +103,19 @@ public class OperationsManager extends Thread {
             this.daysLeft--;
             
             if(nameplant.equals("Lamborghini")){
+               if(this.daysLeft> 0) 
+               {
+                
                 this.userInterface.daysLeftLamborghini(Integer.toString(this.daysLeft));
                 userInterface.managerStatusL("Changing days"); 
+               }
             }else{
+                    
+                    if(this.daysLeft> 0) 
+               {
                 this.userInterface.DaysLeftMaserati(Integer.toString(this.daysLeft));
                 userInterface.managerStatusM1("Changing days");
+               }
             }
             Thread.sleep((long) (this.dayduration*0.33));
            

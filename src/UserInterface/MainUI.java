@@ -1032,7 +1032,7 @@ public class MainUI extends javax.swing.JFrame {
         managerSalaryDiscountL.setFont(new java.awt.Font("Microsoft YaHei", 1, 18)); // NOI18N
         managerSalaryDiscountL.setForeground(new java.awt.Color(255, 255, 255));
         managerSalaryDiscountL.setText("0");
-        LamborghiniTab.add(managerSalaryDiscountL, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 240, 90, 40));
+        LamborghiniTab.add(managerSalaryDiscountL, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 240, 120, 40));
 
         motorWorkersL.setFont(new java.awt.Font("Microsoft YaHei", 1, 18)); // NOI18N
         motorWorkersL.setForeground(new java.awt.Color(255, 255, 255));
@@ -1066,13 +1066,13 @@ public class MainUI extends javax.swing.JFrame {
         managerStatus_label5.setForeground(new java.awt.Color(255, 255, 255));
         managerStatus_label5.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         managerStatus_label5.setText("Status:");
-        LamborghiniTab.add(managerStatus_label5, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 160, 100, 40));
+        LamborghiniTab.add(managerStatus_label5, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 160, 100, 40));
 
         managerStatusL.setFont(new java.awt.Font("Microsoft YaHei", 1, 18)); // NOI18N
         managerStatusL.setForeground(new java.awt.Color(255, 255, 255));
         managerStatusL.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         managerStatusL.setText("Nothing");
-        LamborghiniTab.add(managerStatusL, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 160, 190, 40));
+        LamborghiniTab.add(managerStatusL, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 160, 250, 40));
 
         wm_label7.setFont(new java.awt.Font("Microsoft YaHei", 1, 24)); // NOI18N
         wm_label7.setForeground(new java.awt.Color(255, 255, 153));
@@ -1529,7 +1529,7 @@ public class MainUI extends javax.swing.JFrame {
         managerSalaryDiscountMS.setFont(new java.awt.Font("Microsoft YaHei", 1, 18)); // NOI18N
         managerSalaryDiscountMS.setForeground(new java.awt.Color(255, 255, 255));
         managerSalaryDiscountMS.setText("0");
-        MaseratiTab.add(managerSalaryDiscountMS, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 240, 40, 40));
+        MaseratiTab.add(managerSalaryDiscountMS, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 240, 140, 40));
 
         motorWorkersM.setFont(new java.awt.Font("Microsoft YaHei", 1, 18)); // NOI18N
         motorWorkersM.setForeground(new java.awt.Color(255, 255, 255));
@@ -1614,13 +1614,13 @@ public class MainUI extends javax.swing.JFrame {
         managerStatus_label3.setForeground(new java.awt.Color(255, 255, 255));
         managerStatus_label3.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         managerStatus_label3.setText("Status:");
-        MaseratiTab.add(managerStatus_label3, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 160, 100, 40));
+        MaseratiTab.add(managerStatus_label3, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 160, 100, 40));
 
         managerStatusM1.setFont(new java.awt.Font("Microsoft YaHei", 1, 18)); // NOI18N
         managerStatusM1.setForeground(new java.awt.Color(255, 255, 255));
         managerStatusM1.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         managerStatusM1.setText("Nothing");
-        MaseratiTab.add(managerStatusM1, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 160, 200, 40));
+        MaseratiTab.add(managerStatusM1, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 160, 250, 40));
 
         wm_label4.setFont(new java.awt.Font("Microsoft YaHei", 1, 24)); // NOI18N
         wm_label4.setForeground(new java.awt.Color(255, 255, 153));

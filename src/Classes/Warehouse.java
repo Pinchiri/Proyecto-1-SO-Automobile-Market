@@ -75,7 +75,7 @@ public class Warehouse {
                                 
                                 
                                 this.userInterface.LamborghiniAC(Integer.toString(this.carWithAccesory));
-                                this.carBodyQty = this.carBodyQty - 4;
+                                this.carBodyQty = this.carBodyQty - 1;
                                 this.chasisQty = this.chasisQty - 2;
                                 this.motorQty = this.motorQty - 6;
                                 this.wheelsQty = this.wheelsQty - 5;
@@ -94,7 +94,7 @@ public class Warehouse {
                                 
                                 this.userInterface.LamborghiniSC(Integer.toString(this.carStandard));
   
-                                this.carBodyQty = this.carBodyQty - 4;
+                                this.carBodyQty = this.carBodyQty - 1;
                                 this.chasisQty = this.chasisQty - 2;
                                 this.motorQty = this.motorQty - 6;
                                 this.wheelsQty = this.wheelsQty - 5;
@@ -109,7 +109,7 @@ public class Warehouse {
                 }else{
                     
                     if(contador == 2) {
-                        if ((this.carBodyQty >= 1) && (this.chasisQty >= 1) && (this.motorQty >= 2) && (this.wheelsQty >= 4) && (this.accessoryQty >= 3)) {
+                        if ((this.carBodyQty >= 1) && (this.chasisQty >=1) && (this.motorQty >= 2) && (this.wheelsQty >= 4) && (this.accessoryQty >= 3)) {
                                 contador = 0;
                                 this.carWithAccesory++;
                                 totalEarnings += 700000;

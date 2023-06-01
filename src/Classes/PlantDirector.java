@@ -58,9 +58,6 @@ public class PlantDirector extends Thread {
     @Override
     public void run(){
         
-        
-        
-        System.out.println("Comenzo director");
      
         while (true) {
              try {
@@ -72,10 +69,11 @@ public class PlantDirector extends Thread {
                 }    
             }  
             payCheck();
+
             Thread.sleep(dayDuration);
-            System.out.println(dayDuration);
+            System.out.println(this.manager.daysLeft);
             
-            if(this.manager.daysLeft == 0){
+            if(this.manager.daysLeft <= 0){
           
 
                 
@@ -97,6 +95,8 @@ public class PlantDirector extends Thread {
                 this.warehouse.resetcars();
                 this.userInterface.MaseAC("0");
                 this.userInterface.LamborghiniSC("0");
+                this.userInterface.LamborghiniAC("0");
+                this.userInterface.MaseAC("0");
                 
                 this.userInterface.costsL("$" + Integer.toString(costo));
                 this.userInterface.UtilityL("$" + Integer.toString(utility));
@@ -138,7 +138,9 @@ public class PlantDirector extends Thread {
                 this.warehouse.resetcars();
                 this.userInterface.MaseAC("0");
                 this.userInterface.LamborghiniSC("0");
-                
+                this.userInterface.LamborghiniAC("0");
+                this.userInterface.MaseAC("0");
+                          
                 this.userInterface.costsM("$" + Integer.toString(costo));
                 this.userInterface.UtilityM("$" + Integer.toString(utility));
                 this.userInterface.faultsQtyM1MS(Integer.toString(this.fault));
@@ -240,12 +242,12 @@ public class PlantDirector extends Thread {
 
                         }
             }
-        }   catch (InterruptedException ex) {
-                Logger.getLogger(PlantDirector.class.getName()).log(Level.SEVERE, null, ex);
-            }
+        } catch (InterruptedException ex) {
+            Logger.getLogger(PlantDirector.class.getName()).log(Level.SEVERE, null, ex);
+        }
         
     
-    }
+        }
     }
     
     public void pausar(){ 
