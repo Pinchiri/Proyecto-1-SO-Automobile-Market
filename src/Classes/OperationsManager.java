@@ -25,6 +25,7 @@ public class OperationsManager extends Thread {
     private MainUI userInterface;
     private int dayduration;
     private String nameplant;
+    private boolean pausar;
     public float acummulatedTime = 0;
     public Config configurar;
 
@@ -193,7 +194,14 @@ public class OperationsManager extends Thread {
     public void ResetSalario(){
         this.accSalary = 0;
     }
-   
+    
+    public void pausar(){ 
+        this.pausar = true;
+    }
+    
+    public void reanudar(){
+        this.pausar = false;
+    }
     
     
     

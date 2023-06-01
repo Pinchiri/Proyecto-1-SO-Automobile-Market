@@ -28,6 +28,7 @@ public class VehiclePlant {
     private int accessoryWorkers;
     private int assemblers;
     private Worker[] workers;
+
     
     private long dayDurationInMs;
     public Warehouse warehouse;
@@ -92,10 +93,13 @@ public class VehiclePlant {
         if(this.name.equals("Lamborghini")){
             OperationsManager lamborghiniManager = new OperationsManager(20, config.getDeliveryDays(), this, this.userInterface, config.getDayDuration(), this.name, this.config);
             lamborghiniManager.start();
+           
             
             PlantDirector director = new PlantDirector(30,config.getDayDuration(),this,this.userInterface,lamborghiniManager,this.warehouse,this.name);
        
             director.start();
+            
+            
             
         }else {
             OperationsManager maseratiManager = new OperationsManager(20, config.getDeliveryDays(), this, this.userInterface, config.getDayDuration(), this.name,this.config);
@@ -104,6 +108,7 @@ public class VehiclePlant {
             PlantDirector director = new PlantDirector(30,config.getDayDuration(),this,this.userInterface, maseratiManager,this.warehouse,this.name);
        
             director.start();
+            
             
         }
         
