@@ -562,8 +562,6 @@ public class MainUI extends javax.swing.JFrame {
         assemblersMase = new javax.swing.JSpinner();
         LamborghiniTab = new javax.swing.JPanel();
         startL = new javax.swing.JButton();
-        pauseL = new javax.swing.JButton();
-        stopL = new javax.swing.JButton();
         L_label = new javax.swing.JLabel();
         bodyWorkersL = new javax.swing.JLabel();
         wm_label3 = new javax.swing.JLabel();
@@ -631,7 +629,6 @@ public class MainUI extends javax.swing.JFrame {
         utility_label = new javax.swing.JFormattedTextField();
         MaseratiTab = new javax.swing.JPanel();
         startM = new javax.swing.JButton();
-        pauseM = new javax.swing.JButton();
         chasisMin = new javax.swing.JButton();
         bodyWorkersM = new javax.swing.JLabel();
         M_label = new javax.swing.JLabel();
@@ -684,7 +681,6 @@ public class MainUI extends javax.swing.JFrame {
         assembled_labelM2 = new javax.swing.JLabel();
         costsM = new javax.swing.JLabel();
         utilityM1 = new javax.swing.JLabel();
-        stopM = new javax.swing.JButton();
         chasisPlus = new javax.swing.JButton();
         bodyPlus = new javax.swing.JButton();
         bodyMin = new javax.swing.JButton();
@@ -943,28 +939,6 @@ public class MainUI extends javax.swing.JFrame {
             }
         });
         LamborghiniTab.add(startL, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 80, 90, 40));
-
-        pauseL.setBackground(new java.awt.Color(255, 255, 153));
-        pauseL.setFont(new java.awt.Font("Microsoft YaHei", 1, 18)); // NOI18N
-        pauseL.setForeground(new java.awt.Color(51, 51, 51));
-        pauseL.setText("Pause");
-        pauseL.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                pauseLActionPerformed(evt);
-            }
-        });
-        LamborghiniTab.add(pauseL, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 80, 90, 40));
-
-        stopL.setBackground(new java.awt.Color(255, 255, 153));
-        stopL.setFont(new java.awt.Font("Microsoft YaHei", 1, 18)); // NOI18N
-        stopL.setForeground(new java.awt.Color(51, 51, 51));
-        stopL.setText("Stop");
-        stopL.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                stopLActionPerformed(evt);
-            }
-        });
-        LamborghiniTab.add(stopL, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 80, 90, 40));
 
         L_label.setFont(new java.awt.Font("Microsoft YaHei", 1, 36)); // NOI18N
         L_label.setForeground(new java.awt.Color(255, 255, 153));
@@ -1402,17 +1376,6 @@ public class MainUI extends javax.swing.JFrame {
         });
         MaseratiTab.add(startM, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 80, 90, 40));
 
-        pauseM.setBackground(new java.awt.Color(255, 255, 153));
-        pauseM.setFont(new java.awt.Font("Microsoft YaHei", 1, 18)); // NOI18N
-        pauseM.setForeground(new java.awt.Color(51, 51, 51));
-        pauseM.setText("Pause");
-        pauseM.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                pauseMActionPerformed(evt);
-            }
-        });
-        MaseratiTab.add(pauseM, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 80, 90, 40));
-
         chasisMin.setBackground(new java.awt.Color(255, 255, 153));
         chasisMin.setFont(new java.awt.Font("Microsoft YaHei", 1, 18)); // NOI18N
         chasisMin.setForeground(new java.awt.Color(51, 51, 51));
@@ -1698,17 +1661,6 @@ public class MainUI extends javax.swing.JFrame {
         utilityM1.setText("0");
         MaseratiTab.add(utilityM1, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 500, 210, 50));
 
-        stopM.setBackground(new java.awt.Color(255, 255, 153));
-        stopM.setFont(new java.awt.Font("Microsoft YaHei", 1, 18)); // NOI18N
-        stopM.setForeground(new java.awt.Color(51, 51, 51));
-        stopM.setText("Stop");
-        stopM.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                stopMActionPerformed(evt);
-            }
-        });
-        MaseratiTab.add(stopM, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 80, 90, 40));
-
         chasisPlus.setBackground(new java.awt.Color(255, 255, 153));
         chasisPlus.setFont(new java.awt.Font("Microsoft YaHei", 1, 18)); // NOI18N
         chasisPlus.setForeground(new java.awt.Color(51, 51, 51));
@@ -1962,10 +1914,6 @@ public class MainUI extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_chasisMinActionPerformed
 
-    private void pauseMActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pauseMActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_pauseMActionPerformed
-
     private void startLActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_startLActionPerformed
 
 //        if(counterL > 0){
@@ -1984,18 +1932,6 @@ public class MainUI extends javax.swing.JFrame {
         
 //        }
     }//GEN-LAST:event_startLActionPerformed
-
-    private void pauseLActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pauseLActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_pauseLActionPerformed
-
-    private void stopLActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_stopLActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_stopLActionPerformed
-
-    private void stopMActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_stopMActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_stopMActionPerformed
 
     private void chasisPlusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_chasisPlusActionPerformed
         if ((MaseratiPlant.sumWorkers() < 10)) {
@@ -2451,15 +2387,11 @@ public class MainUI extends javax.swing.JFrame {
     private javax.swing.JSpinner motorWorkersMase;
     private javax.swing.JLabel motor_label;
     private javax.swing.JLabel motor_label1;
-    private javax.swing.JButton pauseL;
-    private javax.swing.JButton pauseM;
     private javax.swing.JButton setConfiguration;
     private javax.swing.JLabel standarCarsL;
     private javax.swing.JLabel standarCarsM;
     private javax.swing.JButton startL;
     private javax.swing.JButton startM;
-    private javax.swing.JButton stopL;
-    private javax.swing.JButton stopM;
     private javax.swing.JLabel utilityL;
     private javax.swing.JLabel utilityM1;
     private javax.swing.JFormattedTextField utility_label;
