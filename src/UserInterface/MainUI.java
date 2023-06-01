@@ -290,7 +290,7 @@ public class MainUI extends javax.swing.JFrame {
     
     //Change Worker if Plus button
     public void changeWorkerPlus(VehiclePlant plant, String workerType) {
-        System.out.println(workerType);
+ 
         switch(workerType) {
             
             case "chasis":
@@ -304,13 +304,16 @@ public class MainUI extends javax.swing.JFrame {
                         
                         if (plant.getName().equals("Lamborghini")) {
                             plant.getWorkers()[i].changeParams(0.25f, 10);
+                            break;
                             
                         } else {
                             plant.getWorkers()[i].changeParams(0.5f, 10);
+                            break;
                         }   
                     }
                 }
                 break;
+
                 
             case "carBody":
                 
@@ -322,9 +325,11 @@ public class MainUI extends javax.swing.JFrame {
                         
                         if (plant.getName().equals("Lamborghini")) {
                             plant.getWorkers()[i].changeParams(0.25f, 10);
+                            break;
                             
                         } else {
                             plant.getWorkers()[i].changeParams(0.5f, 10);
+                            break;
                         }   
                     }
                 }
@@ -340,13 +345,15 @@ public class MainUI extends javax.swing.JFrame {
                         
                         if (plant.getName().equals("Lamborghini")) {
                             plant.getWorkers()[i].changeParams(1f, 10);
+                            break;
                             
                         } else {
                             plant.getWorkers()[i].changeParams(3f, 10);
+                            break;
                         }   
                     }
                 }
-                break;
+                 break;
                 
             case "wheel":
                 
@@ -358,9 +365,11 @@ public class MainUI extends javax.swing.JFrame {
                         
                         if (plant.getName().equals("Lamborghini")) {
                             plant.getWorkers()[i].changeParams(5f, 10);
+                            break;
                             
                         } else {
                             plant.getWorkers()[i].changeParams(3f, 10);
+                            break;
                         }   
                     }
                 }
@@ -376,9 +385,11 @@ public class MainUI extends javax.swing.JFrame {
                         
                         if (plant.getName().equals("Lamborghini")) {
                             plant.getWorkers()[i].changeParams(0.5f, 10);
+                            break;
                             
                         } else {
                             plant.getWorkers()[i].changeParams(0.34f, 10);
+                            break;
                         }   
                     }
                 }
@@ -394,9 +405,11 @@ public class MainUI extends javax.swing.JFrame {
                         
                         if (plant.getName().equals("Lamborghini")) {
                             plant.getWorkers()[i].changeParams(0.5f, 10);
+                            break;
                             
                         } else {
                             plant.getWorkers()[i].changeParams(0.34f, 10);
+                            break;
                         }   
                     }
                 }
@@ -418,6 +431,7 @@ public class MainUI extends javax.swing.JFrame {
                         
                         plant.getWorkers()[i].setType("waiting");
                         plant.getWorkers()[i].changeParams(0, 0);
+                        break;
 
                     }
                     
@@ -432,6 +446,7 @@ public class MainUI extends javax.swing.JFrame {
                         
                         plant.getWorkers()[i].setType("waiting");
                         plant.getWorkers()[i].changeParams(0, 0);
+                        break;
                     }
                    
                 }
@@ -445,6 +460,7 @@ public class MainUI extends javax.swing.JFrame {
                         
                         plant.getWorkers()[i].setType("waiting");
                         plant.getWorkers()[i].changeParams(0, 0);
+                        break;
                     }
                     
                 }
@@ -458,6 +474,7 @@ public class MainUI extends javax.swing.JFrame {
                         
                         plant.getWorkers()[i].setType("waiting");
                         plant.getWorkers()[i].changeParams(0, 0);
+                        break;
                     }
                     
                 }
@@ -471,6 +488,7 @@ public class MainUI extends javax.swing.JFrame {
                         
                         plant.getWorkers()[i].setType("waiting");
                         plant.getWorkers()[i].changeParams(0, 0);
+                        break;
                     }
                     
                 }
@@ -484,6 +502,7 @@ public class MainUI extends javax.swing.JFrame {
                         
                         plant.getWorkers()[i].setType("waiting");
                         plant.getWorkers()[i].changeParams(0, 0);
+                        break;
                     }
                     
                 }
@@ -1892,7 +1911,7 @@ public class MainUI extends javax.swing.JFrame {
                 Integer assemblerM = (Integer) assemblersMase.getValue();
                 configString += assemblerM;
 
-                System.out.println(configString);
+
                 int sumM = chasisM + bodyM + motorM + wheelM + accessoryM + assemblerM;
 
 
@@ -1905,7 +1924,7 @@ public class MainUI extends javax.swing.JFrame {
 
                 String newConfig = file.readTxt();
                 file.readConfig(newConfig, config);
-                System.out.println(config.getInitialAccesorys());
+
                 
 
             } catch(Exception e) {
@@ -1960,7 +1979,7 @@ public class MainUI extends javax.swing.JFrame {
             disableStarts("L");
             
             LamborghiniPlant = new VehiclePlant("Lamborghini", this, config);
-            System.out.println(LamborghiniPlant.getAccessoryWorkers());       
+       
             LamborghiniQtys(Integer.toString(LamborghiniPlant.getChasisWorkers()), Integer.toString(LamborghiniPlant.getBodyWorkers()), Integer.toString(LamborghiniPlant.getMotorWorkers()), Integer.toString(LamborghiniPlant.getWheelWorkers()), Integer.toString(LamborghiniPlant.getAccessoryWorkers()), Integer.toString(LamborghiniPlant.getAssemblers()));
         
 //        }
@@ -2121,7 +2140,6 @@ public class MainUI extends javax.swing.JFrame {
         
             changeWorkerPlus(LamborghiniPlant, "chasis");
             LamborghiniPlant.plusChasisWorkers();
-            System.out.println(LamborghiniPlant.sumWorkers());
   
         }
         
