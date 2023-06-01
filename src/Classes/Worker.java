@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package classes;
+package Classes;
 
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -20,6 +20,7 @@ public class Worker extends Thread{
     private String type;
     private float productionCounter;
     private VehiclePlant plant;
+    private boolean pausar = false;
     
     
     public Worker(float productionPerDay, float salary, long dayDuration, String type, VehiclePlant plant) {
@@ -34,16 +35,21 @@ public class Worker extends Thread{
 
     @Override
     public void run() {
+        
         try {
             sleep(1000);
         } catch (InterruptedException ex) {
             Logger.getLogger(Worker.class.getName()).log(Level.SEVERE, null, ex);
         }
         
-        
-        
         while(true) {
             try {
+                 
+            synchronized(this){
+            while(pausar==true){
+                    System.out.println("");
+                }    
+            }     
                  
              payCheck();
              produceForTheDay();
@@ -51,32 +57,40 @@ public class Worker extends Thread{
                  
                  
             sleep(this.dayDurationInMs);
+              
             
-            
-            
-            
-        } catch (InterruptedException ex) {
-            Logger.getLogger(Worker.class.getName()).log(Level.SEVERE, null, ex);
+            } catch (InterruptedException ex) {
+                Logger.getLogger(Worker.class.getName()).log(Level.SEVERE, null, ex);
+            }
         }
-        }
-        
-       
+          
     }
     
+    
+    public void pausar(){
+        this.pausar = true;
+    }
+    
+    public void reanudar(){
+        this.pausar = false;
+    }
+ 
+
     public void payCheck() {
         this.accSalary += this.salary;
     }
     
     public void produceForTheDay(){
         this.productionCounter += this.productionPerDay;
+        
       
         
-        if (this.productionCounter >= 1) {
+        if (this.productionCounter >= 1 && plant.mutex.availablePermits()> 0) {
             try {
-                plant.mutex.acquire();
-                plant.warehouse.updateStorage(this.type, (int) this.productionCounter );
-                plant.mutex.release();
-                
+                plant.mutex.acquire(1);
+                plant.warehouse.updateStorage(this.type, (int) this.productionCounter, (int) this.salary*24);
+                plant.mutex.release(1);
+                Thread.sleep(dayDurationInMs);
                 
                 
             } catch (InterruptedException ex) {
@@ -85,11 +99,50 @@ public class Worker extends Thread{
             
            
             // intentar acceder al almacén
-            
             this.productionCounter = 0;
+            
         } 
     }
     
+    public void changeParams(float productionRate, float salary) {
+        setSalary(salary);
+        setProductionPerDay(productionRate);
+    }
+
+    public float getSalary() {
+        return salary;
+    }
+
+    public void setSalary(float salary) {
+        this.salary = salary;
+    }
+
+    public float getAccSalary() {
+        return accSalary;
+    }
     
-    
+    public void resetaccsalary(){
+        accSalary = 0;
+    }
+
+    public void setAccSalary(float accSalary) {
+        this.accSalary = accSalary;
+    }
+
+    public String getType() {
+        return type;
+    }
+
+    public void setType(String type) {
+        this.type = type;
+    }
+
+    public float getProductionPerDay() {
+        return productionPerDay;
+    }
+
+    public void setProductionPerDay(float productionPerDay) {
+        this.productionPerDay = productionPerDay;
+    }
+ 
 }
