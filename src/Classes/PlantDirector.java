@@ -120,7 +120,7 @@ public class PlantDirector extends Thread {
                 this.userInterface.MaseEarnings("$" + Long.toString(warehouse.getTotalEarnings()));
                 this.userInterface.directorStatusM("Reiniciando lote");
                 
-                costo = (int) this.plant.calculateCosts();
+                costo = this.warehouse.costototal;
                 costo = (int) (costo + this.manager.getAccSalary());
                 costo = (int) (costo + this.accSalary);
                 costo = costo - salarioquitado;

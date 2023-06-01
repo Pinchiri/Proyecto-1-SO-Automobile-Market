@@ -129,17 +129,7 @@ public class OperationsManager extends Thread {
         
     }
 
-    public long calculateCosts() throws InterruptedException {
-        
-        long totalCosts = 0;
-        
-        for (int i = 0; i < plant.getWorkers().length; i++) {
-            totalCosts += plant.getWorkers()[i].getAccSalary();
-        }
-        return totalCosts;
-    }
-
-    
+   
     public void resetdays(){
   
         daysLeft = configurar.getDeliveryDays();
