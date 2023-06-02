@@ -1918,12 +1918,6 @@ public class MainUI extends javax.swing.JFrame {
 
     private void startLActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_startLActionPerformed
 
-//        if(counterL > 0){
-//            LamborghiniWheels.setText("0");
-//            LamborghiniPlant.StopWorker();
-//        }
-//        else {
-//            counterL++;
             runningL = true;
             disableButtonsL();
             disableStarts("L");
@@ -1933,8 +1927,7 @@ public class MainUI extends javax.swing.JFrame {
             LamborghiniPlant = new VehiclePlant("Lamborghini", this, config);
        
             LamborghiniQtys(Integer.toString(LamborghiniPlant.getChasisWorkers()), Integer.toString(LamborghiniPlant.getBodyWorkers()), Integer.toString(LamborghiniPlant.getMotorWorkers()), Integer.toString(LamborghiniPlant.getWheelWorkers()), Integer.toString(LamborghiniPlant.getAccessoryWorkers()), Integer.toString(LamborghiniPlant.getAssemblers()));
-        
-//        }
+
     }//GEN-LAST:event_startLActionPerformed
 
     private void chasisPlusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_chasisPlusActionPerformed
