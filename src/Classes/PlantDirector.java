@@ -61,13 +61,7 @@ public class PlantDirector extends Thread {
      
         while (true) {
              try {
-            
-            
-            synchronized(this){
-            while(pausar==true){
-                    System.out.println("");
-                }    
-            }  
+             
             payCheck();
 
             
@@ -78,43 +72,43 @@ public class PlantDirector extends Thread {
             if( this.manager.daysLeft < 0 ){
           
 
-                
-                manager.resetdays();
-            
-                if(nameplant.equals("Lamborghini")){
-                
-                this.userInterface.daysLeftLamborghini(Integer.toString(this.manager.daysLeft));
-                this.userInterface.lambEarnings("$" + Long.toString(warehouse.getTotalEarnings()));
-                
-                costo = this.warehouse.costototal;
-                ganancia = (int) this.warehouse.getTotalEarnings();
-                this.warehouse.totalEarnings = 0;
-                costo = costo - salarioquitado;
-                this.salarioquitado = 0;
-                this.fault = 0;
-                
-                utility = ganancia - costo;
-                
-                this.warehouse.resetcars();
-                this.userInterface.MaseAC("0");
-                this.userInterface.LamborghiniSC("0");
-                this.userInterface.LamborghiniAC("0");
-                this.userInterface.MaseAC("0");
-                
-                this.userInterface.costsL("$" + Integer.toString(costo));
-                this.userInterface.UtilityL("$" + Integer.toString(utility));
-                this.userInterface.faultsQtyL(Integer.toString(this.fault));
-                this.userInterface.managerSalaryDiscountL("$" + Integer.toString(this.salarioquitado));
-                
-                
-                
-                
-                
-                
-                this.userInterface.directorStatusL("Reiniciando lote");
-                
-                Thread.sleep(dayDuration);
-                
+
+                    manager.resetdays();
+
+                    if(nameplant.equals("Lamborghini")){
+
+                    this.userInterface.daysLeftLamborghini(Integer.toString(this.manager.daysLeft));
+                    this.userInterface.lambEarnings("$" + Long.toString(warehouse.getTotalEarnings()));
+
+                    costo = this.warehouse.costototal;
+                    ganancia = (int) this.warehouse.getTotalEarnings();
+                    this.warehouse.totalEarnings = 0;
+                    costo = costo - salarioquitado;
+                    this.salarioquitado = 0;
+                    this.fault = 0;
+
+                    utility = ganancia - costo;
+
+                    this.warehouse.resetcars();
+                    this.userInterface.MaseAC("0");
+                    this.userInterface.LamborghiniSC("0");
+                    this.userInterface.LamborghiniAC("0");
+                    this.userInterface.MaseAC("0");
+
+                    this.userInterface.costsL("$" + Integer.toString(costo));
+                    this.userInterface.UtilityL("$" + Integer.toString(utility));
+                    this.userInterface.faultsQtyL(Integer.toString(this.fault));
+                    this.userInterface.managerSalaryDiscountL("$" + Integer.toString(this.salarioquitado));
+
+
+
+
+
+
+                    this.userInterface.directorStatusL("Reiniciando lote");
+
+                    Thread.sleep(dayDuration);
+
                 
                 
                 } else {

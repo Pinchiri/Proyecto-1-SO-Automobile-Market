@@ -80,10 +80,9 @@ public class Worker extends Thread{
         
         if (this.productionCounter >= 1 && plant.mutex.availablePermits()> 0) {
             try {
-                plant.mutex.acquire(1);
+                plant.mutex.acquire();
                 plant.warehouse.updateStorage(this.type, (int) this.productionCounter, (int) this.salary*24);
-                plant.mutex.release(1);
-                Thread.sleep(dayDurationInMs);
+                plant.mutex.release();
                 
                 
             } catch (InterruptedException ex) {
