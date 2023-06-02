@@ -199,8 +199,8 @@ public class Warehouse {
                 if (this.motorQty < this.maxMotorQty) {
                     this.motorQty += finishedPart;
                     
-                    if(this.motorQty >= this.motorQty ){
-                        this.motorQty = this.motorQty;
+                    if(this.motorQty >= this.maxMotorQty ){
+                        this.motorQty = this.maxMotorQty;
                     }
                     
                     if (this.nameplant.equals("Lamborghini")) {
