@@ -28,7 +28,7 @@ public class VehiclePlant {
     private int accessoryWorkers;
     private int assemblers;
     private Worker[] workers;
-
+    private int totalCosts;
     
     private long dayDurationInMs;
     public Warehouse warehouse;
@@ -403,15 +403,15 @@ public class VehiclePlant {
         this.assemblers = assemblers;
     }
 
-    public long calculateCosts() {
-        
-        long totalCosts = 0;
-        
-        for (Worker worker : workers) {
-        totalCosts+= worker.getAccSalary();
-}
-        return totalCosts;
-    }
+//    public long calculateCosts() {
+//        
+//        long totalCosts = 0;
+//        
+//        for (Worker worker : workers) {
+//            totalCosts+= worker.getAccSalary();
+//}
+//        return totalCosts;
+//    }
 
     public Config getConfig() {
         return config;
@@ -421,6 +421,25 @@ public class VehiclePlant {
         this.config = config;
     }
     
+    public void calculateCosts() {
+        
+        for (int i = 0; i < workers.length; i++) {
+            
+            if (!(workers[i].getType().equals("waiting"))){
+                
+                this.totalCosts += workers[i].getAccSalary();
+            
+            }
+        }
+    }
+
+    public int getTotalCosts() {
+        return totalCosts;
+    }
+
+    public void setTotalCosts(int totalCosts) {
+        this.totalCosts = totalCosts;
+    }
     
     
 }

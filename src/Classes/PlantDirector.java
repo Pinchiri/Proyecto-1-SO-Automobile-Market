@@ -63,53 +63,53 @@ public class PlantDirector extends Thread {
              try {
              
             payCheck();
-
-            
-            System.out.println(this.manager.daysLeft);
-            
+          
             
             
             if( this.manager.daysLeft < 0 ){
-          
-
-
-                    manager.resetdays();
-
-                    if(nameplant.equals("Lamborghini")){
-
-                    this.userInterface.daysLeftLamborghini(Integer.toString(this.manager.daysLeft));
-                    this.userInterface.lambEarnings("$" + Long.toString(warehouse.getTotalEarnings()));
-
-                    costo = this.warehouse.costototal;
-                    ganancia = (int) this.warehouse.getTotalEarnings();
-                    this.warehouse.totalEarnings = 0;
-                    costo = costo - salarioquitado;
-                    this.salarioquitado = 0;
-                    this.fault = 0;
-
-                    utility = ganancia - costo;
-
-                    this.warehouse.resetcars();
-                    this.userInterface.MaseAC("0");
-                    this.userInterface.LamborghiniSC("0");
-                    this.userInterface.LamborghiniAC("0");
-                    this.userInterface.MaseAC("0");
-
-                    this.userInterface.costsL("$" + Integer.toString(costo));
-                    this.userInterface.UtilityL("$" + Integer.toString(utility));
-                    this.userInterface.faultsQtyL(Integer.toString(this.fault));
-                    this.userInterface.managerSalaryDiscountL("$" + Integer.toString(this.salarioquitado));
-
-
-
-
-
-
-                    this.userInterface.directorStatusL("Reiniciando lote");
-
-                    Thread.sleep(dayDuration);
-
                 
+                manager.resetdays();
+            
+                if(nameplant.equals("Lamborghini")){
+                
+                this.userInterface.daysLeftLamborghini(Integer.toString(this.manager.daysLeft));
+                this.userInterface.lambEarnings("$" + Long.toString(warehouse.getTotalEarnings()));
+                
+//                costo = this.warehouse.costototal;
+                this.plant.calculateCosts();
+                costo = this.plant.getTotalCosts();
+                ganancia = (int) this.warehouse.getTotalEarnings();
+                costo = (int) (costo + this.manager.getAccSalary());
+                costo = (int) (costo + this.accSalary);
+                this.warehouse.totalEarnings = 0;
+                costo = costo - salarioquitado;
+                this.salarioquitado = 0;
+                this.fault = 0;
+                
+                utility = ganancia - costo;
+                
+                this.manager.ResetSalario();
+                this.accSalary = 0;
+                
+                this.warehouse.resetcars();
+                this.userInterface.MaseAC("0");
+                this.userInterface.LamborghiniSC("0");
+                this.userInterface.LamborghiniAC("0");
+                this.userInterface.MaseAC("0");
+                
+                this.userInterface.costsL("$" + Integer.toString(costo));
+                this.userInterface.UtilityL("$" + Integer.toString(utility));
+                this.userInterface.faultsQtyL(Integer.toString(this.fault));
+                this.userInterface.managerSalaryDiscountL("$" + Integer.toString(this.salarioquitado));
+                
+                
+                
+                
+                
+                
+                this.userInterface.directorStatusL("Reiniciando lote");
+                
+                Thread.sleep(dayDuration);               
                 
                 } else {
                 
@@ -117,7 +117,9 @@ public class PlantDirector extends Thread {
                 this.userInterface.MaseEarnings("$" + Long.toString(warehouse.getTotalEarnings()));
                 this.userInterface.directorStatusM("Reiniciando lote");
                 
-                costo = this.warehouse.costototal;
+//                costo = this.warehouse.costototal;
+                this.plant.calculateCosts();
+                costo = this.plant.getTotalCosts();
                 costo = (int) (costo + this.manager.getAccSalary());
                 costo = (int) (costo + this.accSalary);
                 costo = costo - salarioquitado;

@@ -70,7 +70,7 @@ public class Worker extends Thread{
  
 
     public void payCheck() {
-        this.accSalary += this.salary;
+        this.accSalary += this.salary*24;
     }
     
     public void produceForTheDay(){
