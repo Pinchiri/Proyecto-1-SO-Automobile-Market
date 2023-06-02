@@ -29,6 +29,10 @@ public class VehiclePlant {
     private int assemblers;
     private Worker[] workers;
     private int totalCosts;
+    private PlantDirector director;
+    
+    private Chart chart;
+    
     
     private long dayDurationInMs;
     public Warehouse warehouse;
@@ -95,9 +99,9 @@ public class VehiclePlant {
             lamborghiniManager.start();
            
             
-            PlantDirector director = new PlantDirector(30,config.getDayDuration(),this,this.userInterface,lamborghiniManager,this.warehouse,this.name);
+            this.director = new PlantDirector(30,config.getDayDuration(),this,this.userInterface,lamborghiniManager,this.warehouse,this.name);
        
-            director.start();
+            this.director.start();
             
             
             
@@ -105,9 +109,9 @@ public class VehiclePlant {
             OperationsManager maseratiManager = new OperationsManager(20, config.getDeliveryDays(), this, this.userInterface, config.getDayDuration(), this.name,this.config);
             maseratiManager.start();
             
-            PlantDirector director = new PlantDirector(30,config.getDayDuration(),this,this.userInterface, maseratiManager,this.warehouse,this.name);
+            this.director = new PlantDirector(30,config.getDayDuration(),this,this.userInterface, maseratiManager,this.warehouse,this.name);
        
-            director.start();
+            this.director.start();
             
             
         }
@@ -304,23 +308,6 @@ public class VehiclePlant {
             }
     }
     
-    public void ResumeWorker(){
-       
-       for (int i = 0; i < workers.length; i++) {
-            Worker worker = workers[i];
-            worker.reanudar();
-        }
-   
-    }
-    
-     public void StopWorker(){
-       
-       for (int i = 0; i < workers.length; i++) {
-            Worker worker = workers[i];
-            worker.stop();
-        }
-   
-    }
     
 
     public String getName() {
@@ -440,6 +427,19 @@ public class VehiclePlant {
     public void setTotalCosts(int totalCosts) {
         this.totalCosts = totalCosts;
     }
+
+    public PlantDirector getDirector() {
+        return director;
+    }
+
+    public Chart getChart() {
+        return chart;
+    }
+
+    public void setChart(Chart chart) {
+        this.chart = chart;
+    }
+    
     
     
 }

@@ -5,6 +5,7 @@
  */
 package UserInterface;
 
+import Classes.Chart;
 import Classes.Config;
 import Classes.ReadFile;
 import Classes.VehiclePlant;
@@ -18,6 +19,14 @@ public class MainUI extends javax.swing.JFrame {
     public static Config config;
     public int counterL = 0;
     public int counterM = 0;
+    
+    public static Chart chartL;
+    public static Chart chartM;
+    public static int lootNumL = 0;
+    public static int lootNumM = 0;
+    
+    public static int daysPassedL;
+    public static int daysPassedM;
     
     public static boolean runningL;
     public static boolean runningM;
@@ -174,17 +183,36 @@ public class MainUI extends javax.swing.JFrame {
     public void UtilityM(String Text){
         utilityM1.setText(Text);
     }
+    
+    public void plusLootNumL () {
+        lootNumL++;
+    }
+    
+    public int getLootNumL() {
+        return lootNumL;
+    }
+    
+    public void plusLootNumM () {
+        lootNumM++;
+    }
+    
+    public int getLootNumM() {
+        return lootNumM;
+    }
             
     /**
      * Creates new form MainUI
      */
     public MainUI() {
+        super("Dashboard");
         initComponents();
         
         setVisible(true);
         setLocationRelativeTo(null);
         
         config = new Config();
+        
+        
         
         try {
             ReadFile nfile = new ReadFile();
@@ -223,6 +251,8 @@ public class MainUI extends javax.swing.JFrame {
             wheelMinL.setEnabled(true);
             accMinL.setEnabled(true);
             assemblerMinL.setEnabled(true);
+            
+            showGraphL.setEnabled(true);
         } else {
             chasisPlusL.setEnabled(false);
             bodyPlusL.setEnabled(false);
@@ -237,6 +267,9 @@ public class MainUI extends javax.swing.JFrame {
             wheelMinL.setEnabled(false);
             accMinL.setEnabled(false);
             assemblerMinL.setEnabled(false); 
+            
+            showGraphL.setEnabled(false);
+
         }
         
         
@@ -257,6 +290,8 @@ public class MainUI extends javax.swing.JFrame {
             wheelMin.setEnabled(true);
             accMin.setEnabled(true);
             assemblerMin.setEnabled(true);
+            showGraphM.setEnabled(true);
+
         } else {
             chasisPlus.setEnabled(false);
             bodyPlus.setEnabled(false);
@@ -271,6 +306,8 @@ public class MainUI extends javax.swing.JFrame {
             wheelMin.setEnabled(false);
             accMin.setEnabled(false);
             assemblerMin.setEnabled(false);
+            
+            showGraphM.setEnabled(false);
         }
         
         
@@ -561,6 +598,7 @@ public class MainUI extends javax.swing.JFrame {
         assemblers_label2 = new javax.swing.JLabel();
         assemblersMase = new javax.swing.JSpinner();
         LamborghiniTab = new javax.swing.JPanel();
+        showGraphL = new javax.swing.JButton();
         startL = new javax.swing.JButton();
         L_label = new javax.swing.JLabel();
         bodyWorkersL = new javax.swing.JLabel();
@@ -694,6 +732,7 @@ public class MainUI extends javax.swing.JFrame {
         assemblerPlus = new javax.swing.JButton();
         utility_label1 = new javax.swing.JFormattedTextField();
         DayLeftLamborghini2 = new javax.swing.JLabel();
+        showGraphM = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setResizable(false);
@@ -928,6 +967,17 @@ public class MainUI extends javax.swing.JFrame {
         LamborghiniTab.setBackground(new java.awt.Color(51, 51, 51));
         LamborghiniTab.setForeground(new java.awt.Color(255, 255, 255));
         LamborghiniTab.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        showGraphL.setBackground(new java.awt.Color(255, 255, 153));
+        showGraphL.setFont(new java.awt.Font("Microsoft YaHei", 1, 24)); // NOI18N
+        showGraphL.setForeground(new java.awt.Color(51, 51, 51));
+        showGraphL.setText("Show Chart");
+        showGraphL.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                showGraphLActionPerformed(evt);
+            }
+        });
+        LamborghiniTab.add(showGraphL, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 340, 190, 40));
 
         startL.setBackground(new java.awt.Color(255, 255, 153));
         startL.setFont(new java.awt.Font("Microsoft YaHei", 1, 24)); // NOI18N
@@ -1795,6 +1845,17 @@ public class MainUI extends javax.swing.JFrame {
         DayLeftLamborghini2.setText("DAYS LEFT:");
         MaseratiTab.add(DayLeftLamborghini2, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 450, 150, 40));
 
+        showGraphM.setBackground(new java.awt.Color(255, 255, 153));
+        showGraphM.setFont(new java.awt.Font("Microsoft YaHei", 1, 24)); // NOI18N
+        showGraphM.setForeground(new java.awt.Color(51, 51, 51));
+        showGraphM.setText("Show Chart");
+        showGraphM.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                showGraphMActionPerformed(evt);
+            }
+        });
+        MaseratiTab.add(showGraphM, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 340, 190, 40));
+
         jTabbedPane1.addTab("Maserati", MaseratiTab);
 
         getContentPane().add(jTabbedPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 950, 605));
@@ -1802,21 +1863,348 @@ public class MainUI extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void assemblerPlusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_assemblerPlusActionPerformed
+        if ((MaseratiPlant.sumWorkers() < 10)) {
+            int assemblerInt = Integer.parseInt(assemblerWorkersM.getText()) + 1;
+            assemblerWorkersM.setText(Integer.toString(assemblerInt));
+
+            changeWorkerPlus(MaseratiPlant, "assembler");
+            MaseratiPlant.plusAssemblers();
+
+        } else {
+            JOptionPane.showMessageDialog(null, "You have reached maximum capacity");
+        }
+    }//GEN-LAST:event_assemblerPlusActionPerformed
+
+    private void assemblerMinActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_assemblerMinActionPerformed
+        if ((Integer.parseInt(assemblerWorkersM.getText()) > 1)) {
+            int assemblerInt = Integer.parseInt(assemblerWorkersM.getText()) - 1;
+            assemblerWorkersM.setText(Integer.toString(assemblerInt));
+            changeWorkerMinus(MaseratiPlant, "assembler");
+            MaseratiPlant.reduceAssemblers();
+        } else {
+            JOptionPane.showMessageDialog(null, "You have reached minimum capacity");
+        }
+    }//GEN-LAST:event_assemblerMinActionPerformed
+
+    private void accPlusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_accPlusActionPerformed
+        if ((MaseratiPlant.sumWorkers() < 10)) {
+            int accessoryInt = Integer.parseInt(accessoryWorkersM.getText()) + 1;
+            accessoryWorkersM.setText(Integer.toString(accessoryInt));
+
+            changeWorkerPlus(MaseratiPlant, "accesory");
+            MaseratiPlant.plusAccessoryWorkers();
+
+        } else {
+            JOptionPane.showMessageDialog(null, "You have reached maximum capacity");
+        }
+    }//GEN-LAST:event_accPlusActionPerformed
+
+    private void accMinActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_accMinActionPerformed
+        if ((Integer.parseInt(accessoryWorkersM.getText()) > 1)) {
+            int accessoryInt = Integer.parseInt(accessoryWorkersM.getText()) - 1;
+            accessoryWorkersM.setText(Integer.toString(accessoryInt));
+            changeWorkerMinus(MaseratiPlant, "accesory");
+            MaseratiPlant.reduceAccessoryWorkers();
+        } else {
+            JOptionPane.showMessageDialog(null, "You have reached minimum capacity");
+        }
+    }//GEN-LAST:event_accMinActionPerformed
+
+    private void wheelMinActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_wheelMinActionPerformed
+        if ((Integer.parseInt(wheelWorkersM.getText()) > 1)) {
+            int wheelInt = Integer.parseInt(wheelWorkersM.getText()) - 1;
+            wheelWorkersM.setText(Integer.toString(wheelInt));
+            changeWorkerMinus(MaseratiPlant, "wheel");
+            MaseratiPlant.reduceWheelWorkers();
+        } else {
+            JOptionPane.showMessageDialog(null, "You have reached minimum capacity");
+        }
+    }//GEN-LAST:event_wheelMinActionPerformed
+
+    private void wheelPlusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_wheelPlusActionPerformed
+        if ((MaseratiPlant.sumWorkers() < 10)) {
+            int wheelInt = Integer.parseInt(wheelWorkersM.getText()) + 1;
+            wheelWorkersM.setText(Integer.toString(wheelInt));
+
+            changeWorkerPlus(MaseratiPlant, "wheel");
+            MaseratiPlant.plusWheelWorkers();
+
+        } else {
+            JOptionPane.showMessageDialog(null, "You have reached maximum capacity");
+        }
+    }//GEN-LAST:event_wheelPlusActionPerformed
+
+    private void motorMinActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_motorMinActionPerformed
+        if ((Integer.parseInt(motorWorkersM.getText()) > 1)) {
+            int motorInt = Integer.parseInt(motorWorkersM.getText()) - 1;
+            motorWorkersM.setText(Integer.toString(motorInt));
+            changeWorkerMinus(MaseratiPlant, "motors");
+            MaseratiPlant.reduceMotorWorkers();
+        } else {
+            JOptionPane.showMessageDialog(null, "You have reached minimum capacity");
+        }
+    }//GEN-LAST:event_motorMinActionPerformed
+
+    private void motorPlusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_motorPlusActionPerformed
+        if ((MaseratiPlant.sumWorkers() < 10)) {
+            int motorInt = Integer.parseInt(motorWorkersM.getText()) + 1;
+            motorWorkersM.setText(Integer.toString(motorInt));
+
+            changeWorkerPlus(MaseratiPlant, "motors");
+            MaseratiPlant.plusMotorWorkers();
+
+        } else {
+            JOptionPane.showMessageDialog(null, "You have reached maximum capacity");
+        }
+    }//GEN-LAST:event_motorPlusActionPerformed
+
+    private void bodyMinActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bodyMinActionPerformed
+        if ((Integer.parseInt(bodyWorkersM.getText()) > 1)) {
+            int bodyInt = Integer.parseInt(bodyWorkersM.getText()) - 1;
+            bodyWorkersM.setText(Integer.toString(bodyInt));
+            changeWorkerMinus(MaseratiPlant, "carBody");
+            MaseratiPlant.reduceBodyWorkers();
+        } else {
+            JOptionPane.showMessageDialog(null, "You have reached minimum capacity");
+        }
+    }//GEN-LAST:event_bodyMinActionPerformed
+
+    private void bodyPlusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bodyPlusActionPerformed
+        if ((MaseratiPlant.sumWorkers() < 10)) {
+            int bodyInt = Integer.parseInt(bodyWorkersM.getText()) + 1;
+            bodyWorkersM.setText(Integer.toString(bodyInt));
+
+            changeWorkerPlus(MaseratiPlant, "carBody");
+            MaseratiPlant.plusBodyWorkers();
+
+        } else {
+            JOptionPane.showMessageDialog(null, "You have reached maximum capacity");
+        }
+
+    }//GEN-LAST:event_bodyPlusActionPerformed
+
+    private void chasisPlusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_chasisPlusActionPerformed
+        if ((MaseratiPlant.sumWorkers() < 10)) {
+            int chasisInt = Integer.parseInt(chasisWorkersM.getText()) + 1;
+            chasisWorkersM.setText(Integer.toString(chasisInt));
+
+            changeWorkerPlus(MaseratiPlant, "chasis");
+            MaseratiPlant.plusChasisWorkers();
+        } else {
+            JOptionPane.showMessageDialog(null, "You have reached maximum capacity");
+        }
+    }//GEN-LAST:event_chasisPlusActionPerformed
+
+    private void chasisMinActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_chasisMinActionPerformed
+        if (Integer.parseInt(chasisWorkersM.getText()) > 1) {
+            int chasisInt = Integer.parseInt(chasisWorkersM.getText()) - 1;
+            chasisWorkersM.setText(Integer.toString(chasisInt));
+            changeWorkerMinus(MaseratiPlant, "chasis");
+            MaseratiPlant.reduceChasisWorkers();
+        } else {
+            JOptionPane.showMessageDialog(null, "You have reached minimum capacity");
+        }
+    }//GEN-LAST:event_chasisMinActionPerformed
+
+    private void startMActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_startMActionPerformed
+
+        runningM = true;
+        disableButtonsM();
+        disableStarts("M");
+
+        DaysLeftMaserati(Integer.toString(config.getDeliveryDays()));
+        MaseratiPlant = new VehiclePlant("Maserati", this, config);
+        chartM = new Chart(MaseratiPlant.getDirector());
+//        MaseratiPlant.setChart(chartM);
+//        MaseratiPlant.getDirector().setChart(chartM);
+        MaseratiQtys(Integer.toString(MaseratiPlant.getChasisWorkers()), Integer.toString(MaseratiPlant.getBodyWorkers()), Integer.toString(MaseratiPlant.getMotorWorkers()), Integer.toString(MaseratiPlant.getWheelWorkers()), Integer.toString(MaseratiPlant.getAccessoryWorkers()), Integer.toString(MaseratiPlant.getAssemblers()));
+    }//GEN-LAST:event_startMActionPerformed
+
+    private void assemblerPlusLActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_assemblerPlusLActionPerformed
+        if ((LamborghiniPlant.sumWorkers() < 18)) {
+            int assemblerInt = Integer.parseInt(assemblerWorkersL.getText()) + 1;
+            assemblerWorkersL.setText(Integer.toString(assemblerInt));
+            changeWorkerPlus(LamborghiniPlant, "assembler");
+            LamborghiniPlant.plusAssemblers();
+        } else {
+            JOptionPane.showMessageDialog(null, "You have reached maximum capacity");
+        }
+    }//GEN-LAST:event_assemblerPlusLActionPerformed
+
+    private void assemblerMinLActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_assemblerMinLActionPerformed
+
+        if ((Integer.parseInt(assemblerWorkersL.getText()) > 1)) {
+            int assemblerInt = Integer.parseInt(assemblerWorkersL.getText()) - 1;
+            assemblerWorkersL.setText(Integer.toString(assemblerInt));
+            changeWorkerMinus(LamborghiniPlant, "assembler");
+            LamborghiniPlant.reduceAssemblers();
+
+        } else {
+            JOptionPane.showMessageDialog(null, "You have reached minimum capacity");
+        }
+    }//GEN-LAST:event_assemblerMinLActionPerformed
+
+    private void accPlusLActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_accPlusLActionPerformed
+        if ((LamborghiniPlant.sumWorkers() < 18)) {
+            int accessoryInt = Integer.parseInt(accessoryWorkersL.getText()) + 1;
+            accessoryWorkersL.setText(Integer.toString(accessoryInt));
+            changeWorkerPlus(LamborghiniPlant, "accesory");
+            LamborghiniPlant.plusAccessoryWorkers();
+        } else {
+            JOptionPane.showMessageDialog(null, "You have reached maximum capacity");
+        }
+    }//GEN-LAST:event_accPlusLActionPerformed
+
+    private void accMinLActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_accMinLActionPerformed
+        if ((Integer.parseInt(accessoryWorkersL.getText()) > 1)) {
+            int accInt = Integer.parseInt(accessoryWorkersL.getText()) - 1;
+            accessoryWorkersL.setText(Integer.toString(accInt));
+            changeWorkerMinus(LamborghiniPlant, "accesory");
+            LamborghiniPlant.reduceAccessoryWorkers();
+        } else {
+            JOptionPane.showMessageDialog(null, "You have reached minimum capacity");
+        }
+    }//GEN-LAST:event_accMinLActionPerformed
+
+    private void wheelMinLActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_wheelMinLActionPerformed
+        if ((Integer.parseInt(wheelWorkersL.getText()) > 1)) {
+            int wheelInt = Integer.parseInt(wheelWorkersL.getText()) - 1;
+            wheelWorkersL.setText(Integer.toString(wheelInt));
+            changeWorkerMinus(LamborghiniPlant, "wheel");
+            LamborghiniPlant.reduceWheelWorkers();
+        } else {
+            JOptionPane.showMessageDialog(null, "You have reached minimum capacity");
+        }
+    }//GEN-LAST:event_wheelMinLActionPerformed
+
+    private void wheelPlusLActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_wheelPlusLActionPerformed
+        if ((LamborghiniPlant.sumWorkers() < 18)) {
+            int wheelInt = Integer.parseInt(wheelWorkersL.getText()) + 1;
+            wheelWorkersL.setText(Integer.toString(wheelInt));
+            changeWorkerPlus(LamborghiniPlant, "wheel");
+            LamborghiniPlant.plusWheelWorkers();
+        } else {
+            JOptionPane.showMessageDialog(null, "You have reached maximum capacity");
+        }
+    }//GEN-LAST:event_wheelPlusLActionPerformed
+
+    private void motorMinLActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_motorMinLActionPerformed
+        if ((Integer.parseInt(motorWorkersL.getText()) > 1)) {
+            int motorInt = Integer.parseInt(motorWorkersL.getText()) - 1;
+            motorWorkersL.setText(Integer.toString(motorInt));
+            changeWorkerMinus(LamborghiniPlant, "motors");
+            LamborghiniPlant.reduceMotorWorkers();
+        } else {
+            JOptionPane.showMessageDialog(null, "You have reached minimum capacity");
+        }
+    }//GEN-LAST:event_motorMinLActionPerformed
+
+    private void bodyMinLActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bodyMinLActionPerformed
+        if ((Integer.parseInt(bodyWorkersL.getText()) > 1)) {
+            int bodyInt = Integer.parseInt(bodyWorkersL.getText()) - 1;
+            bodyWorkersL.setText(Integer.toString(bodyInt));
+            changeWorkerMinus(LamborghiniPlant, "body");
+            LamborghiniPlant.reduceBodyWorkers();
+        } else {
+            JOptionPane.showMessageDialog(null, "You have reached minimum capacity");
+        }
+    }//GEN-LAST:event_bodyMinLActionPerformed
+
+    private void chasisMinLActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_chasisMinLActionPerformed
+        if (Integer.parseInt(chasisWorkersL.getText()) > 1) {
+            int chasisInt = Integer.parseInt(chasisWorkersL.getText()) - 1;
+            chasisWorkersL.setText(Integer.toString(chasisInt));
+            changeWorkerMinus(LamborghiniPlant, "chasis");
+            LamborghiniPlant.reduceChasisWorkers();
+        } else {
+            JOptionPane.showMessageDialog(null, "You have reached minimum capacity");
+        }
+    }//GEN-LAST:event_chasisMinLActionPerformed
+
+    private void motorPlusLActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_motorPlusLActionPerformed
+        if ((LamborghiniPlant.sumWorkers() < 18)) {
+            int motorInt = Integer.parseInt(motorWorkersL.getText()) + 1;
+            motorWorkersL.setText(Integer.toString(motorInt));
+            changeWorkerPlus(LamborghiniPlant, "motors");
+            LamborghiniPlant.plusMotorWorkers();
+        } else {
+            JOptionPane.showMessageDialog(null, "You have reached maximum capacity");
+
+        }
+    }//GEN-LAST:event_motorPlusLActionPerformed
+
+    private void bodyPlusLActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bodyPlusLActionPerformed
+        if ((LamborghiniPlant.sumWorkers() < 18)) {
+            int bodyInt = Integer.parseInt(bodyWorkersL.getText()) + 1;
+            bodyWorkersL.setText(Integer.toString(bodyInt));
+            changeWorkerPlus(LamborghiniPlant, "carBody");
+            LamborghiniPlant.plusBodyWorkers();
+        } else {
+            JOptionPane.showMessageDialog(null, "You have reached maximum capacity");
+        }
+
+    }//GEN-LAST:event_bodyPlusLActionPerformed
+
+    private void chasisPlusLActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_chasisPlusLActionPerformed
+        if ((LamborghiniPlant.sumWorkers() >= 18)) {
+            JOptionPane.showMessageDialog(null, "You have reached maximum capacity");
+
+        } else {
+            int chasisInt = Integer.parseInt(chasisWorkersL.getText()) + 1;
+            chasisWorkersL.setText(Integer.toString(chasisInt));
+
+            changeWorkerPlus(LamborghiniPlant, "chasis");
+            LamborghiniPlant.plusChasisWorkers();
+
+        }
+
+    }//GEN-LAST:event_chasisPlusLActionPerformed
+
+    private void startLActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_startLActionPerformed
+
+        runningL = true;
+        disableButtonsL();
+        disableStarts("L");
+
+        daysLeftLamborghini(Integer.toString(config.getDeliveryDays()));
+
+        LamborghiniPlant = new VehiclePlant("Lamborghini", this, config);
+        chartL = new Chart(LamborghiniPlant.getDirector());
+//        LamborghiniPlant.setChart(chartL);
+//        LamborghiniPlant.getDirector().setChart(chartL);
+        LamborghiniQtys(Integer.toString(LamborghiniPlant.getChasisWorkers()), Integer.toString(LamborghiniPlant.getBodyWorkers()), Integer.toString(LamborghiniPlant.getMotorWorkers()), Integer.toString(LamborghiniPlant.getWheelWorkers()), Integer.toString(LamborghiniPlant.getAccessoryWorkers()), Integer.toString(LamborghiniPlant.getAssemblers()));
+    }//GEN-LAST:event_startLActionPerformed
+
+    private void showGraphLActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_showGraphLActionPerformed
+
+        daysPassedL = config.getDeliveryDays() - LamborghiniPlant.getDirector().getManager().getDaysLeft();
+        
+        if (lootNumL == 0) {
+            chartL.updateDataset(daysPassedL);
+        } else {
+            chartL.updateDataset(daysPassedL+(config.getDeliveryDays()*lootNumL));
+        }
+  
+        chartL.displayChart();
+
+    }//GEN-LAST:event_showGraphLActionPerformed
+
     private void setConfigurationActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_setConfigurationActionPerformed
         String configString = "General\ndayDuration\n";
         boolean pass = true;
-        
+
         try{
             int dayDuration = Integer.parseInt(dayDurationInput.getText()) * 1000;
             int deliveryDays = Integer.parseInt(deliveryDaysInput.getText());
-            
+
             configString += Integer.toString(dayDuration) + "\ndeliveryDays\n" + Integer.toString(deliveryDays) + "\n";
-    
+
         } catch(Exception e) {
             JOptionPane.showMessageDialog(null, "You have to enter a number");
             pass = false;
         }
-        
+
         if (pass) {
             try {
                 //Lamborghini
@@ -1863,345 +2251,38 @@ public class MainUI extends javax.swing.JFrame {
                 Integer assemblerM = (Integer) assemblersMase.getValue();
                 configString += assemblerM;
 
-
                 int sumM = chasisM + bodyM + motorM + wheelM + accessoryM + assemblerM;
 
-
                 if ((sumL > 18) || (sumM > 10)) {
-                    throw new Exception(); 
+                    throw new Exception();
                 }
-                
+
                 ReadFile file = new ReadFile();
                 file.printTxt(configString);
 
                 String newConfig = file.readTxt();
                 file.readConfig(newConfig, config);
 
-                
-
             } catch(Exception e) {
 
                 JOptionPane.showMessageDialog(null, "Enter correct amounts of workers. The maximum capacity of Lamborghini is 18 workers and for Maserati is 10 workers" + e);
             }
         }
-        
-        
-       
-        
-        
+
     }//GEN-LAST:event_setConfigurationActionPerformed
-                             
 
-    private void startMActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_startMActionPerformed
-
-            runningM = true;
-            disableButtonsM();
-            disableStarts("M");
-            
-            
-            DaysLeftMaserati(Integer.toString(config.getDeliveryDays()));
-            MaseratiPlant = new VehiclePlant("Maserati", this, config);
-            MaseratiQtys(Integer.toString(MaseratiPlant.getChasisWorkers()), Integer.toString(MaseratiPlant.getBodyWorkers()), Integer.toString(MaseratiPlant.getMotorWorkers()), Integer.toString(MaseratiPlant.getWheelWorkers()), Integer.toString(MaseratiPlant.getAccessoryWorkers()), Integer.toString(MaseratiPlant.getAssemblers()));
-
-    }//GEN-LAST:event_startMActionPerformed
-
-    private void chasisMinActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_chasisMinActionPerformed
-       if (Integer.parseInt(chasisWorkersM.getText()) > 1) {
-            int chasisInt = Integer.parseInt(chasisWorkersM.getText()) - 1;
-            chasisWorkersM.setText(Integer.toString(chasisInt));
-            changeWorkerMinus(MaseratiPlant, "chasis");
-            MaseratiPlant.reduceChasisWorkers();
-        } else {
-            JOptionPane.showMessageDialog(null, "You have reached minimum capacity");
-        }
-    }//GEN-LAST:event_chasisMinActionPerformed
-
-    private void startLActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_startLActionPerformed
-
-            runningL = true;
-            disableButtonsL();
-            disableStarts("L");
-            
-            daysLeftLamborghini(Integer.toString(config.getDeliveryDays()));
-            
-            LamborghiniPlant = new VehiclePlant("Lamborghini", this, config);
-       
-            LamborghiniQtys(Integer.toString(LamborghiniPlant.getChasisWorkers()), Integer.toString(LamborghiniPlant.getBodyWorkers()), Integer.toString(LamborghiniPlant.getMotorWorkers()), Integer.toString(LamborghiniPlant.getWheelWorkers()), Integer.toString(LamborghiniPlant.getAccessoryWorkers()), Integer.toString(LamborghiniPlant.getAssemblers()));
-
-    }//GEN-LAST:event_startLActionPerformed
-
-    private void chasisPlusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_chasisPlusActionPerformed
-        if ((MaseratiPlant.sumWorkers() < 10)) {
-            int chasisInt = Integer.parseInt(chasisWorkersM.getText()) + 1;
-            chasisWorkersM.setText(Integer.toString(chasisInt));
-
-            changeWorkerPlus(MaseratiPlant, "chasis");
-            MaseratiPlant.plusChasisWorkers();
-        } else {
-            JOptionPane.showMessageDialog(null, "You have reached maximum capacity");
-        }
-    }//GEN-LAST:event_chasisPlusActionPerformed
-
-    private void bodyPlusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bodyPlusActionPerformed
-        if ((MaseratiPlant.sumWorkers() < 10)) {
-            int bodyInt = Integer.parseInt(bodyWorkersM.getText()) + 1;
-            bodyWorkersM.setText(Integer.toString(bodyInt));
-
-            changeWorkerPlus(MaseratiPlant, "carBody");
-            MaseratiPlant.plusBodyWorkers();
+    private void showGraphMActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_showGraphMActionPerformed
+        daysPassedM = config.getDeliveryDays() - MaseratiPlant.getDirector().getManager().getDaysLeft();
         
+        if (lootNumM == 0) {
+            chartM.updateDataset(daysPassedM);
         } else {
-            JOptionPane.showMessageDialog(null, "You have reached maximum capacity");
+            chartM.updateDataset(daysPassedM+(config.getDeliveryDays()*lootNumM));
         }
-        
-    }//GEN-LAST:event_bodyPlusActionPerformed
-
-    private void bodyMinActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bodyMinActionPerformed
-        if ((Integer.parseInt(bodyWorkersM.getText()) > 1)) {
-            int bodyInt = Integer.parseInt(bodyWorkersM.getText()) - 1;
-            bodyWorkersM.setText(Integer.toString(bodyInt));
-            changeWorkerMinus(MaseratiPlant, "carBody");
-            MaseratiPlant.reduceBodyWorkers();
-        } else {
-            JOptionPane.showMessageDialog(null, "You have reached minimum capacity");
-        }
-    }//GEN-LAST:event_bodyMinActionPerformed
-
-    private void motorPlusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_motorPlusActionPerformed
-        if ((MaseratiPlant.sumWorkers() < 10)) {
-            int motorInt = Integer.parseInt(motorWorkersM.getText()) + 1;
-            motorWorkersM.setText(Integer.toString(motorInt));
-
-            changeWorkerPlus(MaseratiPlant, "motors");
-            MaseratiPlant.plusMotorWorkers();
-        
-        } else {
-            JOptionPane.showMessageDialog(null, "You have reached maximum capacity");
-        }
-    }//GEN-LAST:event_motorPlusActionPerformed
-
-    private void motorMinActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_motorMinActionPerformed
-        if ((Integer.parseInt(motorWorkersM.getText()) > 1)) {
-            int motorInt = Integer.parseInt(motorWorkersM.getText()) - 1;
-            motorWorkersM.setText(Integer.toString(motorInt));
-            changeWorkerMinus(MaseratiPlant, "motors");
-            MaseratiPlant.reduceMotorWorkers();
-        } else {
-            JOptionPane.showMessageDialog(null, "You have reached minimum capacity");
-        }
-    }//GEN-LAST:event_motorMinActionPerformed
-
-    private void wheelPlusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_wheelPlusActionPerformed
-        if ((MaseratiPlant.sumWorkers() < 10)) {
-            int wheelInt = Integer.parseInt(wheelWorkersM.getText()) + 1;
-            wheelWorkersM.setText(Integer.toString(wheelInt));
-
-            changeWorkerPlus(MaseratiPlant, "wheel");
-            MaseratiPlant.plusWheelWorkers();
-        
-        } else {
-            JOptionPane.showMessageDialog(null, "You have reached maximum capacity");
-        }
-    }//GEN-LAST:event_wheelPlusActionPerformed
-
-    private void wheelMinActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_wheelMinActionPerformed
-        if ((Integer.parseInt(wheelWorkersM.getText()) > 1)) {
-            int wheelInt = Integer.parseInt(wheelWorkersM.getText()) - 1;
-            wheelWorkersM.setText(Integer.toString(wheelInt));
-            changeWorkerMinus(MaseratiPlant, "wheel");
-            MaseratiPlant.reduceWheelWorkers();
-        } else {
-            JOptionPane.showMessageDialog(null, "You have reached minimum capacity");
-        }
-    }//GEN-LAST:event_wheelMinActionPerformed
-
-    private void accMinActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_accMinActionPerformed
-        if ((Integer.parseInt(accessoryWorkersM.getText()) > 1)) {
-            int accessoryInt = Integer.parseInt(accessoryWorkersM.getText()) - 1;
-            accessoryWorkersM.setText(Integer.toString(accessoryInt));
-            changeWorkerMinus(MaseratiPlant, "accesory");
-            MaseratiPlant.reduceAccessoryWorkers();
-        } else {
-            JOptionPane.showMessageDialog(null, "You have reached minimum capacity");
-        }
-    }//GEN-LAST:event_accMinActionPerformed
-
-    private void accPlusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_accPlusActionPerformed
-        if ((MaseratiPlant.sumWorkers() < 10)) {
-            int accessoryInt = Integer.parseInt(accessoryWorkersM.getText()) + 1;
-            accessoryWorkersM.setText(Integer.toString(accessoryInt));
-
-            changeWorkerPlus(MaseratiPlant, "accesory");
-            MaseratiPlant.plusAccessoryWorkers();
-        
-        } else {
-            JOptionPane.showMessageDialog(null, "You have reached maximum capacity");
-        }
-    }//GEN-LAST:event_accPlusActionPerformed
-
-    private void assemblerMinActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_assemblerMinActionPerformed
-        if ((Integer.parseInt(assemblerWorkersM.getText()) > 1)) {
-            int assemblerInt = Integer.parseInt(assemblerWorkersM.getText()) - 1;
-            assemblerWorkersM.setText(Integer.toString(assemblerInt));
-            changeWorkerMinus(MaseratiPlant, "assembler");
-            MaseratiPlant.reduceAssemblers();
-        } else {
-            JOptionPane.showMessageDialog(null, "You have reached minimum capacity");
-        }
-    }//GEN-LAST:event_assemblerMinActionPerformed
-
-    private void assemblerPlusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_assemblerPlusActionPerformed
-        if ((MaseratiPlant.sumWorkers() < 10)) {
-            int assemblerInt = Integer.parseInt(assemblerWorkersM.getText()) + 1;
-            assemblerWorkersM.setText(Integer.toString(assemblerInt));
-
-            changeWorkerPlus(MaseratiPlant, "assembler");
-            MaseratiPlant.plusAssemblers();
-        
-        } else {
-            JOptionPane.showMessageDialog(null, "You have reached maximum capacity");
-        }
-    }//GEN-LAST:event_assemblerPlusActionPerformed
-
-    private void chasisPlusLActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_chasisPlusLActionPerformed
-        if ((LamborghiniPlant.sumWorkers() >= 18)) {
-            JOptionPane.showMessageDialog(null, "You have reached maximum capacity");
-            
-        } else {
-            int chasisInt = Integer.parseInt(chasisWorkersL.getText()) + 1;
-            chasisWorkersL.setText(Integer.toString(chasisInt));
-        
-            changeWorkerPlus(LamborghiniPlant, "chasis");
-            LamborghiniPlant.plusChasisWorkers();
   
-        }
-        
-    }//GEN-LAST:event_chasisPlusLActionPerformed
-
-    private void bodyPlusLActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bodyPlusLActionPerformed
-        if ((LamborghiniPlant.sumWorkers() < 18)) {
-            int bodyInt = Integer.parseInt(bodyWorkersL.getText()) + 1;
-            bodyWorkersL.setText(Integer.toString(bodyInt));
-            changeWorkerPlus(LamborghiniPlant, "carBody");
-            LamborghiniPlant.plusBodyWorkers();
-        } else {
-            JOptionPane.showMessageDialog(null, "You have reached maximum capacity");
-        }
-         
-    }//GEN-LAST:event_bodyPlusLActionPerformed
-
-    private void motorPlusLActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_motorPlusLActionPerformed
-        if ((LamborghiniPlant.sumWorkers() < 18)) {
-            int motorInt = Integer.parseInt(motorWorkersL.getText()) + 1;
-            motorWorkersL.setText(Integer.toString(motorInt));
-            changeWorkerPlus(LamborghiniPlant, "motors");
-            LamborghiniPlant.plusMotorWorkers();
-        } else {
-            JOptionPane.showMessageDialog(null, "You have reached maximum capacity");
-            
-        }
-    }//GEN-LAST:event_motorPlusLActionPerformed
-
-    private void chasisMinLActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_chasisMinLActionPerformed
-        if (Integer.parseInt(chasisWorkersL.getText()) > 1) {
-            int chasisInt = Integer.parseInt(chasisWorkersL.getText()) - 1;
-            chasisWorkersL.setText(Integer.toString(chasisInt));
-            changeWorkerMinus(LamborghiniPlant, "chasis");
-            LamborghiniPlant.reduceChasisWorkers();
-        } else {
-            JOptionPane.showMessageDialog(null, "You have reached minimum capacity");
-        }
-    }//GEN-LAST:event_chasisMinLActionPerformed
-
-    private void bodyMinLActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bodyMinLActionPerformed
-        if ((Integer.parseInt(bodyWorkersL.getText()) > 1)) {
-            int bodyInt = Integer.parseInt(bodyWorkersL.getText()) - 1;
-            bodyWorkersL.setText(Integer.toString(bodyInt));
-            changeWorkerMinus(LamborghiniPlant, "body");
-            LamborghiniPlant.reduceBodyWorkers();
-        } else {
-            JOptionPane.showMessageDialog(null, "You have reached minimum capacity");
-        }
-    }//GEN-LAST:event_bodyMinLActionPerformed
-
-    private void motorMinLActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_motorMinLActionPerformed
-        if ((Integer.parseInt(motorWorkersL.getText()) > 1)) {
-            int motorInt = Integer.parseInt(motorWorkersL.getText()) - 1;
-            motorWorkersL.setText(Integer.toString(motorInt));
-            changeWorkerMinus(LamborghiniPlant, "motors");
-            LamborghiniPlant.reduceMotorWorkers();
-        } else {
-            JOptionPane.showMessageDialog(null, "You have reached minimum capacity");
-        }
-    }//GEN-LAST:event_motorMinLActionPerformed
-
-    private void wheelPlusLActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_wheelPlusLActionPerformed
-        if ((LamborghiniPlant.sumWorkers() < 18)) {
-            int wheelInt = Integer.parseInt(wheelWorkersL.getText()) + 1;
-            wheelWorkersL.setText(Integer.toString(wheelInt));
-            changeWorkerPlus(LamborghiniPlant, "wheel");
-            LamborghiniPlant.plusWheelWorkers();
-        } else {
-            JOptionPane.showMessageDialog(null, "You have reached maximum capacity");
-        }
-    }//GEN-LAST:event_wheelPlusLActionPerformed
-
-    private void wheelMinLActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_wheelMinLActionPerformed
-        if ((Integer.parseInt(wheelWorkersL.getText()) > 1)) {
-            int wheelInt = Integer.parseInt(wheelWorkersL.getText()) - 1;
-            wheelWorkersL.setText(Integer.toString(wheelInt));
-            changeWorkerMinus(LamborghiniPlant, "wheel");
-            LamborghiniPlant.reduceWheelWorkers();
-        } else {
-            JOptionPane.showMessageDialog(null, "You have reached minimum capacity");
-        }
-    }//GEN-LAST:event_wheelMinLActionPerformed
-
-    private void accMinLActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_accMinLActionPerformed
-        if ((Integer.parseInt(accessoryWorkersL.getText()) > 1)) {
-            int accInt = Integer.parseInt(accessoryWorkersL.getText()) - 1;
-            accessoryWorkersL.setText(Integer.toString(accInt));
-            changeWorkerMinus(LamborghiniPlant, "accesory");
-            LamborghiniPlant.reduceAccessoryWorkers();
-        } else {
-            JOptionPane.showMessageDialog(null, "You have reached minimum capacity");
-        }
-    }//GEN-LAST:event_accMinLActionPerformed
-
-    private void accPlusLActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_accPlusLActionPerformed
-        if ((LamborghiniPlant.sumWorkers() < 18)) {
-            int accessoryInt = Integer.parseInt(accessoryWorkersL.getText()) + 1;
-            accessoryWorkersL.setText(Integer.toString(accessoryInt));
-            changeWorkerPlus(LamborghiniPlant, "accesory");
-            LamborghiniPlant.plusAccessoryWorkers();
-        } else {
-            JOptionPane.showMessageDialog(null, "You have reached maximum capacity");
-        }
-    }//GEN-LAST:event_accPlusLActionPerformed
-
-    private void assemblerMinLActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_assemblerMinLActionPerformed
-
-        if ((Integer.parseInt(assemblerWorkersL.getText()) > 1)) {
-            int assemblerInt = Integer.parseInt(assemblerWorkersL.getText()) - 1;
-            assemblerWorkersL.setText(Integer.toString(assemblerInt));
-            changeWorkerMinus(LamborghiniPlant, "assembler");
-            LamborghiniPlant.reduceAssemblers();
-            
-        } else {
-            JOptionPane.showMessageDialog(null, "You have reached minimum capacity");
-        }
-    }//GEN-LAST:event_assemblerMinLActionPerformed
-
-    private void assemblerPlusLActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_assemblerPlusLActionPerformed
-        if ((LamborghiniPlant.sumWorkers() < 18)) {
-            int assemblerInt = Integer.parseInt(assemblerWorkersL.getText()) + 1;
-            assemblerWorkersL.setText(Integer.toString(assemblerInt));
-            changeWorkerPlus(LamborghiniPlant, "assembler");
-            LamborghiniPlant.plusAssemblers();
-        } else {
-            JOptionPane.showMessageDialog(null, "You have reached maximum capacity");
-        }
-    }//GEN-LAST:event_assemblerPlusLActionPerformed
+        chartM.displayChart();
+    }//GEN-LAST:event_showGraphMActionPerformed
+                             
 
 
     
@@ -2385,6 +2466,8 @@ public class MainUI extends javax.swing.JFrame {
     private javax.swing.JLabel motor_label;
     private javax.swing.JLabel motor_label1;
     private javax.swing.JButton setConfiguration;
+    private javax.swing.JButton showGraphL;
+    private javax.swing.JButton showGraphM;
     private javax.swing.JLabel standarCarsL;
     private javax.swing.JLabel standarCarsM;
     private javax.swing.JButton startL;

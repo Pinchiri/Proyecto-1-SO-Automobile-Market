@@ -2,7 +2,7 @@ General
 dayDuration
 1000
 deliveryDays
-30
+100
 
 Lamborghini
 chasis

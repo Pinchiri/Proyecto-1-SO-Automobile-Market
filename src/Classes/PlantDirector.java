@@ -37,7 +37,9 @@ public class PlantDirector extends Thread {
     private int costo = 0;
     private int ganancia = 0;
     private int utility = 0;
+    private int costTotal = 0;
     
+    private Chart chart;
 
     
     
@@ -52,7 +54,7 @@ public class PlantDirector extends Thread {
         this.plant = plant;
         this.nameplant = nameplant;
         
-        
+        this.chart = chart;
        }
     
     @Override
@@ -68,14 +70,16 @@ public class PlantDirector extends Thread {
             
             if( this.manager.daysLeft < 0 ){
                 
+                
+                
                 manager.resetdays();
             
                 if(nameplant.equals("Lamborghini")){
+                userInterface.plusLootNumL();
                 
                 this.userInterface.daysLeftLamborghini(Integer.toString(this.manager.daysLeft));
                 this.userInterface.lambEarnings("$" + Long.toString(warehouse.getTotalEarnings()));
-                
-//                costo = this.warehouse.costototal;
+
                 this.plant.calculateCosts();
                 costo = this.plant.getTotalCosts();
                 ganancia = (int) this.warehouse.getTotalEarnings();
@@ -85,9 +89,10 @@ public class PlantDirector extends Thread {
                 costo = costo - salarioquitado;
                 this.salarioquitado = 0;
                 this.fault = 0;
-                
+                costTotal += costo;
                 utility = ganancia - costo;
-                
+                costo = 0;
+//                chart.updateDataset(plant.getConfig().getDeliveryDays()*userInterface.getLootNumL());
                 this.manager.ResetSalario();
                 this.accSalary = 0;
                 
@@ -97,7 +102,7 @@ public class PlantDirector extends Thread {
                 this.userInterface.LamborghiniAC("0");
                 this.userInterface.MaseAC("0");
                 
-                this.userInterface.costsL("$" + Integer.toString(costo));
+                this.userInterface.costsL("$" + Integer.toString(costTotal));
                 this.userInterface.UtilityL("$" + Integer.toString(utility));
                 this.userInterface.faultsQtyL(Integer.toString(this.fault));
                 this.userInterface.managerSalaryDiscountL("$" + Integer.toString(this.salarioquitado));
@@ -112,7 +117,7 @@ public class PlantDirector extends Thread {
                 Thread.sleep(dayDuration);               
                 
                 } else {
-                
+                userInterface.plusLootNumM();
                 this.userInterface.DaysLeftMaserati(Integer.toString(this.manager.daysLeft));
                 this.userInterface.MaseEarnings("$" + Long.toString(warehouse.getTotalEarnings()));
                 this.userInterface.directorStatusM("Reiniciando lote");
@@ -125,7 +130,7 @@ public class PlantDirector extends Thread {
                 costo = costo - salarioquitado;
                 this.salarioquitado = 0;
                 this.fault = 0;
-                
+
                 this.manager.ResetSalario();
                 this.accSalary = 0;
                 
@@ -134,7 +139,8 @@ public class PlantDirector extends Thread {
                 this.warehouse.totalEarnings = 0;
                 
                 utility = ganancia - costo;
-                
+//                chart.updateDataset(plant.getConfig().getDeliveryDays()*userInterface.getLootNumM());
+                        
                 this.warehouse.resetcars();
                 this.userInterface.MaseAC("0");
                 this.userInterface.LamborghiniSC("0");
@@ -157,8 +163,13 @@ public class PlantDirector extends Thread {
                 
                 
                 */
-             }else {
+             } else {
                 
+                costo = this.plant.getTotalCosts();
+                ganancia = (int) this.warehouse.getTotalEarnings();
+                costo = (int) (costo + this.manager.getAccSalary());
+                costo = (int) (costo + this.accSalary);
+                utility = ganancia - costo;
                 
                 
                 Random random = new Random();
@@ -261,6 +272,30 @@ public class PlantDirector extends Thread {
 
     public void payCheck() {
         this.accSalary += this.salary*24;
+    }
+
+    public int getUtility() {
+        return utility;
+    }
+
+    public void setUtility(int utility) {
+        this.utility = utility;
+    }
+
+    public OperationsManager getManager() {
+        return manager;
+    }
+
+    public void setManager(OperationsManager manager) {
+        this.manager = manager;
+    }
+
+    public Chart getChart() {
+        return chart;
+    }
+
+    public void setChart(Chart chart) {
+        this.chart = chart;
     }
     
     
