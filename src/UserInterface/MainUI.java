@@ -1898,6 +1898,8 @@ public class MainUI extends javax.swing.JFrame {
             disableButtonsM();
             disableStarts("M");
             
+            
+            DaysLeftMaserati(Integer.toString(config.getDeliveryDays()));
             MaseratiPlant = new VehiclePlant("Maserati", this, config);
             MaseratiQtys(Integer.toString(MaseratiPlant.getChasisWorkers()), Integer.toString(MaseratiPlant.getBodyWorkers()), Integer.toString(MaseratiPlant.getMotorWorkers()), Integer.toString(MaseratiPlant.getWheelWorkers()), Integer.toString(MaseratiPlant.getAccessoryWorkers()), Integer.toString(MaseratiPlant.getAssemblers()));
 
@@ -1925,6 +1927,8 @@ public class MainUI extends javax.swing.JFrame {
             runningL = true;
             disableButtonsL();
             disableStarts("L");
+            
+            daysLeftLamborghini(Integer.toString(config.getDeliveryDays()));
             
             LamborghiniPlant = new VehiclePlant("Lamborghini", this, config);
        

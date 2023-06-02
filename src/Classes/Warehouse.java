@@ -199,6 +199,10 @@ public class Warehouse {
                 if (this.motorQty < this.maxMotorQty) {
                     this.motorQty += finishedPart;
                     
+                    if(this.motorQty >= this.maxMotorQty ){
+                        this.motorQty = this.maxMotorQty;
+                    }
+                    
                     if (this.nameplant.equals("Lamborghini")) {
                         userInterface.LamborghiniMotor(Integer.toString(this.motorQty));
                         costototal = costototal + salary;
