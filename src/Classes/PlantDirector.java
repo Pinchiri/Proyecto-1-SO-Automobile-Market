@@ -88,6 +88,8 @@ public class PlantDirector extends Thread {
                 
                 costo = this.warehouse.costototal;
                 ganancia = (int) this.warehouse.getTotalEarnings();
+                costo = (int) (costo + this.manager.getAccSalary());
+                costo = (int) (costo + this.accSalary);
                 this.warehouse.totalEarnings = 0;
                 costo = costo - salarioquitado;
                 this.salarioquitado = 0;
