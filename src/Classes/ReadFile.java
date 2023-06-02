@@ -108,8 +108,8 @@ public class ReadFile {
         
         config.setInitialChasis(Integer.parseInt(lambConfigs[2]));
         config.setInitialBodys(Integer.parseInt(lambConfigs[4]));
-        config.setInitialWheels(Integer.parseInt(lambConfigs[6]));
-        config.setInitialMotors(Integer.parseInt(lambConfigs[8]));
+        config.setInitialMotors(Integer.parseInt(lambConfigs[6]));
+        config.setInitialWheels(Integer.parseInt(lambConfigs[8]));
         config.setInitialAccesorys(Integer.parseInt(lambConfigs[10]));
         config.setInitialAssemblers(Integer.parseInt(lambConfigs[12]));
         
@@ -119,8 +119,8 @@ public class ReadFile {
         
         config.setInitialChasisM(Integer.parseInt(maseConfigs[2]));
         config.setInitialBodysM(Integer.parseInt(maseConfigs[4]));
-        config.setInitialWheelsM(Integer.parseInt(maseConfigs[6]));
-        config.setInitialMotorsM(Integer.parseInt(maseConfigs[8]));
+        config.setInitialMotorsM(Integer.parseInt(maseConfigs[6]));
+        config.setInitialWheelsM(Integer.parseInt(maseConfigs[8]));
         config.setInitialAccesorysM(Integer.parseInt(maseConfigs[10]));
         config.setInitialAssemblersM(Integer.parseInt(maseConfigs[12]));
     }

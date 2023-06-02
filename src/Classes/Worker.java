@@ -43,17 +43,10 @@ public class Worker extends Thread{
         }
         
         while(true) {
-            try {
-                 
-            synchronized(this){
-            while(pausar==true){
-                    System.out.println("");
-                }    
-            }     
+            try {  
                  
              payCheck();
              produceForTheDay();
-//             System.out.println(this.accSalary);
                  
                  
             sleep(this.dayDurationInMs);
